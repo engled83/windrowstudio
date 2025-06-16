@@ -9,53 +9,42 @@
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
-      overflow-x: hidden;
       background-color: #f8f8f8;
       color: #111;
     }
-    section {
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      text-align: center;
+    .content {
+      max-width: 800px;
+      margin: 0 auto;
       padding: 2rem;
     }
-    #hero {
+    header {
       background: url('https://images.unsplash.com/photo-1608500211460-69b56fabc057?auto=format&fit=crop&w=1400&q=80') no-repeat center center/cover;
+      height: 300px;
       position: relative;
     }
-    #hero::after {
+    header::after {
       content: "";
       position: absolute;
       top: 0; left: 0;
       width: 100%; height: 100%;
       background: rgba(255, 255, 255, 0.6);
     }
-    #about, #artists, #player, #contact {
-      background: #fff;
-    }
-    .fade-in {
-      opacity: 0;
-      transform: translateY(30px);
+    .logo-fixed {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+      width: 100px;
     }
     .artist-card {
       background: #f0f0f0;
       border-radius: 8px;
       padding: 1rem;
-      margin: 1rem;
-      max-width: 300px;
+      margin: 1rem 0;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      color: #111;
-    }
-    .artist-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
     }
     .dummy-player {
-      width: 300px;
+      width: 100%;
       height: 80px;
       background: #ddd;
       border-radius: 10px;
@@ -66,60 +55,35 @@
       color: #666;
       font-size: 0.9rem;
     }
-    .logo-fixed {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      z-index: 1000;
-      width: 100px;
-    }
   </style>
 </head>
 <body>
   <img src="windrow-logo.png" alt="Windrow Studio Logo" class="logo-fixed" />
 
-  <section id="hero"></section>
+  <header></header>
 
-  <section id="about">
-    <h2 class="fade-in">About the Podcast</h2>
-    <p class="fade-in">We spotlight artists before the world catches on. Honest stories. Real music. No filters.</p>
-  </section>
+  <div class="content">
+    <section id="about">
+      <h2>About the Podcast</h2>
+      <p>We spotlight artists before the world catches on. Honest stories. Real music. No filters.</p>
+    </section>
 
-  <section id="artists">
-    <h2 class="fade-in">Featured Artists</h2>
-    <div class="artist-container">
-      <div class="artist-card fade-in">Artist One</div>
-      <div class="artist-card fade-in">Artist Two</div>
-      <div class="artist-card fade-in">Artist Three</div>
-    </div>
-  </section>
+    <section id="artists">
+      <h2>Featured Artists</h2>
+      <div class="artist-card">Artist One</div>
+      <div class="artist-card">Artist Two</div>
+      <div class="artist-card">Artist Three</div>
+    </section>
 
-  <section id="player">
-    <h2 class="fade-in">Listen In</h2>
-    <div class="dummy-player fade-in">[Podcast Player Placeholder]</div>
-  </section>
+    <section id="player">
+      <h2>Listen In</h2>
+      <div class="dummy-player">[Podcast Player Placeholder]</div>
+    </section>
 
-  <section id="contact">
-    <h2 class="fade-in">Get in Touch</h2>
-    <p class="fade-in">Email: you@yourdomain.com</p>
-  </section>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-  <script>
-    gsap.utils.toArray('.fade-in').forEach(el => {
-      gsap.from(el, {
-        scrollTrigger: {
-          trigger: el,
-          start: 'top 80%',
-        },
-        opacity: 0,
-        y: 30,
-        duration: 1,
-        ease: 'power2.out'
-      });
-    });
-  </script>
+    <section id="contact">
+      <h2>Get in Touch</h2>
+      <p>Email: you@yourdomain.com</p>
+    </section>
+  </div>
 </body>
 </html>
-

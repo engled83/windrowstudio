@@ -1,59 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" href="favicon.ico" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Windrow Studio - Coming Soon</title>
+  <title>Windrow Studio</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body, html {
       margin: 0;
       padding: 0;
-      height: 100%;
       font-family: Arial, sans-serif;
-      background: url('https://images.unsplash.com/photo-1608500211460-69b56fabc057?auto=format&fit=crop&w=1400&q=80') no-repeat center center/cover;
+      background-color: #f9f9f9;
       color: #111;
+    }
+
+    header {
+      background-color: #111;
+      color: white;
+      padding: 1rem 2rem;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 40px;
+      margin-right: 1rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      padding: 4rem 2rem;
       text-align: center;
-      position: relative;
     }
-    body::after {
-      content: "";
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(255, 255, 255, 0.75);
-      z-index: 0;
-    }
-    .logo-fixed {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      z-index: 2;
-      width: 100px;
-    }
-    .coming-soon {
-      position: relative;
-      z-index: 1;
-    }
+
     h1 {
       font-size: 3rem;
       margin-bottom: 1rem;
     }
+
     p {
       font-size: 1.2rem;
-      color: #333;
+      max-width: 700px;
+      margin: 0 auto 2rem auto;
+      line-height: 1.6;
+    }
+
+    footer {
+      background-color: #eee;
+      color: #555;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .button-link {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.75rem 1.5rem;
+      background-color: #111;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 4px;
+      transition: background-color 0.2s;
+    }
+
+    .button-link:hover {
+      background-color: #333;
     }
   </style>
 </head>
 <body>
-  <img src="windrow-logo.png" alt="Windrow Studio Logo" class="logo-fixed" />
 
-  <div class="coming-soon">
-    <h1>Coming Soon</h1>
-    <p>Windrow Studio is getting ready to hit your speakers.</p>
-  </div>
+  <header>
+    <div class="logo">
+      <img src="windrow-logo.png" alt="Windrow Studio Logo">
+      <span>Windrow Studio</span>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="lookwhoitis.html">Podcast</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Welcome to Windrow Studio</h1>
+    <p>We’re a small-town creative studio focused on capturing stories, sharing music, and building a space for real voices. Whether it’s recording, editing, or producing — we’re here to bring your ideas to life.</p>
+    <a href="lookwhoitis.html" class="button-link">Check Out Our Podcast</a>
+  </main>
+
+  <footer>
+    &copy; 2025 Windrow Studio. All rights reserved.
+  </footer>
+
 </body>
 </html>

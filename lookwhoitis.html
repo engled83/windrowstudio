@@ -17,14 +17,26 @@
       color: #111;
     }
 
-    header {
-      background-color: #111;
-      color: white;
-      padding: 1rem 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
+header {
+  background-color: #111;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.logo img {
+  height: 40px;
+}
+
+.site-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.2rem;
+}
 
     .logo {
       display: flex;
@@ -89,18 +101,25 @@
 </head>
 <body>
 
-  <header>
-    <div class="logo">
+<header>
+  <div class="logo">
+    <a href="index.html" style="display: flex; align-items: center; text-decoration: none; color: white;">
       <img src="windrow-logo.png" alt="Windrow Studio Logo">
-      <span>Windrow Studio</span>
-    </div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="lookwhoitis.html">Podcast</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
+    </a>
+  </div>
+
+  <div class="site-title">
+    <a href="index.html" style="text-decoration: none; color: white; font-weight: bold;">Windrow Studio</a>
+  </div>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="lookwhoitis.html">Podcast</a>
+    <a href="contact.html">Contact</a>
+    <a href="about.html">About</a>
+  </nav>
+</header>
+
 
   <main>
     <img src="lwis-logo.png" alt="Look who it is! Podcast Logo" class="podcast-logo" />

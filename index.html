@@ -17,26 +17,26 @@
       color: #111;
     }
 
-header {
-  background-color: #111;
-  color: white;
-  padding: 1rem 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: relative;
-}
+    header {
+      background-color: #111;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+    }
 
-.logo img {
-  height: 40px;
-}
+    .logo img {
+      height: 40px;
+    }
 
-.site-title {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 1.2rem;
-}
+    .site-title {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.2rem;
+    }
 
     .logo {
       display: flex;
@@ -94,6 +94,21 @@ header {
       background-color: #333;
     }
 
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      max-width: 100%;
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
     footer {
       background-color: #eee;
       color: #555;
@@ -123,36 +138,42 @@ header {
   </nav>
 </header>
 
-  <main>
+<main>
+  <section>
+    <h1>Welcome to Windrow Studio</h1>
+    <p>We're a small, independent creative studio based in rural Indiana — focused on honest conversations, real stories, and helping musicians be heard. Whether it’s audio, video, or just showing up and listening, this is where it starts.</p>
+    <a href="lookwhoitis.html" class="button-link">Check Out Our Podcast</a>
+  </section>
 
-    <section>
-      <h1>Welcome to Windrow Studio</h1>
-      <p>We're a small, independent creative studio based in rural Indiana — focused on honest conversations, real stories, and helping musicians be heard. Whether it’s audio, video, or just showing up and listening, this is where it starts.</p>
-      <a href="lookwhoitis.html" class="button-link">Check Out Our Podcast</a>
-    </section>
+  <section>
+    <h2>What We’re About</h2>
+    <p>Windrow Studio is run by one guy with a mic, a passion for music, and a lot of questions. The goal isn’t to go viral — it’s to get real. No studio fluff, no fake hype — just genuine stories from artists who are still climbing.</p>
+  </section>
 
-    <section>
-      <h2>What We’re About</h2>
-      <p>Windrow Studio is run by one guy with a mic, a passion for music, and a lot of questions. The goal isn’t to go viral — it’s to get real. No studio fluff, no fake hype — just genuine stories from artists who are still climbing.</p>
-    </section>
+  <section>
+    <h2>Look Who It Is! Podcast</h2>
+    <p>Our first podcast project is called <strong>Look who it is!</strong> — and it’s built around spotlighting musicians who haven’t “made it” yet but absolutely should. We’ll talk about their journey, their grind, and what drives them to keep going.</p>
+  </section>
 
-    <section>
-      <h2>Look Who It Is! Podcast</h2>
-      <p>Our first podcast project is called <strong>Look who it is!</strong> — and it’s built around spotlighting musicians who haven’t “made it” yet but absolutely should. We’ll talk about their journey, their grind, and what drives them to keep going.</p>
-    </section>
+  <section>
+    <h2>🎧 Now Live: Episode 1</h2>
+    <p>Our first episode is now streaming! Jake from Chinese Jailbreak talks about his early gigs, how Led Zeppelin shaped his sound, and the wildest offer he’s ever turned down. Give it a watch below or on the podcast page.</p>
+    <div class="video-container">
+      <iframe 
+        src="https://www.youtube.com/embed/uE1Wpbc3d3w"
+        frameborder="0"
+        allowfullscreen>
+      </iframe>
+    </div>
+    <a href="lookwhoitis.html" class="button-link">Watch Full Episode</a>
+  </section>
 
-    <section>
-      <h2>Updates Coming Soon</h2>
-      <p>We’re just getting started. Stay tuned for new episodes, behind-the-scenes posts, and more content as it drops.</p>
-    </section>
-
-    <section>
-      <h2>Want to Reach Out?</h2>
-      <p>Whether you’re a listener, an artist, or just curious, we’d love to hear from you.</p>
-      <a href="contact.html" class="button-link">Contact Us</a>
-    </section>
-
-  </main>
+  <section>
+    <h2>Want to Reach Out?</h2>
+    <p>Whether you’re a listener, an artist, or just curious, we’d love to hear from you.</p>
+    <a href="contact.html" class="button-link">Contact Us</a>
+  </section>
+</main>
 
 <footer>
   &copy; 2025 Windrow Studio. All rights reserved.

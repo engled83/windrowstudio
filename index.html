@@ -30,6 +30,7 @@
 
     .logo img {
       height: 40px;
+      border-radius: 8px;
     }
 
     .site-title {
@@ -42,10 +43,30 @@
       text-decoration: none;
       margin-left: 1.5rem;
       font-weight: bold;
+      position: relative;
+      padding: 0.25rem 0;
+      transition: color 0.3s ease;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: white;
+      visibility: hidden;
+      transition: all 0.3s ease-in-out;
     }
 
     nav a:hover {
-      text-decoration: underline;
+      color: #ccc;
+    }
+
+    nav a:hover::after {
+      visibility: visible;
+      width: 100%;
     }
 
     main {
@@ -200,4 +221,3 @@
 
 </body>
 </html>
-

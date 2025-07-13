@@ -1,10 +1,12 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Windrow Studio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; }
 
@@ -36,18 +38,21 @@
       width: 100%;
     }
 
-    .logo-left img,
-    .logo-center img {
+    .logo-left img {
       height: 60px;
       width: auto;
-      display: block;
+      border-radius: 8px;
     }
 
-    .logo-center {
+    .logo-center-text {
       flex-grow: 1;
       display: flex;
       justify-content: center;
       align-items: center;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: 1px;
     }
 
     nav {
@@ -156,9 +161,7 @@
         <img src="windrow-logo.png" alt="Windrow Studio Logo Left">
       </a>
     </div>
-    <div class="logo-center">
-      <img src="winstudcenter.png" alt="Windrow Studio Logo Center">
-    </div>
+    <div class="logo-center-text">WINDROW STUDIO</div>
     <nav>
       <a href="lookwhoitis.html">Podcast</a>
       <a href="contact.html">Contact</a>
@@ -241,4 +244,3 @@
 
 </body>
 </html>
-

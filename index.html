@@ -20,7 +20,7 @@
     header {
       background-color: #111;
       color: white;
-      padding: 1rem 2rem;
+      padding: 0.5rem 2rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -29,20 +29,25 @@
       z-index: 1000;
     }
 
-    .logo-left img {
-      height: 40px;
-      border-radius: 8px;
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
     }
 
-    .header-center img {
-      width: 300px;
-      height: auto;
+    .logo-left img,
+    .logo-center img {
+      height: 60px;
+      width: auto;
+      display: block;
     }
 
-    .header-center {
-      flex: 1;
+    .logo-center {
+      flex-grow: 1;
       display: flex;
       justify-content: center;
+      align-items: center;
     }
 
     nav {
@@ -145,19 +150,21 @@
 <body>
 
 <header>
-  <div class="logo-left">
-    <a href="index.html">
-      <img src="windrow-logo.png" alt="Windrow Studio Logo Left">
-    </a>
+  <div class="header-content">
+    <div class="logo-left">
+      <a href="index.html">
+        <img src="windrow-logo.png" alt="Windrow Studio Logo Left">
+      </a>
+    </div>
+    <div class="logo-center">
+      <img src="winstudcenter.png" alt="Windrow Studio Logo Center">
+    </div>
+    <nav>
+      <a href="lookwhoitis.html">Podcast</a>
+      <a href="contact.html">Contact</a>
+      <a href="about.html">About</a>
+    </nav>
   </div>
-  <div class="header-center">
-    <img src="winstudcenter.png" alt="Windrow Studio Logo Center">
-  </div>
-  <nav>
-    <a href="lookwhoitis.html">Podcast</a>
-    <a href="contact.html">Contact</a>
-    <a href="about.html">About</a>
-  </nav>
 </header>
 
 <main>
@@ -234,3 +241,4 @@
 
 </body>
 </html>
+

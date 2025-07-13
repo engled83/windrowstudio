@@ -5,9 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Windrow Studio</title>
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body, html {
       margin: 0;
@@ -15,6 +13,7 @@
       font-family: Arial, sans-serif;
       background-color: #f9f9f9;
       color: #111;
+      scroll-behavior: smooth;
     }
 
     header {
@@ -24,7 +23,9 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      position: relative;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
     .logo img {
@@ -32,20 +33,8 @@
     }
 
     .site-title {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
       font-size: 1.2rem;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-    }
-
-    .logo img {
-      height: 40px;
-      margin-right: 1rem;
+      font-weight: bold;
     }
 
     nav a {
@@ -66,10 +55,27 @@
     }
 
     section {
-      margin-bottom: 3rem;
+      margin-bottom: 4rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     h1, h2 {
+      margin-bottom: 1rem;
+    }
+
+    #typewriter {
+      font-size: 2rem;
+      font-weight: bold;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 0.15em solid #111;
       margin-bottom: 1rem;
     }
 
@@ -87,26 +93,12 @@
       text-decoration: none;
       font-weight: bold;
       border-radius: 4px;
-      transition: background-color 0.2s;
+      transition: background-color 0.2s, transform 0.2s;
     }
 
     .button-link:hover {
       background-color: #333;
-    }
-
-    .video-container {
-      position: relative;
-      padding-bottom: 56.25%;
-      height: 0;
-      overflow: hidden;
-      max-width: 100%;
-    }
-
-    .video-container iframe {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
+      transform: scale(1.05);
     }
 
     footer {
@@ -126,11 +118,7 @@
       <img src="windrow-logo.png" alt="Windrow Studio Logo">
     </a>
   </div>
-
-  <div class="site-title">
-    <a href="index.html" style="text-decoration: none; color: white; font-weight: bold;">Windrow Studio</a>
-  </div>
-
+  <div class="site-title">Windrow Studio</div>
   <nav>
     <a href="lookwhoitis.html">Podcast</a>
     <a href="contact.html">Contact</a>
@@ -139,24 +127,23 @@
 </header>
 
 <main>
-  <section>
-    <h1>Welcome to Windrow Studio</h1>
-    <p>We're a small, independent creative studio based in rural Indiana — focused on honest conversations, real stories, and helping musicians be heard. Whether it’s audio, video, or just showing up and listening, this is where it starts.</p>
+  <section class="fade-in">
+    <div id="typewriter"></div>
+    <p id="subphrase"></p>
     <a href="lookwhoitis.html" class="button-link">Check Out Our Podcast</a>
   </section>
 
-  <section>
+  <section class="fade-in">
     <h2>What We’re About</h2>
     <p>Windrow Studio is run by one guy with a mic, a passion for music, and a lot of questions. The goal isn’t to go viral — it’s to get real. No studio fluff, no fake hype — just genuine stories from artists who are still climbing. Our flagship project, <strong>Look Who It Is!</strong>, is a laid-back podcast highlighting the voices behind the music — check it out.</p>
   </section>
 
-  <section>
+  <section class="fade-in">
     <h2>Want to Reach Out?</h2>
     <p>Whether you’re a listener, an artist, or just curious, we’d love to hear from you.</p>
     <a href="contact.html" class="button-link">Contact Us</a>
   </section>
 </main>
-
 
 <footer>
   &copy; 2025 Windrow Studio. All rights reserved.
@@ -174,5 +161,43 @@
   </div>
 </footer>
 
+<script>
+  // Typewriter Effect
+  const text = "Welcome to Windrow Studio";
+  let i = 0;
+  function type() {
+    if (i < text.length) {
+      document.getElementById("typewriter").textContent += text.charAt(i);
+      i++;
+      setTimeout(type, 80);
+    }
+  }
+  window.onload = type;
+
+  // Rotating Phrases
+  const phrases = [
+    "Telling real stories.",
+    "Built for musicians.",
+    "Straight from the studio.",
+    "Honest voices. No filters.",
+    "Small town. Big sound."
+  ];
+  document.getElementById("subphrase").textContent = phrases[Math.floor(Math.random() * phrases.length)];
+
+  // Fade-in on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('section').forEach(section => {
+    observer.observe(section);
+  });
+</script>
+
 </body>
 </html>
+

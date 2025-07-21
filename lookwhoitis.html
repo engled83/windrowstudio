@@ -138,6 +138,18 @@
       font-size: 0.9rem;
     }
 
+    .footer-spotify {
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-spotify .cta-btn {
+      background: #1DB954; /* Spotify green */
+      color: white;
+    }
+    .footer-spotify .cta-btn:hover {
+      background: #159a43;
+    }
+
     .social-links {
       display: flex;
       justify-content: center;
@@ -170,15 +182,52 @@
 </header>
 
 <main>
-  <!-- The rest of your podcast content goes here (unchanged) -->
+  <img src="lwis-logo.png" alt="Look Who It Is! Podcast Logo" class="podcast-logo" />
+  <h1>Look Who It Is!</h1>
+  <p class="intro">Conversations with rising musicians from small towns chasing big dreams. Real voices, no filters, no fluff.</p>
+  <a href="#" class="cta-btn">Listen on Spotify</a>
+
+  <div class="episode-card">
+    <h2>Episode 1: Jake – Gigs, Led Zeppelin & The Nude Beach Offer</h2>
+    <p>Jake from Chinese Jailbreak talks about his first gig at his cousin’s 18th birthday, how Led Zeppelin shaped his sound, and the wildest offer he’s ever turned down.</p>
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/uE1Wpbc3d3w" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <div class="episode-card">
+    <h2>Episode 2: John – Guitar Roots, Jamming, and a Keyboard Bass</h2>
+    <p>John Wallace talks about the first songs he ever learned, the guitar and tuning he’s been hooked on lately, and what happened when a keyboard player took over the bass role in his latest jam sessions.</p>
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/77NaniPh65w" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <div class="episode-card">
+    <h2>Episode 3: Kyle's Rock & Roll Chronicles – Stories from the Stage</h2>
+    <p>Kyle shares stories from his journey in rock and roll, from life on stage to the music scene. Behind-the-scenes tales, laughs, and real talk from the road.</p>
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/1nWgRAEDC84" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
 </main>
 
 <footer>
   &copy; 2025 Windrow Studio. All rights reserved.
-  <div class="social-links">
-    <a href="https://www.instagram.com/lookwhoitispod" target="_blank"><img src="instagram.png" alt="Instagram"></a>
-    <a href="https://www.tiktok.com/@lookwhoitispod" target="_blank"><img src="tiktok.png" alt="TikTok"></a>
-    <a href="https://www.youtube.com/@lookwhoitispod" target="_blank"><img src="youtube.png" alt="YouTube"></a>
+  <br><br>
+  <div style="display: flex; justify-content: center; gap: 20px; align-items: center; flex-wrap: wrap;">
+    <a href="https://www.instagram.com/lookwhoitispod" target="_blank" style="text-decoration: none; color: #555; display: flex; align-items: center;">
+      <img src="instagram.png" alt="Instagram" style="height: 20px; margin-right: 8px;">
+    </a>
+    <a href="https://www.tiktok.com/@lookwhoitispod" target="_blank" style="text-decoration: none; color: #555; display: flex; align-items: center;">
+      <img src="tiktok.png" alt="TikTok" style="height: 20px; margin-right: 8px;">
+    </a>
+    <a href="https://www.youtube.com/@lookwhoitispod" target="_blank" style="text-decoration: none; color: #555; display: flex; align-items: center;">
+      <img src="youtube.png" alt="YouTube" style="height: 20px; margin-right: 8px;">
+    </a>
+    <a href="https://open.spotify.com/show/44Vpk5tXOMYVkkeOrYLCtJ?si=f795fbe88aa448f5" target="_blank" style="text-decoration: none; color: #555; display: flex; align-items: center;">
+      <img src="spotify.png" alt="Spotify" style="height: 20px; margin-right: 8px;">
+    </a>
   </div>
 </footer>
 

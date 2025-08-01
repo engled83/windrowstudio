@@ -48,14 +48,14 @@
     }
 
     .hero {
-      max-width: 1000px;
-      margin: 3rem auto;
+      background: linear-gradient(to right, #ff5722, #ff7043);
+      color: white;
+      padding: 4rem 1.5rem;
       text-align: center;
-      padding: 0 1.5rem;
     }
 
     .hero img {
-      max-width: 220px;
+      max-width: 120px;
       margin-bottom: 1rem;
     }
 
@@ -67,24 +67,22 @@
 
     .hero p {
       font-size: 1.2rem;
-      color: #444;
       max-width: 600px;
       margin: 0 auto 2rem;
     }
 
     .cta-btn {
       display: inline-block;
-      background: #ff5722;
-      color: white;
+      background: white;
+      color: #ff5722;
       padding: 0.8rem 1.6rem;
       border-radius: 6px;
       text-decoration: none;
       font-weight: 600;
       transition: background 0.3s;
-      margin-top: 1rem;
     }
     .cta-btn:hover {
-      background: #e64a19;
+      background: #ffe3db;
     }
 
     .section {
@@ -92,6 +90,28 @@
       margin: 4rem auto;
       padding: 0 1.5rem;
       text-align: center;
+    }
+
+    .podcast-preview {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      padding: 2rem;
+      margin-top: 2rem;
+      transition: transform 0.2s ease;
+    }
+
+    .podcast-preview:hover {
+      transform: translateY(-4px);
+    }
+
+    .podcast-preview iframe {
+      width: 100%;
+      max-width: 700px;
+      height: 394px;
+      border-radius: 8px;
+      border: none;
+      margin-top: 1rem;
     }
 
     footer {
@@ -150,13 +170,22 @@
 <section class="hero">
   <img src="windrow-logo.png" alt="Windrow Studio Logo">
   <h1>Welcome to Windrow Studio</h1>
-  <p>Independent media production specializing in music, podcasts, and creative storytelling. Home of the <strong>Look Who It Is!</strong> podcast, where we feature rising musicians from small towns chasing big dreams.</p>
-  <a href="lookwhoitis.html" class="cta-btn">Check Out the Podcast</a>
+  <p>Independent media production focused on real stories, rising musicians, and creative storytelling. Home of the <strong>Look Who It Is!</strong> podcast.</p>
+  <a href="lookwhoitis.html" class="cta-btn">Browse the Podcast</a>
+</section>
+
+<section class="section">
+  <h2>Latest Episode</h2>
+  <div class="podcast-preview">
+    <h3>Episode 5: Jason McPhail – Life, Lyrics & Learning the Hard Way</h3>
+    <p>Jason McPhail opens up about his songwriting, lessons learned, and how music helped him get through it all.</p>
+    <iframe src="https://www.youtube.com/embed/HAtpcU3s7Kg" allowfullscreen></iframe>
+  </div>
 </section>
 
 <section class="section">
   <h2>About Windrow Studio</h2>
-  <p>We produce original content that shines a light on authentic voices in music and entertainment. Whether it’s in-depth interviews, live session recordings, or creative video projects, our focus is on capturing the real stories behind the art.</p>
+  <p>We create content that shines a light on authentic voices in music and entertainment. From interviews and artist stories to live sessions and video projects, Windrow Studio helps artists connect through honest storytelling and quality production.</p>
 </section>
 
 <footer>

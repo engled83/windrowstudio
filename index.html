@@ -3,20 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Windrow Studio – Look Who It Is! Podcast</title>
+  <title>Windrow Studio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --brand-green: #1DB954;
+      --text-dark: #111;
+      --text-light: #555;
+      --bg-light: #f9f9f9;
+      --card-bg: #fff;
+    }
+
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #ffffff;
-      color: #111;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
     /* Header */
@@ -31,133 +40,174 @@
       top: 0;
       z-index: 1000;
     }
+
     .logo img {
-      height: 45px;
+      height: 40px;
+      transition: transform 0.3s ease;
     }
+    .logo img:hover {
+      transform: scale(1.05);
+    }
+
     nav a {
-      color: #111;
+      color: var(--text-dark);
       text-decoration: none;
       margin-left: 1.5rem;
       font-weight: 600;
-      transition: color 0.2s ease;
+      position: relative;
     }
-    nav a:hover {
-      color: #1DB954;
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      background: var(--brand-green);
+      bottom: -4px;
+      left: 0;
+      transition: 0.3s ease;
+    }
+    nav a:hover::after {
+      width: 100%;
     }
 
-    /* Hero Section */
+    /* Hero */
     .hero {
-      padding: 5rem 1.5rem;
+      padding: 6rem 1.5rem 4rem;
       text-align: center;
-      background: linear-gradient(135deg, #f8f8f8, #ffffff);
+      background: linear-gradient(to bottom right, #e8f8ee, #ffffff);
+      position: relative;
+      overflow: hidden;
     }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50px;
+      left: -50px;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at top left, rgba(29,185,84,0.1), transparent 60%);
+      z-index: 0;
+    }
+
     .hero img {
-      max-width: 130px;
+      max-width: 140px;
       margin-bottom: 1rem;
+      z-index: 1;
+      position: relative;
+      animation: floatLogo 3s ease-in-out infinite;
     }
+
+    @keyframes floatLogo {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
     .hero h1 {
       font-size: 3rem;
       font-weight: 700;
       margin-bottom: 1rem;
-      letter-spacing: -1px;
+      z-index: 1;
+      position: relative;
     }
+
     .hero p {
-      font-size: 1.25rem;
-      max-width: 700px;
+      font-size: 1.2rem;
+      max-width: 650px;
       margin: 0 auto 2rem;
-      color: #555;
+      color: var(--text-light);
+      z-index: 1;
+      position: relative;
     }
+
     .cta-btn {
       display: inline-block;
-      background: #1DB954;
+      background: var(--brand-green);
       color: white;
       padding: 0.9rem 1.8rem;
       border-radius: 50px;
-      text-decoration: none;
       font-weight: 600;
-      font-size: 1rem;
-      transition: transform 0.2s ease, background 0.3s ease;
+      text-decoration: none;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      z-index: 1;
+      position: relative;
     }
     .cta-btn:hover {
-      background: #159a43;
-      transform: translateY(-3px);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(29,185,84,0.3);
     }
 
-    /* Section Headings */
+    /* Section */
     .section {
-      max-width: 1100px;
+      max-width: 1000px;
       margin: 4rem auto;
       padding: 0 1.5rem;
-    }
-    .section h2 {
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 2rem;
       text-align: center;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     /* Episode Card */
     .episode-card {
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-      overflow: hidden;
-      transition: transform 0.3s ease;
-      max-width: 800px;
-      margin: 0 auto;
+      background: var(--card-bg);
+      border-radius: 16px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+      padding: 2rem;
+      margin-top: 2rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: left;
     }
     .episode-card:hover {
-      transform: translateY(-5px);
-    }
-    .episode-content {
-      padding: 2rem;
-    }
-    .episode-content h3 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-    }
-    .episode-content p {
-      color: #555;
-      margin-bottom: 1.5rem;
-    }
-    .episode-card iframe {
-      width: 100%;
-      border: none;
+      transform: translateY(-6px);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.08);
     }
 
-    /* About Section */
-    .about {
-      background: #f9f9f9;
+    .episode-card h2 {
+      font-size: 1.6rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .episode-card p {
+      color: var(--text-light);
+      margin-bottom: 1rem;
+    }
+
+    .video-container {
       border-radius: 12px;
-      padding: 2rem;
-      max-width: 900px;
-      margin: 0 auto;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+      overflow: hidden;
     }
 
     /* Footer */
     footer {
       background: white;
-      color: #555;
+      color: var(--text-light);
       text-align: center;
       padding: 2rem 1rem;
-      margin-top: 4rem;
       font-size: 0.9rem;
       border-top: 1px solid #eee;
     }
+
     footer div {
       display: flex;
       justify-content: center;
       gap: 20px;
+      align-items: center;
+      flex-wrap: wrap;
       margin-top: 1rem;
     }
-    footer a img {
-      height: 22px;
+
+    footer img {
+      height: 20px;
       transition: transform 0.2s ease;
     }
     footer a:hover img {
-      transform: scale(1.15);
+      transform: scale(1.1);
     }
   </style>
 </head>
@@ -176,28 +226,26 @@
 </header>
 
 <section class="hero">
-  <img src="lwis-logo.png" alt="Look Who It Is! Podcast Logo">
-  <h1>Windrow Studio</h1>
-  <p>Independent media production telling real stories, featuring rising musicians, and crafting premium creative experiences. Home of the <strong>Look Who It Is!</strong> podcast.</p>
-  <a href="lookwhoitis.html" class="cta-btn">🎙 Browse the Podcast</a>
+  <img src="lwis-logo.png" alt="Look Who It Is Podcast Logo">
+  <h1>Welcome to Windrow Studio</h1>
+  <p>Independent media production focused on real stories, rising musicians, and creative storytelling. Home of the <strong>Look Who It Is!</strong> podcast.</p>
+  <a href="lookwhoitis.html" class="cta-btn">Browse the Podcast</a>
 </section>
 
 <section class="section">
   <h2>Latest Episode</h2>
   <div class="episode-card">
-    <div class="episode-content">
-      <h3>Episode 7: Mikele Buck – It Ain’t Country If It Ain’t Country</h3>
-      <p>Mikele Buck gets real about his writing process, staying independent, and how he keeps chasing good songs over social media trends.</p>
+    <h2>Episode 7: Mikele Buck – It Ain’t Country If It Ain’t Country</h2>
+    <p>Mikele Buck gets real about his writing process, staying independent, and how he keeps chasing good songs over social media trends. Honest, laid-back, and full of perspective.</p>
+    <div class="video-container">
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/6CncZDzpqmU6aCQEIRbz3E" width="100%" height="152" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
     </div>
-    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/6CncZDzpqmU6aCQEIRbz3E" height="152" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
   </div>
 </section>
 
 <section class="section">
   <h2>About Windrow Studio</h2>
-  <div class="about">
-    <p>We create content that shines a light on authentic voices in music and entertainment. From in-depth interviews and artist features to high-quality video production, Windrow Studio helps artists share their stories with the world.</p>
-  </div>
+  <p>We create content that shines a light on authentic voices in music and entertainment. From interviews and artist stories to live sessions and video projects, Windrow Studio helps artists connect through honest storytelling and quality production.</p>
 </section>
 
 <footer>
@@ -210,8 +258,16 @@
   </div>
 </footer>
 
+<script>
+  // Fade-in animation for sections
+  const sections = document.querySelectorAll('.section');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.15 });
+  sections.forEach(section => observer.observe(section));
+</script>
+
 </body>
 </html>
-
-
-

@@ -3,14 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Windrow Studio</title>
+  <title>Windrow Studio – Look Who It Is! Podcast</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --brand-green: #1DB954; /* Spotify green */
-      --dark-green: #159a43;
-    }
-
     * {
       box-sizing: border-box;
       margin: 0;
@@ -19,7 +14,7 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #f9f9f9;
+      background-color: #ffffff;
       color: #111;
       line-height: 1.6;
     }
@@ -31,16 +26,14 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-bottom: 1px solid #ddd;
+      border-bottom: 1px solid #eee;
       position: sticky;
       top: 0;
       z-index: 1000;
     }
-
     .logo img {
-      height: 40px;
+      height: 45px;
     }
-
     nav a {
       color: #111;
       text-decoration: none;
@@ -48,88 +41,99 @@
       font-weight: 600;
       transition: color 0.2s ease;
     }
-
     nav a:hover {
-      color: var(--brand-green);
+      color: #1DB954;
     }
 
     /* Hero Section */
     .hero {
-      background: linear-gradient(to right, var(--brand-green), var(--dark-green));
-      color: white;
-      padding: 4rem 1.5rem;
+      padding: 5rem 1.5rem;
       text-align: center;
+      background: linear-gradient(135deg, #f8f8f8, #ffffff);
     }
-
     .hero img {
-      max-width: 120px;
+      max-width: 130px;
       margin-bottom: 1rem;
     }
-
     .hero h1 {
-      font-size: 2.8rem;
+      font-size: 3rem;
       font-weight: 700;
       margin-bottom: 1rem;
+      letter-spacing: -1px;
     }
-
     .hero p {
-      font-size: 1.2rem;
-      max-width: 600px;
+      font-size: 1.25rem;
+      max-width: 700px;
       margin: 0 auto 2rem;
+      color: #555;
     }
-
     .cta-btn {
       display: inline-block;
-      background: white;
-      color: var(--brand-green);
-      padding: 0.8rem 1.6rem;
-      border-radius: 6px;
+      background: #1DB954;
+      color: white;
+      padding: 0.9rem 1.8rem;
+      border-radius: 50px;
       text-decoration: none;
       font-weight: 600;
-      transition: background 0.3s, color 0.3s;
+      font-size: 1rem;
+      transition: transform 0.2s ease, background 0.3s ease;
     }
     .cta-btn:hover {
-      background: var(--dark-green);
-      color: white;
+      background: #159a43;
+      transform: translateY(-3px);
     }
 
-    /* Sections */
+    /* Section Headings */
     .section {
-      max-width: 900px;
+      max-width: 1100px;
       margin: 4rem auto;
       padding: 0 1.5rem;
+    }
+    .section h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
       text-align: center;
     }
 
+    /* Episode Card */
     .episode-card {
       background: white;
       border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      padding: 2rem;
-      margin-top: 2rem;
-      text-align: left;
-      transition: transform 0.2s ease;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      max-width: 800px;
+      margin: 0 auto;
     }
-
     .episode-card:hover {
-      transform: translateY(-4px);
+      transform: translateY(-5px);
     }
-
-    .episode-card h2 {
-      color: #111;
+    .episode-content {
+      padding: 2rem;
+    }
+    .episode-content h3 {
       font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .episode-card p {
-      color: #555;
       margin-bottom: 1rem;
     }
-
+    .episode-content p {
+      color: #555;
+      margin-bottom: 1.5rem;
+    }
     .episode-card iframe {
       width: 100%;
-      border-radius: 8px;
       border: none;
+    }
+
+    /* About Section */
+    .about {
+      background: #f9f9f9;
+      border-radius: 12px;
+      padding: 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
     }
 
     /* Footer */
@@ -140,33 +144,20 @@
       padding: 2rem 1rem;
       margin-top: 4rem;
       font-size: 0.9rem;
-      border-top: 1px solid #ddd;
+      border-top: 1px solid #eee;
     }
-
-    footer img {
-      height: 20px;
-      margin-right: 8px;
-    }
-
     footer div {
       display: flex;
       justify-content: center;
       gap: 20px;
-      align-items: center;
-      flex-wrap: wrap;
       margin-top: 1rem;
     }
-
-    footer a {
-      text-decoration: none;
-      color: #555;
-      display: flex;
-      align-items: center;
+    footer a img {
+      height: 22px;
       transition: transform 0.2s ease;
     }
-
-    footer a:hover {
-      transform: scale(1.1);
+    footer a:hover img {
+      transform: scale(1.15);
     }
   </style>
 </head>
@@ -174,9 +165,7 @@
 
 <header>
   <div class="logo">
-    <a href="index.html">
-      <img src="windrow-logo.png" alt="Windrow Studio Logo">
-    </a>
+    <a href="index.html"><img src="windrow-logo.png" alt="Windrow Studio Logo"></a>
   </div>
   <nav>
     <a href="index.html">Home</a>
@@ -187,44 +176,42 @@
 </header>
 
 <section class="hero">
-  <h1>Welcome to Windrow Studio</h1>
-  <p>Independent media production focused on real stories, rising musicians, and creative storytelling. Home of the <strong>Look Who It Is!</strong> podcast.</p>
-  <a href="lookwhoitis.html" class="cta-btn">Browse the Podcast</a>
+  <img src="lwis-logo.png" alt="Look Who It Is! Podcast Logo">
+  <h1>Windrow Studio</h1>
+  <p>Independent media production telling real stories, featuring rising musicians, and crafting premium creative experiences. Home of the <strong>Look Who It Is!</strong> podcast.</p>
+  <a href="lookwhoitis.html" class="cta-btn">🎙 Browse the Podcast</a>
 </section>
 
 <section class="section">
   <h2>Latest Episode</h2>
   <div class="episode-card">
-    <h2>Episode 7: Mikele Buck – It Ain’t Country If It Ain’t Country</h2>
-    <p>Mikele Buck gets real about his writing process, staying independent, and how he keeps chasing good songs over social media trends. Honest, laid-back, and full of perspective.</p>
+    <div class="episode-content">
+      <h3>Episode 7: Mikele Buck – It Ain’t Country If It Ain’t Country</h3>
+      <p>Mikele Buck gets real about his writing process, staying independent, and how he keeps chasing good songs over social media trends.</p>
+    </div>
     <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/6CncZDzpqmU6aCQEIRbz3E" height="152" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
   </div>
 </section>
 
 <section class="section">
   <h2>About Windrow Studio</h2>
-  <p>We create content that shines a light on authentic voices in music and entertainment. From interviews and artist stories to live sessions and video projects, Windrow Studio helps artists connect through honest storytelling and quality production.</p>
+  <div class="about">
+    <p>We create content that shines a light on authentic voices in music and entertainment. From in-depth interviews and artist features to high-quality video production, Windrow Studio helps artists share their stories with the world.</p>
+  </div>
 </section>
 
 <footer>
   &copy; 2025 Windrow Studio. All rights reserved.
-  <br><br>
   <div>
-    <a href="https://www.instagram.com/lookwhoitispod" target="_blank">
-      <img src="instagram.png" alt="Instagram">
-    </a>
-    <a href="https://www.tiktok.com/@lookwhoitispod" target="_blank">
-      <img src="tiktok.png" alt="TikTok">
-    </a>
-    <a href="https://www.youtube.com/@lookwhoitispod" target="_blank">
-      <img src="youtube.png" alt="YouTube">
-    </a>
-    <a href="https://open.spotify.com/show/44Vpk5tXOMYVkkeOrYLCtJ?si=f795fbe88aa448f5" target="_blank">
-      <img src="spotify.png" alt="Spotify">
-    </a>
+    <a href="https://www.instagram.com/lookwhoitispod" target="_blank"><img src="instagram.png" alt="Instagram"></a>
+    <a href="https://www.tiktok.com/@lookwhoitispod" target="_blank"><img src="tiktok.png" alt="TikTok"></a>
+    <a href="https://www.youtube.com/@lookwhoitispod" target="_blank"><img src="youtube.png" alt="YouTube"></a>
+    <a href="https://open.spotify.com/show/44Vpk5tXOMYVkkeOrYLCtJ" target="_blank"><img src="spotify.png" alt="Spotify"></a>
   </div>
 </footer>
 
 </body>
 </html>
+
+
 

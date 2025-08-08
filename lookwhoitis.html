@@ -2,34 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Look Who It Is! – Windrow Studio Podcast</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --primary: #1DB954; /* Spotify green */
-      --primary-hover: #159a43;
-      --text-dark: #111;
-      --text-light: #555;
-      --bg-light: #f9f9f9;
-      --card-bg: #fff;
-    }
-
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     body {
       font-family: 'Inter', sans-serif;
-      background-color: var(--bg-light);
-      color: var(--text-dark);
+      background-color: #f9f9f9;
+      color: #111;
       line-height: 1.6;
     }
 
     header {
-      background: var(--card-bg);
+      background: white;
       padding: 1rem 2rem;
       display: flex;
       align-items: center;
@@ -45,90 +36,81 @@
     }
 
     nav a {
-      color: var(--text-dark);
+      color: #111;
       text-decoration: none;
       margin-left: 1.5rem;
       font-weight: 600;
       transition: color 0.2s ease;
     }
+
     nav a:hover {
-      color: var(--primary);
+      color: #1DB954; /* Spotify green */
     }
 
     main {
-      max-width: 1100px;
+      max-width: 900px;
       margin: 3rem auto;
       padding: 0 1.5rem;
       text-align: center;
     }
 
     .podcast-logo {
-      max-width: 180px;
+      max-width: 160px;
       margin-bottom: 1rem;
     }
 
     h1 {
-      font-size: 2.8rem;
+      font-size: 2.5rem;
       font-weight: 700;
       margin-bottom: 1rem;
     }
 
     p.intro {
-      font-size: 1.2rem;
-      max-width: 650px;
+      font-size: 1.1rem;
+      max-width: 600px;
       margin: 0 auto 2.5rem;
-      color: var(--text-light);
+      color: #444;
     }
 
     .cta-btn {
       display: inline-block;
       margin: 1rem 0 2rem;
-      background: var(--primary);
+      background: #1DB954;
       color: white;
-      padding: 0.8rem 1.6rem;
+      padding: 0.7rem 1.5rem;
       border-radius: 6px;
       text-decoration: none;
       font-weight: 600;
       transition: background 0.3s;
     }
-    .cta-btn:hover {
-      background: var(--primary-hover);
-    }
-    .cta-btn img {
-      height: 18px;
-      vertical-align: middle;
-      margin-right: 8px;
-    }
 
-    .episode-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
+    .cta-btn:hover {
+      background: #159a43;
     }
 
     .episode-card {
-      background: var(--card-bg);
+      background: white;
       border-radius: 12px;
       padding: 1.5rem;
+      margin-bottom: 2rem;
       box-shadow: 0 4px 12px rgba(0,0,0,0.05);
       text-align: left;
       transition: transform 0.2s ease;
-      display: flex;
-      flex-direction: column;
     }
+
     .episode-card:hover {
       transform: translateY(-4px);
     }
 
     .episode-card h2 {
-      font-size: 1.4rem;
+      font-size: 1.5rem;
       margin-bottom: 0.5rem;
+      color: #111;
     }
+
     .episode-card p {
-      color: var(--text-light);
+      color: #555;
       margin-bottom: 1rem;
-      flex: 1;
     }
 
     .video-container {
@@ -139,6 +121,7 @@
       max-width: 100%;
       border-radius: 8px;
     }
+
     .video-container iframe {
       position: absolute;
       top: 0; left: 0;
@@ -146,32 +129,32 @@
       height: 100%;
       border-radius: 8px;
     }
+
     .spotify-embed iframe {
       border-radius: 12px;
-      width: 100%;
-      height: 152px;
-      border: none;
     }
 
     footer {
-      background: var(--card-bg);
-      color: var(--text-light);
+      background-color: #111;
+      color: #ccc;
       text-align: center;
       padding: 2rem 1rem;
-      margin-top: 4rem;
+      margin-top: 3rem;
       font-size: 0.9rem;
-      border-top: 1px solid #ddd;
     }
+
     .social-links {
       display: flex;
       justify-content: center;
       gap: 20px;
       margin-top: 1rem;
     }
+
     .social-links a img {
       height: 24px;
       transition: transform 0.2s ease;
     }
+
     .social-links a:hover img {
       transform: scale(1.2);
     }
@@ -196,31 +179,66 @@
   <img src="lwis-logo.png" alt="Look Who It Is! Podcast Logo" class="podcast-logo" />
   <h1>Look Who It Is!</h1>
   <p class="intro">Conversations with rising musicians from small towns chasing big dreams. Real voices, no filters, no fluff.</p>
-
-  <a href="https://open.spotify.com/show/44Vpk5tXOMYVkkeOrYLCtJ" target="_blank" class="cta-btn">
-    <img src="spotify.png" alt="Spotify"> Listen on Spotify
+  <a href="https://open.spotify.com/show/44Vpk5tXOMYVkkeOrYLCtJ?si=f795fbe88aa448f5" target="_blank" class="cta-btn">
+    <img src="spotify.png" alt="Spotify" style="height: 18px; vertical-align: middle; margin-right: 8px;">
+    Listen on Spotify
   </a>
 
-  <div class="episode-grid">
-
-    <div class="episode-card">
-      <h2>Episode 7: Mikele Buck – It Ain’t Country If It Ain’t Country</h2>
-      <p>Mikele Buck gets real about his writing process, staying independent, and why good songs matter more than trends.</p>
-      <div class="spotify-embed">
-        <iframe src="https://open.spotify.com/embed/episode/6CncZDzpqmU6aCQEIRbz3E" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-      </div>
+  <!-- Episodes -->
+  <div class="episode-card">
+    <h2>Episode 1: Jake – Gigs, Led Zeppelin & The Nude Beach Offer</h2>
+    <p>Jake from Chinese Jailbreak talks about his first gig at his cousin’s 18th birthday, how Led Zeppelin shaped his sound, and the wildest offer he’s ever turned down.</p>
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/uE1Wpbc3d3w" frameborder="0" allowfullscreen></iframe>
     </div>
+  </div>
 
-    <div class="episode-card">
-      <h2>Episode 6: Coty Whitt – Punk Rock, Drums & Unfiltered Moments</h2>
-      <p>Coty Whitt from Small Steps dives into punk rock, drumming, and why chaos on stage can be magic.</p>
-      <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/SIVFJfxi7ss" allowfullscreen></iframe>
-      </div>
+  <div class="episode-card">
+    <h2>Episode 2: John – Guitar Roots, Jamming, and a Keyboard Bass</h2>
+    <p>John Wallace talks about the first songs he ever learned, the guitar and tuning he’s been hooked on lately, and what happened when a keyboard player took over the bass role in his latest jam sessions.</p>
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/77NaniPh65w" frameborder="0" allowfullscreen></iframe>
     </div>
+  </div>
 
-    <!-- Repeat episode-card blocks for other episodes -->
-    
+  <div class="episode-card">
+    <h2>Episode 3: Kyle's Rock & Roll Chronicles – Stories from the Stage</h2>
+    <p>Kyle shares stories from his journey in rock and roll, from life on stage to the music scene. Behind-the-scenes tales, laughs, and real talk from the road.</p>
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/1nWgRAEDC84" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <div class="episode-card">
+    <h2>Episode 4: Dear Iris – New Album & East Texas Roots</h2>
+    <p>Philip and Jerry from Dear Iris talk about their East Texas roots, their journey as a band, and what went into crafting their newest album. They share stories about writing, recording, and the inspiration behind their sound.</p>
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/cnRkBO6Q03s" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <div class="episode-card">
+    <h2>Episode 5: Jason McPhail – Life, Lyrics & Broadway</h2>
+    <p>Jason McPhail opens up about his songwriting process, lessons and how music has helped him navigate real life. A raw and honest conversation you won’t forget.</p>
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/HAtpcU3s7Kg" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <div class="episode-card">
+    <h2>Episode 6: Coty Whitt – Punk Rock, Drums & Unfiltered Moments</h2>
+    <p>Coty Whitt from the band Small Steps dives into the punk rock scene, how drumming shaped his voice in music, and why sometimes yelling random stuff on stage is just part of the show. Honest, loud, and totally original.</p>
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/SIVFJfxi7ss" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <div class="episode-card">
+    <h2>Episode 7: Mikele Buck – It Ain’t Country If It Ain’t Country</h2>
+    <p>Mikele Buck gets real about his writing process, staying independent, and how he keeps chasing good songs over social media trends. Honest, laid-back, and full of perspective.</p>
+    <div class="spotify-embed">
+      <iframe src="https://open.spotify.com/embed/episode/6CncZDzpqmU6aCQEIRbz3E" width="100%" height="152" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
   </div>
 </main>
 

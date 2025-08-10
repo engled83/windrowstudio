@@ -1,106 +1,175 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>About – Windrow Studio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    * {
-      box-sizing: border-box;
+    :root {
+      --brand-green: #1DB954;
+      --brand-green-dark: #159a43;
+      --text-dark: #111;
+      --text-light: #555;
+      --bg-light: #f9f9f9;
+      --card-bg: #fff;
+      --line: #eee;
     }
 
-    body, html {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f9f9f9;
-      color: #111;
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: --bg-light;
+      background: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+      overflow-x: hidden;
     }
 
-header {
-  background-color: #111;
-  color: white;
-  padding: 1rem 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: relative;
-}
-
-.logo img {
-  height: 40px;
-}
-
-.site-title {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 1.2rem;
-}
-
-    .logo {
+    /* Header */
+    header {
+      background: white;
+      padding: 1rem 2rem;
       display: flex;
       align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
-
     .logo img {
       height: 40px;
-      margin-right: 1rem;
+      transition: transform 0.3s ease;
     }
-
+    .logo img:hover { transform: scale(1.05); }
     nav a {
-      color: white;
+      color: var(--text-dark);
       text-decoration: none;
       margin-left: 1.5rem;
-      font-weight: bold;
+      font-weight: 600;
+      position: relative;
     }
-
-    nav a:hover {
-      text-decoration: underline;
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      background: var(--brand-green);
+      bottom: -4px;
+      left: 0;
+      transition: 0.3s ease;
     }
+    nav a:hover::after { width: 100%; }
 
-    main {
-      max-width: 700px;
-      margin: 4rem auto;
-      padding: 0 2rem;
+    /* Hero */
+    .hero {
+      padding: 6rem 1.5rem 4rem;
+      text-align: center;
+      background: linear-gradient(to bottom right, #e8f8ee, #ffffff);
+      position: relative;
+      overflow: hidden;
     }
-
-    h1 {
-      font-size: 2.5rem;
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50px; left: -50px;
+      width: 200%; height: 200%;
+      background: radial-gradient(circle at top left, rgba(29,185,84,0.1), transparent 60%);
+      z-index: 0;
+    }
+    .hero img {
+      max-width: 120px;
       margin-bottom: 1rem;
+      z-index: 1; position: relative;
+      animation: floatLogo 3s ease-in-out infinite;
+    }
+    @keyframes floatLogo {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: .5rem;
+      z-index: 1; position: relative;
+    }
+    .hero p.lead {
+      font-size: 1.15rem;
+      max-width: 760px;
+      margin: 0 auto;
+      color: var(--text-light);
+      z-index: 1; position: relative;
+    }
+
+    /* Sections */
+    .section {
+      max-width: 1000px;
+      margin: 3.5rem auto;
+      padding: 0 1.5rem;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .section h2 {
+      font-size: 2rem;
+      font-weight: 700;
       text-align: center;
+      margin-bottom: 1rem;
+    }
+    .section p {
+      color: var(--text-dark);
+      font-size: 1.05rem;
     }
 
-    p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      color: #333;
-      margin-bottom: 1.5rem;
+    /* Card style blurb */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+      padding: 2rem;
+      max-width: 900px;
+      margin: 1.25rem auto 0;
     }
+    .card p { color: var(--text-light); }
 
+    /* Footer */
     footer {
-      background-color: #eee;
-      color: #555;
+      background: white;
+      color: var(--text-light);
       text-align: center;
-      padding: 1rem;
+      padding: 2rem 1rem;
       font-size: 0.9rem;
-      margin-top: 4rem;
+      border-top: 1px solid var(--line);
+      margin-top: 3rem;
     }
+    footer .social {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+    footer img {
+      height: 20px;
+      transition: transform 0.2s ease;
+    }
+    footer a:hover img { transform: scale(1.1); }
   </style>
 </head>
 <body>
 
 <header>
   <div class="logo">
-    <a href="index.html" style="display: flex; align-items: center; text-decoration: none; color: white;">
-      <img src="windrow-logo.png" alt="Windrow Studio Logo">
-    </a>
+    <a href="index.html"><img src="windrow-logo.png" alt="Windrow Studio Logo"></a>
   </div>
-
-  <div class="site-title">
-    <a href="index.html" style="text-decoration: none; color: white; font-weight: bold;">Windrow Studio</a>
-  </div>
-
   <nav>
     <a href="index.html">Home</a>
     <a href="lookwhoitis.html">Podcast</a>
@@ -109,35 +178,50 @@ header {
   </nav>
 </header>
 
+<section class="hero">
+  <img src="lwis-logo.png" alt="Look Who It Is! Logo">
+  <h1>About Windrow Studio</h1>
+  <p class="lead">Real conversations with rising musicians. Thoughtful production built around honesty, curiosity, and craft.</p>
+</section>
 
-  <main>
-    <h1>About Windrow Studio</h1>
-    <p>Windrow Studio was created out of a simple idea: talk to musicians on their way up and listen. No fame-chasing, no industry filter, just real conversations with real artists figuring it out as they go.</p>
+<section class="section">
+  <h2>Our Story</h2>
+  <div class="card">
+    <p>Windrow Studio was created out of a simple idea: talk to musicians on their way up and listen. No fame chasing, no industry filter, just real conversations with real artists figuring it out as they go.</p>
+    <br>
+    <p>It is a one person operation based in rural Indiana, built by someone who genuinely wants to know what gives these artists their drive and what they have had to overcome to keep moving forward.</p>
+  </div>
+</section>
 
-    <p>It's a one-man operation based in rural Indiana, built by someone who genuinely wants to know what gives these artists their drive — and what they’ve had to overcome to keep moving forward.</p>
-
-    <p>Most episodes will be recorded remotely, but there’s definitely a dream of sitting down in person when the timing’s right. The tone? Casual, friendly, funny — like grabbing coffee with someone who just happens to have a hell of a story.</p>
-
-    <p>There’s nothing to sell here, and nothing to lose. Windrow Studio exists to share the stuff that matters: the grind, the music, the people behind it all.</p>
-  </main>
+<section class="section">
+  <h2>How We Work</h2>
+  <div class="card">
+    <p>Most episodes are recorded remotely when that is the most accessible way to capture the story. There is also a dream of sitting down in person when the timing is right. The tone stays casual, friendly, and funny. Think coffee with someone who just happens to have a great story.</p>
+    <br>
+    <p>There is nothing to sell here. Windrow Studio exists to share what matters most. The grind. The music. The people behind it all.</p>
+  </div>
+</section>
 
 <footer>
   &copy; 2025 Windrow Studio. All rights reserved.
-  <br><br>
-  <div style="display: flex; justify-content: center; gap: 20px; align-items: center; flex-wrap: wrap;">
-    <a href="https://www.instagram.com/lookwhoitispod" target="_blank" style="text-decoration: none; color: #555; display: flex; align-items: center;">
-      <img src="instagram.png" alt="Instagram" style="height: 20px; margin-right: 8px;">
-    </a>
-    <a href="https://www.tiktok.com/@lookwhoitispod" target="_blank" style="text-decoration: none; color: #555; display: flex; align-items: center;">
-      <img src="tiktok.png" alt="TikTok" style="height: 20px; margin-right: 8px;">
-    </a>
-    <a href="https://www.youtube.com/@lookwhoitispod" target="_blank" style="text-decoration: none; color: #555; display: flex; align-items: center;">
-      <img src="youtube.png" alt="YouTube" style="height: 20px; margin-right: 8px;">
-    </a>
+  <div class="social">
+    <a href="https://www.instagram.com/lookwhoitispod" target="_blank" rel="noopener"><img src="instagram.png" alt="Instagram"></a>
+    <a href="https://www.tiktok.com/@lookwhoitispod" target="_blank" rel="noopener"><img src="tiktok.png" alt="TikTok"></a>
+    <a href="https://www.youtube.com/@lookwhoitispod" target="_blank" rel="noopener"><img src="youtube.png" alt="YouTube"></a>
+    <a href="https://open.spotify.com/show/44Vpk5tXOMYVkkeOrYLCtJ" target="_blank" rel="noopener"><img src="spotify.png" alt="Spotify"></a>
   </div>
 </footer>
 
+<script>
+  // Fade-in animation for sections
+  const sections = document.querySelectorAll('.section');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.15 });
+  sections.forEach(section => observer.observe(section));
+</script>
+
 </body>
 </html>
-
-

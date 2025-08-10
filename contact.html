@@ -4,177 +4,150 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact – Windrow Studio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    * {
-      box-sizing: border-box;
+    :root{
+      --brand:#1DB954;
+      --brand-dark:#159a43;
+      --ink:#111;
+      --muted:#555;
+      --line:#e7e7e7;
+      --bg:#f9f9f9;
+      --card:#fff;
     }
 
-    body, html {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f9f9f9;
-      color: #111;
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+
+    /* Header to match site */
+    header{
+      background:#fff;
+      position:sticky; top:0; z-index:1000;
+      border-bottom:1px solid var(--line);
     }
-
-header {
-  background-color: #111;
-  color: white;
-  padding: 1rem 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: relative;
-}
-
-.logo img {
-  height: 40px;
-}
-
-.site-title {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 1.2rem;
-}
-
-    .logo {
-      display: flex;
-      align-items: center;
+    .nav-wrap{
+      max-width:1100px; margin:0 auto;
+      padding:1rem 1.5rem; display:flex; align-items:center; justify-content:space-between;
     }
-
-    .logo img {
-      height: 40px;
-      margin-right: 1rem;
+    .logo img{height:42px}
+    nav a{
+      color:var(--ink); text-decoration:none; font-weight:600; margin-left:1.25rem; position:relative
     }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 1.5rem;
-      font-weight: bold;
+    nav a::after{
+      content:""; position:absolute; left:0; bottom:-6px; width:0; height:2px; background:var(--brand); transition:width .2s ease
     }
+    nav a:hover{color:var(--brand)}
+    nav a:hover::after{width:100%}
 
-    nav a:hover {
-      text-decoration: underline;
+    /* Page */
+    .wrap{max-width:860px; margin:3rem auto; padding:0 1.5rem}
+    h1{font-size:2.4rem; font-weight:700; text-align:center; margin-bottom:1rem}
+    p.lead{color:var(--muted); text-align:center; margin-bottom:2rem}
+
+    /* Card form */
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:14px;
+      box-shadow:0 6px 20px rgba(0,0,0,.04);
+      padding:1.5rem;
     }
-
-    main {
-      max-width: 600px;
-      margin: 4rem auto;
-      padding: 0 2rem;
+    form{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+    .full{grid-column:1 / -1}
+    label{font-weight:600; font-size:.95rem}
+    input, textarea{
+      width:100%; margin-top:.4rem; padding:.8rem .9rem;
+      border:1px solid var(--line); border-radius:10px; font-size:1rem; background:#fff
     }
+    textarea{min-height:160px; resize:vertical}
 
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      text-align: center;
+    .hint{font-size:.85rem; color:var(--muted); margin-top:.35rem}
+
+    .actions{grid-column:1 / -1; display:flex; align-items:center; justify-content:flex-end; gap:10px; margin-top:.5rem}
+    .btn{
+      appearance:none; border:none; cursor:pointer; font-weight:700;
+      border-radius:999px; padding:.9rem 1.4rem; transition:transform .15s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
     }
+    .btn-primary{background:var(--brand); color:#fff}
+    .btn-primary:hover{background:var(--brand-dark); transform:translateY(-2px); box-shadow:0 10px 24px rgba(29,185,84,.25)}
+    .btn-ghost{background:#fff; color:var(--ink); border:1px solid var(--line)}
+    .btn-ghost:hover{background:#f8f8f8}
 
-    form {
-      display: flex;
-      flex-direction: column;
+    /* Footer */
+    footer{
+      background:#fff; border-top:1px solid var(--line);
+      color:var(--muted); text-align:center; padding:2rem 1rem; margin-top:3rem
     }
+    .social{display:flex; justify-content:center; gap:20px; align-items:center; flex-wrap:wrap; margin-top:1rem}
+    footer img{height:20px; transition:transform .2s ease}
+    footer a:hover img{transform:scale(1.1)}
 
-    label {
-      font-weight: bold;
-      margin-top: 1rem;
-    }
-
-    input, textarea {
-      padding: 0.75rem;
-      margin-top: 0.5rem;
-      font-size: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-
-    textarea {
-      resize: vertical;
-      min-height: 150px;
-    }
-
-    button {
-      margin-top: 2rem;
-      padding: 0.75rem;
-      background-color: #111;
-      color: white;
-      border: none;
-      font-weight: bold;
-      font-size: 1rem;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #333;
-    }
-
-    footer {
-      background-color: #eee;
-      color: #555;
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-      margin-top: 4rem;
+    /* Small screens */
+    @media (max-width:720px){
+      form{grid-template-columns:1fr}
     }
   </style>
 </head>
 <body>
 
 <header>
-  <div class="logo">
-    <a href="index.html" style="display: flex; align-items: center; text-decoration: none; color: white;">
+  <div class="nav-wrap">
+    <a class="logo" href="index.html" aria-label="Windrow Studio home">
       <img src="windrow-logo.png" alt="Windrow Studio Logo">
     </a>
+    <nav aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="lookwhoitis.html">Podcast</a>
+      <a href="contact.html">Contact</a>
+      <a href="about.html">About</a>
+    </nav>
   </div>
-
-  <div class="site-title">
-    <a href="index.html" style="text-decoration: none; color: white; font-weight: bold;">Windrow Studio</a>
-  </div>
-
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="lookwhoitis.html">Podcast</a>
-    <a href="contact.html">Contact</a>
-    <a href="about.html">About</a>
-  </nav>
 </header>
 
-  <main>
-    <h1>Contact Windrow Studio</h1>
-    <form action="https://formspree.io/f/mwpbqaqb" method="POST">
-      <label for="name">Name</label>
-      <input type="text" id="name" name="name" required />
+<main class="wrap">
+  <h1>Contact Windrow Studio</h1>
+  <p class="lead">Booking, collabs, press, or just to say hi. We read every message.</p>
 
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" required />
+  <section class="card" aria-labelledby="contact-form">
+    <form id="contact-form" action="https://formspree.io/f/mwpbqaqb" method="POST">
+      <div class="full">
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" autocomplete="name" required>
+      </div>
 
-      <label for="subject">Subject</label>
-      <input type="text" id="subject" name="subject" required />
+      <div>
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" autocomplete="email" required>
+      </div>
+      <div>
+        <label for="subject">Subject</label>
+        <input id="subject" name="subject" type="text" required>
+      </div>
 
-      <label for="message">Message</label>
-      <textarea id="message" name="message" required></textarea>
+      <div class="full">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" required></textarea>
+        <div class="hint">Include links if helpful. We’ll get back soon.</div>
+      </div>
 
-      <button type="submit">Send Message</button>
+      <div class="actions">
+        <button type="reset" class="btn btn-ghost" aria-label="Clear form">Clear</button>
+        <button type="submit" class="btn btn-primary" aria-label="Send message">Send Message</button>
+      </div>
     </form>
-  </main>
+  </section>
+</main>
 
-  <footer>
+<footer>
   &copy; 2025 Windrow Studio. All rights reserved.
-  <br><br>
-  <div style="display: flex; justify-content: center; gap: 20px; align-items: center; flex-wrap: wrap;">
-    <a href="https://www.instagram.com/lookwhoitispod" target="_blank" style="text-decoration: none; color: #555; display: flex; align-items: center;">
-      <img src="instagram.png" alt="Instagram" style="height: 20px; margin-right: 8px;">
-    </a>
-    <a href="https://www.tiktok.com/@lookwhoitispod" target="_blank" style="text-decoration: none; color: #555; display: flex; align-items: center;">
-      <img src="tiktok.png" alt="TikTok" style="height: 20px; margin-right: 8px;">
-    </a>
-    <a href="https://www.youtube.com/@lookwhoitispod" target="_blank" style="text-decoration: none; color: #555; display: flex; align-items: center;">
-      <img src="youtube.png" alt="YouTube" style="height: 20px; margin-right: 8px;">
-    </a>
+  <div class="social" aria-label="Social links">
+    <a href="https://www.instagram.com/lookwhoitispod" target="_blank" rel="noopener"><img src="instagram.png" alt="Instagram"></a>
+    <a href="https://www.tiktok.com/@lookwhoitispod" target="_blank" rel="noopener"><img src="tiktok.png" alt="TikTok"></a>
+    <a href="https://www.youtube.com/@lookwhoitispod" target="_blank" rel="noopener"><img src="youtube.png" alt="YouTube"></a>
+    <a href="https://open.spotify.com/show/44Vpk5tXOMYVkkeOrYLCtJ" target="_blank" rel="noopener"><img src="spotify.png" alt="Spotify"></a>
   </div>
 </footer>
 
 </body>
 </html>
+

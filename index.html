@@ -2,280 +2,178 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Windrow Studio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Windrow Studio — Independent Media & Look Who It Is! Podcast</title>
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <meta name="description" content="Windrow Studio crafts clean, modern media with a rural edge. Home of the Look Who It Is! podcast." />
+  <meta property="og:title" content="Windrow Studio — Independent Media & Look Who It Is! Podcast" />
+  <meta property="og:description" content="Clean, modern media with a rural edge. Listen to Look Who It Is!, watch clips, and connect." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.windrowstudio.com/" />
+  <meta property="og:image" content="/og-image.jpg" />
+  <meta name="theme-color" content="#0E1111" />
+
   <style>
     :root {
-      --brand-green: #1DB954;
-      --text-dark: #111;
-      --text-light: #555;
-      --bg-light: #f9f9f9;
-      --card-bg: #fff;
+      --bg: #0e1111;
+      --card: #121619;
+      --muted: #8b949e;
+      --text: #e6e9ee;
+      --brand: #1db954;
+      --accent: #a3dac2;
+      --maxw: 1200px;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius-xl: 20px;
+      --radius-lg: 14px;
+      --radius: 10px;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
     body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--bg-light);
-      color: var(--text-dark);
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background: radial-gradient(1200px 600px at 25% -10%, rgba(163,218,194,.10), transparent 60%),
+                  radial-gradient(1000px 500px at 90% 0%, rgba(29,185,84,.10), transparent 55%),
+                  var(--bg);
       line-height: 1.6;
-      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
-    header {
-      background: white;
-      padding: 1rem 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid #eee;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
 
-    .logo img {
-      height: 40px;
-      transition: transform 0.3s ease;
+    .site-header {
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: saturate(1.2) blur(8px);
+      background: rgba(14,17,17,.6);
+      border-bottom: 1px solid rgba(255,255,255,.06);
     }
-    .logo img:hover {
-      transform: scale(1.05);
+    .nav {
+      max-width: var(--maxw);
+      margin: 0 auto; padding: .9rem 1rem;
+      display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 12px;
     }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; }
+    .brand-logo { width: 36px; height: 36px; border-radius: 8px; background: #161a1d; display: grid; place-items: center; box-shadow: inset 0 0 0 1px rgba(255,255,255,.06); }
+    .brand-logo img { width: 26px; height: 26px; }
 
-    nav a {
-      color: var(--text-dark);
-      text-decoration: none;
-      margin-left: 1.5rem;
-      font-weight: 600;
-      position: relative;
+    .nav-links { display: flex; gap: 20px; align-items: center; }
+    .nav-links a { color: var(--muted); font-weight: 600; padding: .4rem .3rem; }
+    .nav-links a:hover { color: var(--text); }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: .7rem 1rem; border-radius: 999px; font-weight: 700;
+      background: #1a1f23; color: var(--text); border: 1px solid rgba(255,255,255,.08);
     }
-    nav a::after {
-      content: '';
-      position: absolute;
-      width: 0%;
-      height: 2px;
-      background: var(--brand-green);
-      bottom: -4px;
-      left: 0;
-      transition: 0.3s ease;
-    }
-    nav a:hover::after {
-      width: 100%;
-    }
+    .btn:hover { background: #22282d; }
+    .btn.brand { background: var(--brand); color: #0b1410; border: none; }
+    .btn.brand:hover { filter: brightness(1.05); }
 
     .hero {
-      padding: 6rem 1.5rem 4rem;
-      text-align: center;
-      background: linear-gradient(to bottom right, #e8f8ee, #ffffff);
-      position: relative;
-      overflow: hidden;
+      max-width: var(--maxw); margin: 0 auto; padding: 72px 16px 28px;
+      display: grid; grid-template-columns: 1.15fr .85fr; align-items: center; gap: 36px;
+    }
+    .hero h1 { font-size: clamp(2rem, 3.6vw, 3.2rem); line-height: 1.12; margin: 6px 0 14px; font-weight: 800; }
+    .hero p { color: var(--muted); font-size: clamp(1rem, 1.6vw, 1.125rem); max-width: 60ch; }
+
+    .hero-card {
+      background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.00));
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius-xl);
+      padding: 22px; box-shadow: var(--shadow);
+      display: grid; gap: 14px;
     }
 
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -50px;
-      left: -50px;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle at top left, rgba(29,185,84,0.1), transparent 60%);
-      z-index: 0;
-    }
+    .media-tile { aspect-ratio: 16/9; border-radius: var(--radius-lg); overflow: hidden; background: #0b0e0f; border: 1px solid rgba(255,255,255,.06); }
+    .media-tile iframe { width: 100%; height: 100%; border: 0; display: block; }
 
-    .hero img {
-      max-width: 140px;
-      margin-bottom: 1rem;
-      z-index: 1;
-      position: relative;
-      animation: floatLogo 3s ease-in-out infinite;
-    }
+    .section { max-width: var(--maxw); margin: 42px auto; padding: 0 16px; }
+    .section h2 { font-size: clamp(1.3rem, 2.2vw, 1.6rem); margin: 0 0 14px; }
+    .section p.lead { color: var(--muted); margin: 0 0 12px; }
 
-    @keyframes floatLogo {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-6px); }
-    }
+    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
+    .col-4 { grid-column: span 4; }
+    .col-6 { grid-column: span 6; }
+    @media (max-width: 980px) { .col-4, .col-6 { grid-column: span 12; } }
 
-    .hero h1 {
-      font-size: 3rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      z-index: 1;
-      position: relative;
-    }
+    .card { background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.00)); border: 1px solid rgba(255,255,255,.08); border-radius: var(--radius-lg); box-shadow: var(--shadow); }
+    .card-body { padding: 16px; }
+    .muted { color: var(--muted); }
 
-    .hero p {
-      font-size: 1.2rem;
-      max-width: 650px;
-      margin: 0 auto 2rem;
-      color: var(--text-light);
-      z-index: 1;
-      position: relative;
-    }
-
-    .cta-btn {
-      display: inline-block;
-      background: var(--brand-green);
-      color: white;
-      padding: 0.9rem 1.8rem;
-      border-radius: 50px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      z-index: 1;
-      position: relative;
-    }
-    .cta-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(29,185,84,0.3);
-    }
-
-    .section {
-      max-width: 1000px;
-      margin: 4rem auto;
-      padding: 0 1.5rem;
-      text-align: center;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s ease;
-    }
-
-    .section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .episode-card {
-      background: var(--card-bg);
-      border-radius: 16px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.05);
-      padding: 2rem;
-      margin-top: 2rem;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      text-align: left;
-    }
-    .episode-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 10px 24px rgba(0,0,0,0.08);
-    }
-
-    .episode-card h2 {
-      font-size: 1.6rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .episode-card p {
-      color: var(--text-light);
-      margin-bottom: 1rem;
-    }
-
-    .video-container {
-      border-radius: 12px;
-      overflow: hidden;
-    }
-
-    footer {
-      background: white;
-      color: var(--text-light);
-      text-align: center;
-      padding: 2rem 1rem;
-      font-size: 0.9rem;
-      border-top: 1px solid #eee;
-    }
-
-    footer div {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      align-items: center;
-      flex-wrap: wrap;
-      margin-top: 1rem;
-    }
-
-    footer img {
-      height: 20px;
-      transition: transform 0.2s ease;
-    }
-    footer a:hover img {
-      transform: scale(1.1);
-    }
+    footer { border-top: 1px solid rgba(255,255,255,.08); margin-top: 60px; }
+    .foot { max-width: var(--maxw); margin: 0 auto; padding: 24px 16px; display: flex; justify-content: space-between; flex-wrap: wrap; }
+    .foot small { color: var(--muted); }
   </style>
 </head>
 <body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a href="/" class="brand" aria-label="Windrow Studio Home">
+        <span class="brand-logo"><img src="/windrow-logo.png" alt="Windrow Studio"></span>
+        <span>Windrow Studio</span>
+      </a>
+      <div class="nav-links">
+        <a href="/lookwhoitis.html">Podcast</a>
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn" href="/lookwhoitis.html">Browse Episodes</a>
+      </div>
+    </nav>
+  </header>
 
-<header>
-  <div class="logo">
-    <a href="index.html"><img src="windrow-logo.png" alt="Windrow Studio Logo"></a>
-  </div>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="lookwhoitis.html">Podcast</a>
-    <a href="contact.html">Contact</a>
-    <a href="about.html">About</a>
-  </nav>
-</header>
-
-<section class="hero">
-  <img src="lwis-logo.png" alt="Look Who It Is Podcast Logo">
-  <h1>Welcome to Windrow Studio</h1>
-  <p>Independent media production focused on real stories, rising musicians, and creative storytelling. Home of the <strong>Look Who It Is!</strong> podcast.</p>
-  <a href="lookwhoitis.html" class="cta-btn">Browse the Podcast</a>
-</section>
-
-<section class="section">
-  <h2>Latest Episode</h2>
-  <div class="episode-card">
-    <h2>Episode 17: From Touring To Toolsday With Lawrence Coleman III</h2>
-    <p>Lawrence Coleman III, better known as LC3, has lived the full spectrum of the musician’s life. From touring the country with bands like Greyscale, Eve to Adam, and Oogee Wawa, to battling addiction, to pivoting into livestreaming during COVID, his story is raw, real, and inspiring.</p>
-    <div class="video-container" style="height:auto; padding-bottom:0;">
-      <iframe style="border-radius:12px"
-              src="https://open.spotify.com/embed/episode/489r5mKHiTz598H5pM5ejN?si=3dpG4ZQ2Rk-H6IceXkKYNQ"
-              width="100%" height="152" frameborder="0"
-              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-              loading="lazy"></iframe>
+  <section class="hero">
+    <div>
+      <h1>Clean, modern media with a rural edge.</h1>
+      <p>Windrow Studio produces interviews, clips, and stories with working musicians and the people who support them. Home of the <strong>Look Who It Is!</strong> podcast.</p>
+      <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap">
+        <a class="btn brand" href="/lookwhoitis.html">Listen to the Podcast</a>
+      </div>
     </div>
-  </div>
-</section>
+    <div class="hero-card">
+      <div class="media-tile">
+        <iframe src="https://open.spotify.com/embed/episode/489r5mKHiTz598H5pM5ejN?utm_source=generator" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+      </div>
+      <div>
+        <strong>Latest episode</strong>
+        <div class="muted">From Touring To Toolsday with Lawrence Coleman III</div>
+      </div>
+    </div>
+  </section>
 
-<section class="section">
-  <h2>About Windrow Studio</h2>
-  <p>We create content that shines a light on authentic voices in music and entertainment. From interviews and artist stories to live sessions and video projects, Windrow Studio helps artists connect through honest storytelling and quality production.</p>
-</section>
+  <section class="section">
+    <h2>About Windrow Studio</h2>
+    <p class="lead">We create clean, modern content that highlights authentic voices in music and entertainment. From interviews and stories to live sessions and creative projects, Windrow Studio helps artists connect through honest storytelling and quality production.</p>
+  </section>
 
-<footer>
-  &copy; 2025 Windrow Studio. All rights reserved.
-  <div>
-    <a href="https://www.instagram.com/lookwhoitispod" target="_blank"><img src="instagram.png" alt="Instagram"></a>
-    <a href="https://www.tiktok.com/@lookwhoitispod" target="_blank"><img src="tiktok.png" alt="TikTok"></a>
-    <a href="https://www.youtube.com/@lookwhoitispod" target="_blank"><img src="youtube.png" alt="YouTube"></a>
-    <a href="https://open.spotify.com/show/44Vpk5tXOMYVkkeOrYLCtJ" target="_blank"><img src="spotify.png" alt="Spotify"></a>
-  </div>
-</footer>
+  <footer>
+    <div class="foot">
+      <small>© <span id="y"></span> Windrow Studio. All rights reserved.</small>
+      <div>
+        <a href="https://www.instagram.com/lookwhoitispod" target="_blank">Instagram</a>
+        <a href="https://www.tiktok.com/@lookwhoitispod" target="_blank">TikTok</a>
+        <a href="https://www.youtube.com/@lookwhoitispod" target="_blank">YouTube</a>
+        <a href="https://open.spotify.com/show/44Vpk5tXOMYVkkeOrYLCtJ" target="_blank">Spotify</a>
+      </div>
+    </div>
+  </footer>
 
-<script>
-  const sections = document.querySelectorAll('.section');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('visible');
-    });
-  }, { threshold: 0.15 });
-  sections.forEach(section => observer.observe(section));
-</script>
-
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
-
-
-
-
-
-
-
 
 
 

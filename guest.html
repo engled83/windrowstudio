@@ -93,6 +93,14 @@
     .icon-btn:hover .icon{ color:var(--fg) }
   </style>
 </head>
+  <script src="https://tally.so/widgets/embed.js"></script>
+<script>
+  window.addEventListener("DOMContentLoaded", function () {
+    if (window.Tally) window.Tally.loadEmbeds();
+    else document.querySelectorAll('iframe[data-tally-src]:not([src])')
+      .forEach(function (e) { e.src = e.dataset.tallySrc; });
+  });
+</script>
 <body>
   <header>
     <div class="wrap nav">
@@ -202,10 +210,14 @@
               Tip: Make sure the form embed allows cross-site iframes and does not require login.
             -->
             <iframe
-              src="PASTE_YOUR_FORM_EMBED_URL_HERE"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              title="Guest Application Form">
+  data-tally-src="https://tally.so/embed/9qB06Y?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+  loading="lazy"
+  width="100%"
+  height="200"
+  frameborder="0"
+  marginheight="0"
+  marginwidth="0"
+  title="Guest Application">
             </iframe>
           </div>
 

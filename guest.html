@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Guest Application – Windrow Studio</title>
+  <meta name="description" content="Apply to be a guest on Look Who It Is! A curated remote podcast from Windrow Studio." />
+  <meta name="color-scheme" content="light dark" />
+  <style>
+    :root{
+      --bg:#fafafa; --fg:#0f1115; --muted:#616774; --line:#e7e9ee;
+      --card:#ffffff; --accent:#12b76a; --radius:14px; --max:1100px;
+      --shadow:0 8px 28px rgba(16,24,40,.06);
+    }
+    @media (prefers-color-scheme: dark){
+      :root{ --bg:#0d1116; --fg:#eaeef5; --muted:#9aa3ad; --line:#1e2430; --card:#101620; --shadow:0 10px 30px rgba(0,0,0,.45); }
+    }
+    *{ box-sizing:border-box }
+    html,body{ height:100% }
+    body{
+      margin:0; font:16px/1.55 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      background:radial-gradient(1200px 600px at 0% -20%, rgba(18,183,106,.08), transparent 55%), var(--bg);
+      color:var(--fg); -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    }
+    a{ color:inherit; text-decoration:none }
+    /* Header */
+    .wrap{ max-width:var(--max); margin:0 auto; padding:0 16px }
+    header{
+      position:sticky; top:0; z-index:40; backdrop-filter:saturate(1.1) blur(8px);
+      background:color-mix(in oklab, var(--bg) 80%, transparent); border-bottom:1px solid var(--line);
+    }
+    .nav{ display:flex; align-items:center; justify-content:space-between; height:64px }
+    .brand{ display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.2px }
+    .logo{ width:34px; height:34px; border-radius:10px; background:color-mix(in oklab, var(--fg) 9%, transparent);
+           display:grid; place-items:center; box-shadow:inset 0 0 0 1px var(--line) }
+    .logo img{ width:22px; height:22px; display:block }
+    .links{ display:flex; gap:18px }
+    .links a{ color:var(--muted); font-weight:600; padding:6px 10px; border-radius:999px }
+    .links a:hover{ color:var(--fg); background:color-mix(in oklab, var(--fg) 6%, transparent) }
+    .links a[aria-current="page"]{ color:var(--fg); background:color-mix(in oklab, var(--fg) 7%, transparent); border:1px solid var(--line) }
+    .menu{ display:none }
+    @media (max-width:820px){ .links{ display:none } .menu{ display:inline-flex; gap:8px; font-weight:700 } }
+
+    /* Hero */
+    .hero{ padding:64px 0 18px; display:grid; grid-template-columns:1.15fr .85fr; gap:36px; align-items:start }
+    .h1{ font-size:clamp(2rem,3.4vw,3rem); line-height:1.12; margin:6px 0 12px; font-weight:850; letter-spacing:.1px }
+    .lead{ color:var(--muted); max-width:62ch }
+    .cta{ display:flex; gap:10px; flex-wrap:wrap; margin-top:16px }
+    .btn{ display:inline-flex; align-items:center; justify-content:center; padding:.9rem 1.1rem; border-radius:999px;
+          font-weight:800; border:1px solid var(--line); background:color-mix(in oklab, var(--fg) 6%, transparent) }
+    .btn:hover{ background:color-mix(in oklab, var(--fg) 10%, transparent) }
+    .btn.accent{ background:var(--accent); color:#062612; border:none }
+    .btn.accent:hover{ filter:brightness(1.05) }
+
+    /* Section / Grid */
+    .section{ padding:22px 0 }
+    .section h2{ font-size:clamp(1.2rem,2vw,1.6rem); margin:0 0 10px }
+    .grid{ display:grid; grid-template-columns:repeat(12,1fr); gap:14px }
+    .col-4{ grid-column:span 4 } .col-6{ grid-column:span 6 } .col-8{ grid-column:span 8 } .col-12{ grid-column:span 12 }
+    @media (max-width:980px){ .hero{ grid-template-columns:1fr } .col-4,.col-6,.col-8{ grid-column:span 12 } }
+
+    .card{ background:var(--card); border:1px solid var(--line); border-radius:12px; box-shadow:var(--shadow) }
+    .card .body{ padding:16px }
+    .muted{ color:var(--muted) }
+    .kicker{ font-weight:850; letter-spacing:.2px; font-size:.95rem }
+    .list{ margin:10px 0 0; padding-left:18px }
+    .list li{ margin:6px 0; color:var(--muted) }
+
+    /* Form embed */
+    .embed{
+      border-radius:12px; overflow:hidden; border:1px solid var(--line);
+      background:color-mix(in oklab, var(--fg) 4%, transparent);
+      box-shadow:var(--shadow);
+    }
+    .embed iframe{ width:100%; height:980px; border:0; display:block; background:transparent }
+    .hint{
+      margin-top:10px; color:var(--muted); font-size:.95rem
+    }
+    code.inline{
+      padding:.12rem .35rem; border-radius:8px; border:1px solid var(--line);
+      background:color-mix(in oklab, var(--fg) 6%, transparent);
+      font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size:.92em;
+    }
+
+    /* Footer */
+    footer{ border-top:1px solid var(--line); margin-top:48px }
+    .foot{ display:flex; gap:12px; align-items:center; justify-content:space-between; flex-wrap:wrap; padding:22px 0 }
+    .socials{ display:flex; gap:10px; flex-wrap:wrap }
+    .icon-btn{ width:40px; height:40px; display:grid; place-items:center; border-radius:10px;
+               background:color-mix(in oklab, var(--fg) 6%, transparent); border:1px solid var(--line) }
+    .icon{ width:20px; height:20px; fill:currentColor; color:var(--muted) }
+    .icon-btn:hover .icon{ color:var(--fg) }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="/" aria-label="Windrow Studio">
+        <span class="logo"><img src="/windrow-logo.png" alt=""></span><span>Windrow Studio</span>
+      </a>
+      <nav class="links" aria-label="Primary">
+        <a href="/lookwhoitis.html">Podcast</a>
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/guest.html" aria-current="page">Guest</a>
+      </nav>
+      <button class="menu" aria-label="Menu">Menu</button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div>
+        <div class="kicker muted">Look Who It Is! Podcast</div>
+        <h1 class="h1">Guest application</h1>
+        <p class="lead">
+          This is a curated remote podcast with working musicians and the people behind the scenes.
+          If you have a real story and can show up prepared, apply below.
+        </p>
+        <div class="cta">
+          <a class="btn accent" href="#apply">Apply now</a>
+          <a class="btn" href="/lookwhoitis.html">Watch episodes</a>
+        </div>
+        <p class="hint">
+          If you want to share this link: <code class="inline">windrowstudio.com/guest</code>
+        </p>
+      </div>
+
+      <div class="card" role="region" aria-label="Quick fit check">
+        <div class="body">
+          <strong>Quick fit check</strong>
+          <ul class="list">
+            <li>You can do remote video with camera on.</li>
+            <li>You can wear headphones and record in a quiet space.</li>
+            <li>You have a best live video link ready.</li>
+            <li>You have a story beyond “check out my song.”</li>
+          </ul>
+          <p class="hint">
+            If that sounds like you, apply. If not, wait until you have those pieces.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="grid">
+        <article class="card col-4">
+          <div class="body">
+            <strong>Who I’m looking for</strong>
+            <ul class="list">
+              <li>Artists with momentum (shows, releases, real trajectory).</li>
+              <li>Producers, writers, engineers, managers, venue buyers.</li>
+              <li>People with a clear point of view and real stories.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="card col-4">
+          <div class="body">
+            <strong>Have this ready</strong>
+            <ul class="list">
+              <li>Your best live performance video link.</li>
+              <li>Spotify, Apple Music, or credits link.</li>
+              <li>One clip-worthy story you can tell on camera.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="card col-4">
+          <div class="body">
+            <strong>Requirements</strong>
+            <ul class="list">
+              <li>Remote video, camera on.</li>
+              <li>Headphones strongly preferred.</li>
+              <li>Decent audio, no loud room noise.</li>
+              <li>Curated show, not every application is accepted.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="apply" aria-label="Apply">
+      <div class="grid">
+        <div class="col-12">
+          <h2>Apply</h2>
+          <p class="muted" style="margin:0 0 12px; max-width:70ch">
+            Fill out the form below. If it’s a fit, you’ll get an email with next steps and scheduling options.
+            If you do not hear back, it’s not a fit right now.
+          </p>
+
+          <div class="embed" aria-label="Guest application form embed">
+            <!--
+              Replace the iframe src with your form embed URL.
+
+              Examples:
+              - Google Forms embed URL
+              - Tally embed URL
+              - Jotform embed URL
+
+              Tip: Make sure the form embed allows cross-site iframes and does not require login.
+            -->
+            <iframe
+              src="PASTE_YOUR_FORM_EMBED_URL_HERE"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Guest Application Form">
+            </iframe>
+          </div>
+
+          <p class="hint">
+            If the embed does not load, email: <a href="mailto:dane@windrowstudio.com"><strong>dane@windrowstudio.com</strong></a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="grid">
+        <article class="card col-6">
+          <div class="body">
+            <strong>What happens next</strong>
+            <ul class="list">
+              <li>I review applications in batches.</li>
+              <li>If it’s a fit, I’ll email you with next steps and scheduling.</li>
+              <li>We may do a quick 10 minute pre-call to confirm fit and setup.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="card col-6">
+          <div class="body">
+            <strong>How to be a great guest</strong>
+            <ul class="list">
+              <li>Bring one story with stakes (mistake, hard lesson, turning point).</li>
+              <li>Bring one practical insight people can use.</li>
+              <li>Be ready for clips, not just promotion.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <small>© <span id="y"></span> Windrow Studio</small>
+      <div class="socials">
+        <a class="icon-btn" href="https://www.instagram.com/lookwhoitispod" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-5 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2.2A2.8 2.8 0 1 0 12 16.8 2.8 2.8 0 0 0 12 9.2zm6.3-.9a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2z"/></svg>
+        </a>
+        <a class="icon-btn" href="https://www.tiktok.com/@lookwhoitispod" target="_blank" rel="noopener" aria-label="TikTok">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 3c.6 2.2 2 3.6 4.3 4.1v3.2c-1.6-.1-3-.5-4.3-1.3v5.9a6 6 0 1 1-6-6c.4 0 .8 0 1.2.1v3.1a2.9 2.9 0 1 0 2.9 2.9V3h1.9z"/></svg>
+        </a>
+        <a class="icon-btn" href="https://www.youtube.com/@lookwhoitispod" target="_blank" rel="noopener" aria-label="YouTube">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M23 7.5a4 4 0 0 0-2.8-2.8C18 4 12 4 12 4s-6 0-8.2.7A4 4 0 0 0 1 7.5 41 41 0 0 0 1 12a41 41 0 0 0 0 4.5 4 4 0 0 0 2.8 2.8C6 20 12 20 12 20s6 0 8.2-.7A4 4 0 0 0 23 16.5 41 41 0 0 0 23 12a41 41 0 0 0 0-4.5zM9.8 15.5V8.5L15.5 12l-5.7 3.5z"/></svg>
+        </a>
+        <a class="icon-btn" href="https://open.spotify.com/show/44Vpk5tXOMYVkkeOrYLCtJ" target="_blank" rel="noopener" aria-label="Spotify">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.8a10.2 10.2 0 1 0 0 20.4A10.2 10.2 0 0 0 12 1.8zm4.7 14.9a.8.8 0 0 1-1.1.2 12.3 12.3 0 0 0-9.1-.9.8.8 0 0 1-.5-1.5 13.9 13.9 0 0 1 10.4 1.1c.4.2.6.7.3 1.1zm1.5-3.1a1 1 0 0 1-1.3.4 15.6 15.6 0 0 0-11.4-1.2 1 1 0 1 1-.5-2 17.6 17.6 0 0 1 12.8 1.4c.5.3.7.9.4 1.4zm.2-3.4a1.2 1.2 0 0 1-1.6.5 18.8 18.8 0 0 0-14.1-1.5 1.2 1.2 0 0 1-.6-2.3A21 21 0 0 1 18.7 9c.6.3.9 1 .6 1.6z"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body>
+</html>

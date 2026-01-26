@@ -180,38 +180,49 @@
       </div>
     </div>
   </div>
-
   <script>
-    const STATUS_URL = "https://lookwhoitis.duckdns.org/status-json.xsl";
-    const MOUNT = "/stream";
+  const STATUS_URL = "https://lookwhoitis.duckdns.org/status-json.xsl";
 
-    function asArray(x) {
-      return Array.isArray(x) ? x : (x ? [x] : []);
+  function firstSource(icestats) {
+    const s = icestats && icestats.source;
+    if (!s) return null;
+    return Array.isArray(s) ? s[0] : s; // Icecast sometimes returns object, sometimes array
+  }
+
+  function pickNowPlaying(src) {
+    // Best signal (what your JSON shows)
+    const icy = src?.metadata?.x_icy_title;
+    if (icy && typeof icy === "string" && icy.trim()) return icy.trim();
+
+    // Fallback: last playlist entry if present
+    const list = src?.playlist?.trackList;
+    if (Array.isArray(list) && list.length) {
+      const last = list[list.length - 1]?.title;
+      if (last && typeof last === "string" && last.trim()) return last.trim();
     }
 
-    async function updateNowPlaying() {
-      try {
-        const res = await fetch(STATUS_URL, { cache: "no-store" });
-        if (!res.ok) throw new Error("HTTP " + res.status);
-        const data = await res.json();
+    // Fallback: Icecast title fields
+    const t = src?.title || src?.yp_currently_playing;
+    if (t && typeof t === "string" && t.trim()) return t.trim();
 
-        const sources = asArray(data?.icestats?.source);
-        if (!sources.length) {
-          document.getElementById("nowPlaying").textContent = "Off air";
-          return;
-        }
+    return "Live";
+  }
 
-        const s = sources.find(v => (v.listenurl || "").includes(MOUNT)) || sources[0];
-        const now = s.yp_currently_playing || s.title || "Live";
+  async function updateNowPlaying() {
+    try {
+      const res = await fetch(STATUS_URL, { cache: "no-store" });
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      const data = await res.json();
 
-        document.getElementById("nowPlaying").textContent = now;
-      } catch (e) {
-        document.getElementById("nowPlaying").textContent = "Live";
-      }
+      const src = firstSource(data?.icestats);
+      document.getElementById("nowPlaying").textContent = src ? pickNowPlaying(src) : "Off air";
+    } catch (e) {
+      document.getElementById("nowPlaying").textContent = "Live";
     }
+  }
 
-    updateNowPlaying();
-    setInterval(updateNowPlaying, 15000);
-  </script>
+  updateNowPlaying();
+  setInterval(updateNowPlaying, 15000);
+</script>
 </body>
 </html>

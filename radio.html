@@ -7,69 +7,211 @@
   <meta name="description" content="Listen live to Look Who It Is Radio." />
 
   <style>
+    :root{
+      --bg:#0f1115;
+      --fg:#ffffff;
+      --muted:#9aa3ad;
+      --card:#141a22;
+      --line:rgba(255,255,255,.10);
+      --accent:#12b76a;
+      --shadow:0 14px 40px rgba(0,0,0,.35);
+      --radius:16px;
+    }
+
+    *{ box-sizing:border-box; }
+
     body {
       margin: 0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      background: #0f1115;
-      color: #ffffff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      background: radial-gradient(900px 500px at 50% -80px, rgba(18,183,106,.22), transparent 60%),
+                  var(--bg);
+      color: var(--fg);
       min-height: 100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: 28px 14px;
     }
+
     .wrap {
-      max-width: 480px;
       width: 100%;
-      padding: 24px;
+      max-width: 520px;
+    }
+
+    .card {
+      background: rgba(20,26,34,.92);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px;
       text-align: center;
     }
+
+    .badge {
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 99px;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(18,183,106,.14);
+    }
+
     h1 {
-      margin-bottom: 8px;
+      margin: 0 0 8px;
+      letter-spacing: -.2px;
+      font-size: 28px;
     }
+
     p {
-      color: #9aa3ad;
-      margin-bottom: 20px;
+      margin: 0 0 18px;
+      color: var(--muted);
     }
+
     audio {
       width: 100%;
-      margin-bottom: 20px;
+      margin: 10px 0 14px;
     }
-    .links a {
-      display: inline-block;
-      margin: 0 10px;
-      color: #12b76a;
-      text-decoration: none;
-      font-weight: 600;
+
+    .now {
+      margin: 10px 0 0;
+      padding: 12px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      text-align: left;
     }
-    .links a:hover {
-      text-decoration: underline;
+
+    .nowLabel {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 6px;
+      letter-spacing: .3px;
+      text-transform: uppercase;
     }
-    .small {
+
+    #nowPlaying {
+      font-size: 16px;
+      font-weight: 750;
+      line-height: 1.25;
+      word-break: break-word;
+    }
+
+    .links {
       margin-top: 16px;
+      display:flex;
+      justify-content:center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.02);
+      color: var(--fg);
+      text-decoration: none;
+      font-weight: 650;
+    }
+
+    .btn:hover {
+      text-decoration: none;
+      filter: brightness(1.06);
+    }
+
+    .btn.primary {
+      background: var(--accent);
+      border-color: rgba(0,0,0,0);
+      color: #05210f;
+    }
+
+    .small {
+      margin-top: 14px;
       font-size: 13px;
-      color: #9aa3ad;
+      color: var(--muted);
     }
   </style>
 </head>
+
 <body>
   <div class="wrap">
-    <h1>Look Who It Is Radio</h1>
-    <p>Independent artists. Songs from the people behind them.</p>
+    <div class="card">
+      <div class="badge">
+        <span class="dot" aria-hidden="true"></span>
+        <span>Live stream</span>
+      </div>
 
-    <audio controls preload="none">
-      <source src="https://lookwhoitis.duckdns.org/stream" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio>
+      <h1>Look Who It Is Radio</h1>
+      <p>Independent artists. Songs from the people behind them.</p>
 
-    <div class="links">
-      <a href="https://lookwhoitis.duckdns.org/stream" target="_blank">Open Stream</a>
-      <a href="/lookwhoitis">Podcast</a>
-      <a href="https://instagram.com/lookwhoitispodcast" target="_blank">Instagram</a>
-    </div>
+      <audio controls preload="none">
+        <source src="https://lookwhoitis.duckdns.org/stream" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
 
-    <div class="small">
-      Artist and song info updates automatically in supported players.
+      <div class="now">
+        <div class="nowLabel">Now Playing</div>
+        <div id="nowPlaying">Loading…</div>
+      </div>
+
+      <div class="links">
+        <a class="btn primary" href="https://lookwhoitis.duckdns.org/stream" target="_blank" rel="noopener">Open Stream</a>
+        <a class="btn" href="/lookwhoitis">Podcast</a>
+        <a class="btn" href="https://instagram.com/lookwhoitispodcast" target="_blank" rel="noopener">Instagram</a>
+      </div>
+
+      <div class="small">
+        Track info updates every 15 seconds. If it shows “Live,” the metadata endpoint is blocked.
+      </div>
     </div>
   </div>
+
+  <script>
+    const STATUS_URL = "https://lookwhoitis.duckdns.org/status-json.xsl";
+    const MOUNT = "/stream";
+
+    function asArray(x) {
+      return Array.isArray(x) ? x : (x ? [x] : []);
+    }
+
+    async function updateNowPlaying() {
+      try {
+        const res = await fetch(STATUS_URL, { cache: "no-store" });
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        const data = await res.json();
+
+        const sources = asArray(data?.icestats?.source);
+        if (!sources.length) {
+          document.getElementById("nowPlaying").textContent = "Off air";
+          return;
+        }
+
+        const s = sources.find(v => (v.listenurl || "").includes(MOUNT)) || sources[0];
+        const now = s.yp_currently_playing || s.title || "Live";
+
+        document.getElementById("nowPlaying").textContent = now;
+      } catch (e) {
+        document.getElementById("nowPlaying").textContent = "Live";
+      }
+    }
+
+    updateNowPlaying();
+    setInterval(updateNowPlaying, 15000);
+  </script>
 </body>
 </html>

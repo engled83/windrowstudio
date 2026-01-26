@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Look Who It Is Radio – Windrow Studio</title>
+  <meta name="description" content="Listen live to Look Who It Is Radio. Independent artists, real stories, and songs from the people behind them." />
+  <meta name="color-scheme" content="light dark" />
+
+  <style>
+    :root{
+      --bg:#fafafa; --fg:#0f1115; --muted:#616774; --line:#e7e9ee;
+      --card:#ffffff; --accent:#12b76a; --radius:16px; --max:980px;
+      --shadow:0 10px 30px rgba(16,24,40,.07);
+      --danger:#d92d20; --warn:#f79009;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+    @media (prefers-color-scheme: dark){
+      :root{
+        --bg:#0d1116; --fg:#eaeef5; --muted:#9aa3ad; --line:#222a34;
+        --card:#10161d; --accent:#12b76a;
+        --shadow:0 12px 34px rgba(0,0,0,.35);
+        --danger:#f97066; --warn:#fdb022;
+      }
+    }
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.4;
+    }
+    a{ color: inherit; text-decoration: none; }
+    a:hover{ text-decoration: underline; }
+
+    .wrap{ max-width: var(--max); margin: 0 auto; padding: 28px 18px 44px; }
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between; gap:16px;
+      margin-bottom: 18px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight: 800; letter-spacing: .2px;
+    }
+    .dot{
+      width:10px; height:10px; border-radius: 99px;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(18,183,106,.14);
+    }
+    .nav{
+      display:flex; gap:14px; flex-wrap:wrap;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .hero{
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(18,183,106,.08), rgba(18,183,106,0));
+      border-radius: calc(var(--radius) + 4px);
+      padding: 22px;
+      box-shadow: var(--shadow);
+      margin-bottom: 16px;
+    }
+    .hero h1{
+      margin:0 0 8px 0;
+      font-size: 28px;
+      letter-spacing: -.2px;
+    }
+    .hero p{
+      margin:0;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 14px;
+    }
+    @media (max-width: 860px){
+      .grid{ grid-template-columns: 1fr; }
+    }
+
+    .card{
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--card);
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+    .card h2{
+      margin: 0 0 12px 0;
+      font-size: 16px;
+      letter-spacing: .2px;
+    }
+    .muted{ color: var(--muted); }
+    .small{ font-size: 13px; }
+
+    .playerRow{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+    .statusPill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 7px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-size: 13px;
+      color: var(--muted);
+      background: rgba(127,127,127,.06);
+    }
+    .liveDot{
+      width:8px; height:8px; border-radius: 99px;
+      background: var(--muted);
+    }
+    .liveDot.on{
+      background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(18,183,106,.16);
+    }
+
+    audio{ width: 100%; }
+    .controls{
+      display:flex; gap:10px; flex-wrap:wrap; margin-top: 12px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--fg);
+      cursor: pointer;
+      font-weight: 650;
+      font-size: 14px;
+      user-select: none;
+    }
+    .btn:hover{ filter: brightness(1.04); }
+    .btn.primary{
+      background: var(--accent);
+      border-color: rgba(0,0,0,0);
+      color: #07210f;
+    }
+    .btn.primary:hover{ filter: brightness(1.02); }
+    .btn:disabled{ opacity: .55; cursor:not-allowed; }
+
+    .kv{
+      display:grid;
+      grid-template-columns: 120px 1fr;
+      gap: 8px 10px;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+    .kv div:nth-child(odd){
+      color: var(--muted);
+    }
+    code.inline{
+      font-family: var(--mono);
+      font-size: 12.5px;
+      padding: 2px 6px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: rgba(127,127,127,.06);
+    }
+
+    .notice{
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      padding: 12px 12px;
+      margin-top: 12px;
+      background: rgba(127,127,127,.06);
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .notice.warn{
+      border-color: rgba(247,144,9,.35);
+      background: rgba(247,144,9,.10);
+      color: var(--fg);
+    }
+    .notice.danger{
+      border-color: rgba(217,45,32,.35);
+      background: rgba(217,45,32,.10);
+      color: var(--fg);
+    }
+
+    .list{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .artistCard{
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px;
+      background: rgba(127,127,127,.05);
+    }
+    .artistName{ font-weight: 800; }
+    .artistLinks{
+      margin-top: 8px;
+      display:flex; gap:10px; flex-wrap:wrap;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .footer{
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: 13px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand">
+        <span class="dot" aria-hidden="true"></span>
+        <span>Windrow Studio</span>
+      </div>
+      <div class="nav">
+        <a href="/lookwhoitis">Podcast</a>
+        <a href="/join">Join</a>
+        <a href="/radio" aria-current="page">Radio</a>
+      </div>
+    </div>
+
+    <div class="hero">
+      <h1>Look Who It Is Radio</h1>
+      <p>Independent artists in rotation, plus short clips from the podcast and quick station IDs. One stream, always live when I am live.</p>
+    </div>
+
+    <div class="grid">
+      <!-- PLAYER -->
+      <div class="card">
+        <div class="playerRow">
+          <h2 style="margin:0;">Live Stream</h2>
+          <div class="statusPill" id="statusPill" title="Mount status from Icecast">
+            <span class="liveDot" id="liveDot"></span>
+            <span id="mountStatus">Checking…</span>
+          </div>
+        </div>
+
+        <audio id="radioPlayer" controls preload="none" crossorigin="anonymous">
+          <!-- Source gets set by JS so we can handle https/http logic -->
+        </audio>
+
+        <div class="controls">
+          <button class="btn primary" id="playBtn">Play</button>
+          <button class="btn" id="stopBtn">Stop</button>
+          <button class="btn" id="copyBtn">Copy stream link</button>
+          <a class="btn" id="openStreamBtn" href="#" target="_blank" rel="noopener">Open stream</a>
+        </div>
+
+        <div class="notice warn" id="mixedContentNotice" style="display:none;">
+          Your site is running on HTTPS but the stream is HTTP on port 8000. Some browsers block this. If the player fails, use the “Open stream” button or set up HTTPS later with a reverse proxy.
+        </div>
+
+        <div class="notice" id="hintNotice">
+          If you see “No mounts” on Icecast, Mixxx is not broadcasting. Mixxx should connect to <code class="inline">127.0.0.1</code> locally, not the public hostname.
+        </div>
+
+        <div style="margin-top:14px;">
+          <h2 style="margin-bottom:8px;">Now Playing</h2>
+          <div id="nowPlaying" style="font-weight:800; font-size:16px;">Loading…</div>
+          <div class="muted small" id="nowPlayingSub" style="margin-top:6px;">Updating every 15 seconds</div>
+
+          <div class="kv">
+            <div>Stream URL</div>
+            <div><code class="inline" id="streamUrlText"></code></div>
+
+            <div>Status JSON</div>
+            <div><code class="inline" id="statusUrlText"></code></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ARTISTS / LINKS -->
+      <div class="card">
+        <h2>Featured Artists</h2>
+        <div class="muted small" style="margin-bottom:10px;">
+          Put links here so listeners can follow the artists they hear. Start manual. Automate later.
+        </div>
+
+        <div class="list" id="artistList">
+          <!-- Example entries. Replace with your own. -->
+          <div class="artistCard">
+            <div class="artistName">Father Figure</div>
+            <div class="artistLinks">
+              <a href="#" target="_blank" rel="noopener">Instagram</a>
+              <a href="#" target="_blank" rel="noopener">Spotify</a>
+              <a href="#" target="_blank" rel="noopener">Website</a>
+            </div>
+          </div>
+
+          <div class="artistCard">
+            <div class="artistName">Add more artists</div>
+            <div class="artistLinks">
+              <span class="muted">Replace these placeholders with real links.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="notice" style="margin-top:12px;">
+          Want this to be cleaner? Make each artist a small card with two links:
+          one streaming link, one social link. That is all you need at first.
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div>© <span id="year"></span> Windrow Studio</div>
+      <div class="muted small">Stream hosted on Icecast. Live source via Mixxx.</div>
+    </div>
+  </div>
+
+  <script>
+    // ====== CONFIG (your station) ======
+    const PUBLIC_HOST = "lookwhoitis.duckdns.org";
+    const ICECAST_PORT = 8000;
+    const MOUNT = "/stream";
+
+    // If you later add HTTPS via a reverse proxy, set this to "https" and adjust port if needed.
+    // For now: Icecast is HTTP on 8000.
+    const ICECAST_SCHEME_PREFERRED = "http";
+
+    // ====== Derived URLs ======
+    function buildBaseUrl(scheme){
+      return scheme + "://" + PUBLIC_HOST + ":" + ICECAST_PORT;
+    }
+    function buildStreamUrl(scheme){
+      return buildBaseUrl(scheme) + MOUNT;
+    }
+    function buildStatusUrl(scheme){
+      return buildBaseUrl(scheme) + "/status-json.xsl";
+    }
+
+    // ====== Elements ======
+    const player = document.getElementById("radioPlayer");
+    const playBtn = document.getElementById("playBtn");
+    const stopBtn = document.getElementById("stopBtn");
+    const copyBtn = document.getElementById("copyBtn");
+    const openStreamBtn = document.getElementById("openStreamBtn");
+
+    const nowPlaying = document.getElementById("nowPlaying");
+    const nowPlayingSub = document.getElementById("nowPlayingSub");
+
+    const statusPill = document.getElementById("statusPill");
+    const liveDot = document.getElementById("liveDot");
+    const mountStatus = document.getElementById("mountStatus");
+
+    const mixedContentNotice = document.getElementById("mixedContentNotice");
+    const streamUrlText = document.getElementById("streamUrlText");
+    const statusUrlText = document.getElementById("statusUrlText");
+
+    // ====== Choose scheme intelligently ======
+    // If your website is HTTPS and your stream is HTTP, some browsers will block the audio.
+    // We still set it to HTTP because that's what you have now, but we warn the user.
+    const pageScheme = (location && location.protocol) ? location.protocol.replace(":", "") : "http";
+    const streamScheme = ICECAST_SCHEME_PREFERRED;
+
+    const STREAM_URL = buildStreamUrl(streamScheme);
+    const STATUS_URL = buildStatusUrl(streamScheme);
+
+    // Set UI text + links
+    streamUrlText.textContent = STREAM_URL;
+    statusUrlText.textContent = STATUS_URL;
+    openStreamBtn.href = STREAM_URL;
+
+    // Set audio source
+    const src = document.createElement("source");
+    src.src = STREAM_URL;
+    src.type = "audio/mpeg";
+    player.appendChild(src);
+
+    // Mixed content warning (HTTPS page + HTTP stream)
+    if (pageScheme === "https" && streamScheme === "http") {
+      mixedContentNotice.style.display = "block";
+    }
+
+    // ====== Controls ======
+    playBtn.addEventListener("click", async () => {
+      try { await player.play(); } catch (e) {}
+    });
+
+    stopBtn.addEventListener("click", () => {
+      player.pause();
+      player.currentTime = 0;
+    });
+
+    copyBtn.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(STREAM_URL);
+        copyBtn.textContent = "Copied";
+        setTimeout(() => copyBtn.textContent = "Copy stream link", 1100);
+      } catch (e) {
+        // Fallback
+        const tmp = document.createElement("input");
+        tmp.value = STREAM_URL;
+        document.body.appendChild(tmp);
+        tmp.select();
+        document.execCommand("copy");
+        document.body.removeChild(tmp);
+        copyBtn.textContent = "Copied";
+        setTimeout(() => copyBtn.textContent = "Copy stream link", 1100);
+      }
+    });
+
+    // ====== Icecast status polling ======
+    function normalizeSources(source){
+      if (!source) return [];
+      return Array.isArray(source) ? source : [source];
+    }
+
+    function pickMount(sources){
+      // Find matching mount by listenurl containing the mount path
+      const match = sources.find(s => (s.listenurl || "").includes(MOUNT));
+      return match || sources[0] || null;
+    }
+
+    function parseNowPlaying(s){
+      // Different encoders populate different fields.
+      // Mixxx often uses "title" as "Artist - Title".
+      const candidates = [
+        s.yp_currently_playing,
+        s.title,
+        s.server_name
+      ].filter(Boolean);
+
+      const line = candidates[0] || "Live";
+      return line;
+    }
+
+    async function updateStatus(){
+      try {
+        const res = await fetch(STATUS_URL, { cache: "no-store" });
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        const data = await res.json();
+
+        const sources = normalizeSources(data && data.icestats && data.icestats.source);
+        if (!sources.length){
+          mountStatus.textContent = "No mounts";
+          liveDot.classList.remove("on");
+          nowPlaying.textContent = "Off air";
+          nowPlayingSub.textContent = "Mixxx is not connected to Icecast";
+          return;
+        }
+
+        const m = pickMount(sources);
+        if (!m){
+          mountStatus.textContent = "No mounts";
+          liveDot.classList.remove("on");
+          nowPlaying.textContent = "Off air";
+          nowPlayingSub.textContent = "Mixxx is not connected to Icecast";
+          return;
+        }
+
+        // Mount up
+        mountStatus.textContent = (m.mount || MOUNT) + " live";
+        liveDot.classList.add("on");
+
+        const np = parseNowPlaying(m);
+        nowPlaying.textContent = np;
+
+        const listeners = (typeof m.listeners === "number") ? m.listeners : parseInt(m.listeners || "0", 10);
+        nowPlayingSub.textContent = "Listeners: " + (isNaN(listeners) ? "0" : listeners) + "  |  Updates every 15 seconds";
+      } catch (e){
+        mountStatus.textContent = "Status unavailable";
+        liveDot.classList.remove("on");
+        nowPlaying.textContent = "Live stream";
+        nowPlayingSub.textContent = "Could not read Icecast status JSON";
+      }
+    }
+
+    updateStatus();
+    setInterval(updateStatus, 15000);
+
+    // Year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

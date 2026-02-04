@@ -1,369 +1,291 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Look Who It Is Radio</title>
-  <meta name="description" content="Listen live to Look Who It Is Radio." />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <style>
-    :root{
-      --bg:#0b0e13;
-      --fg:#ffffff;
-      --muted:#a6b0bd;
-      --card:#101722;
-      --line:rgba(255,255,255,.10);
-      --glass:rgba(255,255,255,.04);
-      --accent:#12b76a;
-      --shadow:0 18px 55px rgba(0,0,0,.45);
-      --radius:18px;
-      --radius2:14px;
-    }
+<title>Look Who It Is Radio</title>
+<meta name="description" content="Live independent radio. Turn it on. Leave it on.">
 
-    *{ box-sizing:border-box; }
+<style>
+:root{
+  --bg:#0b0e13;
+  --card:#101722;
+  --fg:#ffffff;
+  --muted:#a6b0bd;
+  --line:rgba(255,255,255,.10);
+  --accent:#12b76a;
+  --danger:#ff4a4a;
+  --radius:18px;
+  --shadow:0 20px 60px rgba(0,0,0,.5);
+}
 
-    body{
-      margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      color:var(--fg);
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:28px 14px;
-      background:
-        radial-gradient(850px 520px at 50% -120px, rgba(18,183,106,.25), transparent 60%),
-        radial-gradient(900px 600px at 10% 110%, rgba(83,143,255,.12), transparent 55%),
-        radial-gradient(900px 600px at 110% 120%, rgba(255,74,156,.10), transparent 55%),
-        var(--bg);
-    }
+*{box-sizing:border-box}
 
-    .wrap{ width:100%; max-width: 560px; }
+body{
+  margin:0;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px 14px;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+  color:var(--fg);
+  background:
+    radial-gradient(800px 500px at 50% -120px, rgba(18,183,106,.25), transparent 60%),
+    radial-gradient(900px 600px at 110% 120%, rgba(255,74,156,.10), transparent 55%),
+    var(--bg);
+}
 
-    .card{
-      position:relative;
-      background: rgba(16,23,34,.88);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 22px;
-      overflow:hidden;
-    }
+.wrap{
+  width:100%;
+  max-width:520px;
+}
 
-    .card:before{
-      content:"";
-      position:absolute;
-      inset:-2px;
-      background:
-        radial-gradient(380px 240px at 30% 10%, rgba(18,183,106,.18), transparent 60%),
-        radial-gradient(420px 260px at 85% 40%, rgba(83,143,255,.10), transparent 60%),
-        radial-gradient(420px 260px at 55% 110%, rgba(255,74,156,.08), transparent 60%);
-      pointer-events:none;
-      filter: blur(1px);
-    }
+.card{
+  background:rgba(16,23,34,.9);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:22px;
+}
 
-    .inner{ position:relative; z-index:1; text-align:center; }
+header{
+  text-align:center;
+  margin-bottom:18px;
+}
 
-    header{
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-      align-items:center;
-      margin-bottom: 14px;
-    }
+header h1{
+  margin:0;
+  font-size:30px;
+  letter-spacing:-.4px;
+}
 
-    .badge{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      border:1px solid var(--line);
-      background: var(--glass);
-      padding: 6px 10px;
-      border-radius: 999px;
-      font-size: 12px;
-      color: var(--muted);
-    }
+header p{
+  margin:6px 0 0;
+  color:var(--muted);
+  font-size:14px;
+}
 
-    .dot{
-      width:8px; height:8px; border-radius:999px;
-      background: var(--accent);
-      box-shadow: 0 0 0 6px rgba(18,183,106,.14);
-      animation:pulse 1.8s ease-in-out infinite;
-    }
+/* NOW PLAYING HERO */
+.nowPlaying{
+  border:1px solid rgba(18,183,106,.35);
+  background:linear-gradient(
+    180deg,
+    rgba(18,183,106,.20),
+    rgba(18,183,106,.05)
+  );
+  border-radius:14px;
+  padding:16px;
+  text-align:center;
+  margin-bottom:16px;
+}
 
-    @keyframes pulse{
-      0%,100%{ transform: scale(1); opacity:1; }
-      50%{ transform: scale(1.18); opacity:.85; }
-    }
+.nowPlaying .label{
+  font-size:11px;
+  letter-spacing:.4px;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:6px;
+}
 
-    h1{
-      margin:0;
-      font-size: 30px;
-      letter-spacing: -.3px;
-      line-height: 1.1;
-    }
+#nowPlaying{
+  font-size:26px;
+  font-weight:900;
+  line-height:1.15;
+  letter-spacing:-.3px;
+  word-break:break-word;
+}
 
-    .sub{
-      margin:0;
-      color: var(--muted);
-      font-size: 14px;
-    }
+@media(min-width:520px){
+  #nowPlaying{font-size:30px;}
+}
 
-    .grid{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
-      margin-top: 14px;
-    }
+/* PLAYER */
+.playerBox{
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:12px;
+  background:rgba(255,255,255,.03);
+}
 
-    .panel{
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.03);
-      border-radius: var(--radius2);
-      padding: 12px;
-      text-align:left;
-    }
+.playerHeader{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:8px;
+}
 
-    .panelLabel{
-      font-size: 12px;
-      color: var(--muted);
-      letter-spacing: .35px;
-      text-transform: uppercase;
-      display:flex;
-      justify-content: space-between;
-      align-items:center;
-      gap:10px;
-      margin-bottom: 8px;
-    }
+.status{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-size:12px;
+  color:var(--muted);
+  border:1px solid var(--line);
+  padding:4px 8px;
+  border-radius:999px;
+}
 
-    #statusPill{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.04);
-      padding: 4px 8px;
-      border-radius: 999px;
-      font-size: 12px;
-      color: var(--muted);
-      user-select:none;
-    }
+.dot{
+  width:7px;
+  height:7px;
+  border-radius:999px;
+  background:#8893a3;
+}
 
-    #statusPill .miniDot{
-      width:7px; height:7px; border-radius:999px;
-      background: #8893a3;
-    }
+.status.live .dot{background:var(--accent);}
+.status.off .dot{background:var(--danger);}
 
-    #statusPill.live .miniDot{ background: var(--accent); }
-    #statusPill.off  .miniDot{ background: #ff4a4a; }
+audio{
+  width:100%;
+  display:block;
+}
 
-    audio{
-      width:100%;
-      margin: 2px 0 0;
-      display:block;
-    }
+/* BUTTONS */
+.controls{
+  display:flex;
+  gap:12px;
+  justify-content:center;
+  margin-top:14px;
+  flex-wrap:wrap;
+}
 
-    #nowPlaying{
-      font-size: 16px;
-      font-weight: 800;
-      line-height: 1.25;
-      word-break: break-word;
-    }
+button,a.btn{
+  border-radius:12px;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.02);
+  color:var(--fg);
+  padding:10px 14px;
+  font-weight:700;
+  cursor:pointer;
+  text-decoration:none;
+  min-width:120px;
+}
 
-    .npSub{
-      margin-top: 6px;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.3;
-    }
+button.primary{
+  background:var(--accent);
+  border-color:transparent;
+  color:#05210f;
+}
 
-    .actions{
-      display:flex;
-      gap:12px;
-      justify-content:center;
-      flex-wrap:wrap;
-      margin-top: 14px;
-    }
+footer{
+  margin-top:16px;
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  font-size:12px;
+  color:var(--muted);
+  flex-wrap:wrap;
+}
 
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding: 10px 12px;
-      border-radius: 12px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.02);
-      color: var(--fg);
-      text-decoration:none;
-      font-weight: 700;
-      min-width: 120px;
-    }
-
-    .btn:hover{ filter: brightness(1.07); }
-
-    .btn.primary{
-      background: var(--accent);
-      border-color: rgba(0,0,0,0);
-      color: #05210f;
-    }
-
-    .footer{
-      margin-top: 14px;
-      display:flex;
-      justify-content: space-between;
-      align-items:center;
-      gap: 10px;
-      color: var(--muted);
-      font-size: 12px;
-      flex-wrap: wrap;
-    }
-
-    .mono{
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-      opacity: .9;
-    }
-
-    @media (min-width: 520px){
-      .grid{ grid-template-columns: 1fr 1fr; }
-      .grid .panel:first-child{ grid-column: 1 / -1; }
-    }
-  </style>
+.mono{
+  font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+}
+</style>
 </head>
 
 <body>
-  <div class="wrap">
-    <div class="card">
-      <div class="inner">
-        <header>
-          <div class="badge"><span class="dot" aria-hidden="true"></span><span>Live stream</span></div>
-          <h1>Look Who It Is Radio</h1>
-          <p class="sub">Turn it on. Leave it on.</p>
-        </header>
+<div class="wrap">
+  <div class="card">
 
-        <div class="grid">
-          <div class="panel">
-            <div class="panelLabel">
-              <span>Player</span>
-              <span id="statusPill" class="live"><span class="miniDot" aria-hidden="true"></span><span id="statusText">Online</span></span>
-            </div>
+    <header>
+      <h1>Look Who It Is Radio</h1>
+      <p>Turn it on. Leave it on.</p>
+    </header>
 
-            <audio id="player" controls preload="none" crossorigin="anonymous">
-              <source src="https://lookwhoitis.duckdns.org/stream" type="audio/mpeg">
-              Your browser does not support the audio element.
-            </audio>
-          </div>
-
-          <div class="panel">
-            <div class="panelLabel"><span>Now Playing</span></div>
-            <div id="nowPlaying">Loading…</div>
-            <div class="npSub" id="npHint"> </div>
-          </div>
-
-          <div class="panel">
-            <div class="panelLabel"><span>Quick controls</span></div>
-            <div class="actions" style="margin-top:0;">
-              <button class="btn primary" type="button" id="btnPlay">Play</button>
-              <button class="btn" type="button" id="btnMute">Mute</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="actions">
-          <a class="btn" href="/lookwhoitis">Podcast</a>
-          <a class="btn" href="https://instagram.com/lookwhoitispodcast" target="_blank" rel="noopener">Instagram</a>
-        </div>
-
-        <div class="footer">
-          <span class="mono" id="lastUpdated"> </span>
-          <span class="mono" id="techNote"> </span>
-        </div>
-      </div>
+    <div class="nowPlaying">
+      <div class="label">Now Playing</div>
+      <div id="nowPlaying">Loading…</div>
     </div>
+
+    <div class="playerBox">
+      <div class="playerHeader">
+        <span class="mono">Live Stream</span>
+        <span id="statusPill" class="status live">
+          <span class="dot"></span>
+          <span id="statusText">Online</span>
+        </span>
+      </div>
+
+      <audio id="player" controls preload="none" crossorigin="anonymous">
+        <source src="https://lookwhoitis.duckdns.org/stream" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+
+    <div class="controls">
+      <button id="btnPlay" class="primary">Play</button>
+      <button id="btnMute">Mute</button>
+    </div>
+
+    <div class="controls">
+      <a class="btn" href="/lookwhoitis">Podcast</a>
+      <a class="btn" href="https://instagram.com/lookwhoitispodcast" target="_blank" rel="noopener">Instagram</a>
+    </div>
+
+    <footer>
+      <span id="lastUpdated" class="mono"></span>
+      <span class="mono">Icecast</span>
+    </footer>
+
   </div>
+</div>
 
-  <script>
-    const STATUS_URL = "https://lookwhoitis.duckdns.org/status-json.xsl";
-    const player = document.getElementById("player");
+<script>
+const STATUS_URL = "https://lookwhoitis.duckdns.org/status-json.xsl";
+const player = document.getElementById("player");
 
-    function firstSource(icestats) {
-      const s = icestats && icestats.source;
-      if (!s) return null;
-      return Array.isArray(s) ? s[0] : s;
-    }
+function firstSource(stats){
+  const s = stats?.source;
+  return Array.isArray(s) ? s[0] : s;
+}
 
-    function pickNowPlaying(src) {
-      const icy = src?.metadata?.x_icy_title;
-      if (icy && typeof icy === "string" && icy.trim()) return icy.trim();
+function pickNowPlaying(src){
+  const icy = src?.metadata?.x_icy_title;
+  if(icy && icy.trim()) return icy.trim();
+  return src?.title || src?.yp_currently_playing || "Live";
+}
 
-      const list = src?.playlist?.trackList;
-      if (Array.isArray(list) && list.length) {
-        const last = list[list.length - 1]?.title;
-        if (last && typeof last === "string" && last.trim()) return last.trim();
-      }
+function setStatus(live){
+  const pill = document.getElementById("statusPill");
+  const text = document.getElementById("statusText");
+  pill.classList.remove("live","off");
+  pill.classList.add(live ? "live" : "off");
+  text.textContent = live ? "Online" : "Offline";
+}
 
-      const t = src?.title || src?.yp_currently_playing;
-      if (t && typeof t === "string" && t.trim()) return t.trim();
+async function update(){
+  try{
+    const res = await fetch(STATUS_URL,{cache:"no-store"});
+    const data = await res.json();
+    const src = firstSource(data.icestats);
+    document.getElementById("nowPlaying").textContent =
+      src ? pickNowPlaying(src) : "Live";
+    setStatus(!!src);
+    document.getElementById("lastUpdated").textContent =
+      "Updated " + new Date().toLocaleTimeString([], {hour:"2-digit",minute:"2-digit"});
+  }catch{
+    setStatus(false);
+  }
+}
 
-      return null;
-    }
+document.getElementById("btnPlay").onclick = async ()=>{
+  if(player.paused) await player.play();
+  else player.pause();
+};
 
-    function setOnline(isOnline) {
-      const pill = document.getElementById("statusPill");
-      const text = document.getElementById("statusText");
+document.getElementById("btnMute").onclick = ()=>{
+  player.muted = !player.muted;
+  document.getElementById("btnMute").textContent = player.muted ? "Unmute" : "Mute";
+};
 
-      pill.classList.remove("live","off");
-      pill.classList.add(isOnline ? "live" : "off");
-      text.textContent = isOnline ? "Online" : "Offline";
-    }
+player.onplay = ()=>btnPlay.textContent="Pause";
+player.onpause = ()=>btnPlay.textContent="Play";
 
-    function setLastUpdated(ok) {
-      const el = document.getElementById("lastUpdated");
-      const d = new Date();
-      const t = d.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-      el.textContent = ok ? ("Updated " + t) : ("Last attempt " + t);
-    }
-
-    async function updateNowPlaying() {
-      try {
-        const res = await fetch(STATUS_URL, { cache: "no-store" });
-        if (!res.ok) throw new Error("HTTP " + res.status);
-        const data = await res.json();
-
-        const src = firstSource(data?.icestats);
-        const np = src ? pickNowPlaying(src) : null;
-
-        document.getElementById("nowPlaying").textContent = np || "Live";
-        document.getElementById("npHint").textContent = np ? "" : "";
-
-        setOnline(!!src);
-        setLastUpdated(true);
-      } catch (e) {
-        document.getElementById("nowPlaying").textContent = "Live";
-        setOnline(false);
-        setLastUpdated(false);
-      }
-    }
-
-    // Buttons
-    document.getElementById("btnPlay").addEventListener("click", async () => {
-      try {
-        if (player.paused) await player.play();
-        else player.pause();
-      } catch (_) {}
-      document.getElementById("btnPlay").textContent = player.paused ? "Play" : "Pause";
-    });
-
-    document.getElementById("btnMute").addEventListener("click", () => {
-      player.muted = !player.muted;
-      document.getElementById("btnMute").textContent = player.muted ? "Unmute" : "Mute";
-    });
-
-    // Keep play button label in sync if user uses native controls
-    player.addEventListener("play", () => document.getElementById("btnPlay").textContent = "Pause");
-    player.addEventListener("pause", () => document.getElementById("btnPlay").textContent = "Play");
-
-    updateNowPlaying();
-    setInterval(updateNowPlaying, 15000);
-  </script>
+update();
+setInterval(update,15000);
+</script>
 </body>
 </html>
+

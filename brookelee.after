@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Brooke Lee | Look Who It Is Podcast</title>
+  <meta name="description" content="Brooke Lee joins the Look Who It Is podcast with Dane Engle. Watch and listen to the full episode." />
+
+  <style>
+    :root{
+      --bg:#0b0f14;
+      --card:#131a22;
+      --card2:#0f141b;
+      --text:#f5f7fa;
+      --muted:#a7b0bc;
+      --line:rgba(255,255,255,.10);
+      --accent:#12b76a;
+      --accent2:#0ea85f;
+      --shadow:0 20px 50px rgba(0,0,0,.45);
+      --radius:18px;
+      --max:1000px;
+    }
+
+    *{ box-sizing:border-box; }
+
+    body{
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 20% -10%, rgba(18,183,106,.18), transparent 60%),
+        radial-gradient(900px 500px at 100% 0%, rgba(18,183,106,.10), transparent 55%),
+        var(--bg);
+      padding:24px;
+    }
+
+    .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+    }
+
+    .brand{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      font-size:13px;
+      color:var(--muted);
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.02);
+      padding:8px 12px;
+      border-radius:999px;
+      margin-bottom:20px;
+    }
+
+    .dot{
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:var(--accent);
+      box-shadow:0 0 0 6px rgba(18,183,106,.15);
+    }
+
+    .hero{
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background:linear-gradient(180deg, var(--card), var(--card2));
+      box-shadow:var(--shadow);
+      padding:36px;
+      margin-bottom:24px;
+    }
+
+    h1{
+      margin:0 0 10px 0;
+      font-size:clamp(32px, 5vw, 46px);
+      letter-spacing:-0.02em;
+    }
+
+    .subtitle{
+      font-size:18px;
+      color:var(--accent);
+      font-weight:600;
+      margin-bottom:16px;
+    }
+
+    .desc{
+      color:var(--muted);
+      font-size:16px;
+      line-height:1.6;
+      max-width:700px;
+      margin-bottom:24px;
+    }
+
+    .buttons{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:14px 20px;
+      border-radius:12px;
+      text-decoration:none;
+      font-weight:600;
+      font-size:15px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.02);
+      color:var(--text);
+      transition:.12s;
+    }
+
+    .btn:hover{
+      transform:translateY(-1px);
+      background:rgba(255,255,255,.05);
+    }
+
+    .btn.primary{
+      background:linear-gradient(180deg, var(--accent), var(--accent2));
+      color:white;
+      border:none;
+      box-shadow:0 10px 28px rgba(18,183,106,.30);
+    }
+
+    .btn.primary:hover{
+      box-shadow:0 14px 34px rgba(18,183,106,.35);
+    }
+
+    .section{
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background:linear-gradient(180deg, var(--card), var(--card2));
+      padding:28px;
+      margin-bottom:24px;
+    }
+
+    .section h2{
+      margin:0 0 14px 0;
+      font-size:22px;
+    }
+
+    .platform-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .platform{
+      padding:10px 14px;
+      border-radius:10px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.02);
+      text-decoration:none;
+      color:var(--text);
+      font-size:14px;
+    }
+
+    .platform:hover{
+      background:rgba(255,255,255,.05);
+    }
+
+    .footer{
+      text-align:center;
+      color:var(--muted);
+      font-size:13px;
+      margin-top:30px;
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <div class="brand">
+    <span class="dot"></span>
+    Look Who It Is Podcast • Windrow Studio
+  </div>
+
+  <div class="hero">
+
+    <h1>Brooke Lee</h1>
+
+    <div class="subtitle">
+      Look Who It Is Podcast Guest
+    </div>
+
+    <div class="desc">
+      Brooke Lee joins Dane Engle on the Look Who It Is podcast to talk about her path as an artist, the reality of building a career in Nashville, and what it takes to stay in it long term. This episode focuses on process, persistence, and the real work behind the music.
+    </div>
+
+    <div class="buttons">
+
+      <!-- Replace these when ready -->
+      <a class="btn primary" href="#" target="_blank">
+        Watch Full Episode
+      </a>
+
+      <a class="btn" href="#" target="_blank">
+        Listen on Spotify
+      </a>
+
+      <a class="btn" href="https://www.windrowstudio.com/lookwhoitis" target="_blank">
+        View All Episodes
+      </a>
+
+    </div>
+
+  </div>
+
+  <div class="section">
+
+    <h2>Follow Brooke Lee</h2>
+
+    <div class="platform-links">
+
+      <!-- Replace with her real links -->
+      <a class="platform" href="https://www.instagram.com/brookeleemusic/" target="_blank">Instagram</a>
+      <a class="platform" href="https://open.spotify.com/artist/7mDMlZnQ1SQRtujvd3azxS?si=FvPoHWzRSISAEsmBhUdDiQ" target="_blank">Spotify</a>
+      <a class="platform" href="https://brookeleemusic.com/" target="_blank">Website</a>
+      <a class="platform" href="https://www.youtube.com/@brookeleemusic" target="_blank">YouTube</a>
+
+    </div>
+
+  </div>
+
+  <div class="section">
+
+    <h2>About Look Who It Is</h2>
+
+    <div class="desc">
+      Look Who It Is is a podcast documenting how musicians actually build and sustain careers. Hosted by Dane Engle, the show focuses on honest conversations with artists, producers, and songwriters working in today's music industry.
+    </div>
+
+    <div class="buttons">
+      <a class="btn" href="https://www.windrowstudio.com" target="_blank">
+        Windrow Studio
+      </a>
+
+      <a class="btn" href="https://www.windrowstudio.com/radio" target="_blank">
+        Listen to Look Who It Is Radio
+      </a>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    © Windrow Studio • Look Who It Is Podcast
+  </div>
+
+</div>
+
+</body>
+</html>

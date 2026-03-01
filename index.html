@@ -46,6 +46,13 @@
     a{ color:inherit; text-decoration:none; }
     .wrap{ max-width:var(--max); margin:0 auto; padding:0 16px; }
 
+    /* Quality polish: keyboard focus */
+    :focus-visible{
+      outline:3px solid color-mix(in oklab, var(--accent) 55%, transparent);
+      outline-offset:3px;
+      border-radius:10px;
+    }
+
     /* Skip link (accessibility, invisible unless focused) */
     .skip{
       position:absolute; left:-999px; top:auto;
@@ -109,6 +116,20 @@
     .links a:hover{
       color:var(--fg);
       background:color-mix(in oklab, var(--fg) 6%, transparent);
+    }
+
+    /* Desktop nav CTA */
+    .nav-cta{
+      margin-left:6px;
+      padding:8px 12px;
+      border-radius:999px;
+      background:color-mix(in oklab, var(--fg) 6%, transparent);
+      border:1px solid var(--line);
+      color:var(--fg);
+      font-weight:900;
+    }
+    .nav-cta:hover{
+      background:color-mix(in oklab, var(--fg) 10%, transparent);
     }
 
     /* Active page indicator */
@@ -178,11 +199,13 @@
       font-weight:900;
       line-height:1.15;
       margin-bottom:14px;
+      letter-spacing:-.2px; /* desktop typography polish */
     }
     .lead{
       color:var(--muted);
       max-width:60ch;
       margin-bottom:12px;
+      font-size:1.05rem; /* desktop readability */
     }
     .sublead{
       color:var(--muted);
@@ -222,6 +245,50 @@
     @media (max-width:600px){
       .cta{ gap:10px; }
       .btn{ width:100%; padding:1rem 1.1rem; }
+    }
+
+    /* Desktop-only stats row under CTA */
+    .stats{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0,1fr));
+      gap:12px;
+      margin-top:18px;
+      max-width:680px;
+    }
+    .stat{
+      border:1px solid var(--line);
+      background:color-mix(in oklab, var(--fg) 4%, transparent);
+      border-radius:12px;
+      padding:10px 12px;
+    }
+    .stat .k{
+      display:block;
+      font-weight:900;
+      font-size:.85rem;
+      color:var(--muted);
+      margin-bottom:2px;
+      letter-spacing:.2px;
+    }
+    .stat .v{
+      display:block;
+      font-weight:850;
+      line-height:1.2;
+    }
+    @media (max-width:980px){
+      .stats{ display:none; }
+    }
+
+    /* Featured tile label (desktop) */
+    .tile-wrap{ width:100%; }
+    .tile-label{
+      display:none;
+      margin:0 0 10px;
+      font-weight:900;
+      color:var(--muted);
+      letter-spacing:.2px;
+    }
+    @media (min-width:981px){
+      .tile-label{ display:block; }
     }
 
     .tile{
@@ -272,6 +339,12 @@
     }
     .muted{ color:var(--muted); }
 
+    /* Equal-height cards on desktop */
+    @media (min-width:981px){
+      .grid{ align-items:stretch; }
+      .card{ height:100%; }
+    }
+
     /* FOOTER */
     footer{
       border-top:1px solid var(--line);
@@ -320,6 +393,7 @@
       <a href="/about.html">About</a>
       <a href="/contact.html">Contact</a>
       <a href="/guest/index.html">Guest Application</a>
+      <a class="nav-cta" href="/radio.html">Listen Live</a>
     </nav>
 
     <button class="menu" id="menuBtn" aria-expanded="false" aria-controls="mobileNav">Menu</button>
@@ -356,14 +430,23 @@
         <a class="btn" href="/about.html">About Windrow</a>
         <a class="btn" href="/guest/index.html">Apply to Be a Guest</a>
       </div>
+
+      <div class="stats" aria-label="Highlights">
+        <div class="stat"><span class="k">Podcast</span><span class="v">Working-musician stories</span></div>
+        <div class="stat"><span class="k">Radio</span><span class="v">Curated full-play rotation</span></div>
+        <div class="stat"><span class="k">Guest</span><span class="v">Apply to join the show</span></div>
+      </div>
     </div>
 
-    <div class="tile" aria-label="Featured episode">
-      <iframe
-        src="https://open.spotify.com/embed/episode/24FSGHOO7jvrKL8rhfcWQ4?si=2krWJyTkTt-kmWjJbK54Sg"
-        loading="lazy"
-        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
-      </iframe>
+    <div class="tile-wrap">
+      <div class="tile-label">Featured episode</div>
+      <div class="tile" aria-label="Featured episode">
+        <iframe
+          src="https://open.spotify.com/embed/episode/24FSGHOO7jvrKL8rhfcWQ4?si=2krWJyTkTt-kmWjJbK54Sg"
+          loading="lazy"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+        </iframe>
+      </div>
     </div>
   </section>
 

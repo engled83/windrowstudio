@@ -3,236 +3,252 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Join the Studio – Windrow Studio</title>
-  <meta name="description" content="Join Dane in the Windrow Studio recording room on Riverside." />
-  <meta name="color-scheme" content="light dark" />
+  <title>Join the Recording Room | Look Who It Is</title>
+  <meta name="description" content="Join Dane for a Look Who It Is podcast recording session on Riverside." />
 
   <style>
     :root{
-      --bg:#fafafa; --fg:#0f1115; --muted:#616774; --line:#e7e9ee;
-      --card:#ffffff; --accent:#12b76a; --radius:14px; --max:1100px;
-      --shadow:0 8px 28px rgba(16,24,40,.06);
-    }
-    @media (prefers-color-scheme: dark){
-      :root{
-        --bg:#0d1116; --fg:#eaeef5; --muted:#9aa3ad; --line:#1e2430;
-        --card:#101620; --shadow:0 10px 30px rgba(0,0,0,.45);
-      }
+      --bg:#0f2230;
+      --card:#131a22;
+      --fg:#f5f7fa;
+      --muted:#a7b0bc;
+      --line:rgba(255,255,255,.10);
+      --accent:#12b76a;
+      --accent-dark:#0b8f52;
+      --radius:20px;
+      --max:760px;
+      --shadow:0 20px 50px rgba(0,0,0,.35);
     }
 
     *{box-sizing:border-box;margin:0;padding:0}
+
     body{
-      font:16px/1.55 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto;
-      background:radial-gradient(1200px 600px at 0% -20%, rgba(18,183,106,.08), transparent 55%), var(--bg);
+      font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:
+        radial-gradient(900px 500px at 0% 0%, rgba(18,183,106,.10), transparent 60%),
+        radial-gradient(900px 500px at 100% 100%, rgba(18,183,106,.06), transparent 60%),
+        var(--bg);
       color:var(--fg);
       -webkit-font-smoothing:antialiased;
     }
+
     a{text-decoration:none;color:inherit}
 
-    .wrap{max-width:var(--max);margin:0 auto;padding:0 16px}
-
-    /* HEADER */
-    header{
-      position:sticky;top:0;z-index:40;
-      backdrop-filter:saturate(1.1) blur(8px);
-      background:color-mix(in oklab, var(--bg) 80%, transparent);
-      border-bottom:1px solid var(--line);
-    }
-    .nav{
-      height:64px;
-      display:flex;align-items:center;justify-content:space-between;
-    }
-    .brand{display:flex;align-items:center;gap:10px;font-weight:800}
-    .logo{
-      width:34px;height:34px;border-radius:10px;
-      display:grid;place-items:center;
-      background:color-mix(in oklab, var(--fg) 9%, transparent);
-      box-shadow:inset 0 0 0 1px var(--line);
-    }
-    .logo img{width:22px}
-
-    .links{display:flex;gap:18px}
-    .links a{padding:6px 4px;border-radius:8px;color:var(--muted);font-weight:600}
-    .links a:hover{color:var(--fg);background:color-mix(in oklab, var(--fg) 6%, transparent)}
-    .menu{display:none}
-
-    /* HERO */
-    .hero{
-      padding:70px 0 30px;
-      text-align:center;
-    }
-    .h1{
-      font-size:clamp(2rem,3.4vw,3rem);
-      font-weight:850;
-      margin-bottom:14px;
-    }
-    .lead{
-      max-width:60ch;
+    .wrap{
+      max-width:var(--max);
       margin:0 auto;
-      color:var(--muted);
-      margin-bottom:32px;
+      padding:28px 18px 48px;
     }
 
-    /* CARD */
-    .card{
-      background:var(--card);
-      border:1px solid var(--line);
-      border-radius:14px;
-      padding:32px;
-      max-width:650px;
-      margin:0 auto 36px;
+    .brand{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
       text-align:center;
-      box-shadow:var(--shadow);
+      gap:14px;
+      margin-bottom:30px;
     }
 
-    /* BUTTON */
+    .brand img{
+      width:84px;
+      height:auto;
+    }
+
+    .eyebrow{
+      color:var(--muted);
+      font-size:.95rem;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+
+    .hero{
+      background:rgba(255,255,255,.03);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:38px 26px;
+      text-align:center;
+    }
+
+    h1{
+      font-size:clamp(2rem,5vw,3.25rem);
+      line-height:1.05;
+      margin-bottom:14px;
+      font-weight:800;
+    }
+
+    .lead{
+      max-width:42rem;
+      margin:0 auto 26px;
+      color:var(--muted);
+      font-size:1.05rem;
+    }
+
+    .mission{
+      max-width:40rem;
+      margin:0 auto 28px;
+      color:var(--fg);
+      font-size:1rem;
+      opacity:.92;
+    }
+
     .btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      padding:1rem 2rem;
+      min-width:280px;
+      padding:16px 28px;
       border-radius:999px;
       background:var(--accent);
       color:#062612;
       font-weight:800;
-      font-size:1.15rem;
-      border:none;
-      transition:.2s;
+      font-size:1.06rem;
+      box-shadow:0 12px 24px rgba(18,183,106,.22);
+      transition:transform .18s ease, filter .18s ease;
     }
-    .btn:hover{filter:brightness(1.07);transform:translateY(-2px)}
 
-    /* CHECKLIST */
-    .checklist{
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-      margin-top:24px;
-      text-align:left;
+    .btn:hover{
+      transform:translateY(-2px);
+      filter:brightness(1.05);
+    }
+
+    .subnote{
+      margin-top:14px;
       color:var(--muted);
-      font-size:.98rem;
-    }
-    .check-item{
-      display:flex;
-      align-items:center;
-      gap:10px;
-    }
-    .check-item span{
-      font-size:1rem;
-      color:var(--fg);
-      font-weight:600;
-    }
-    .icon-small{
-      width:20px;
-      opacity:.75;
+      font-size:.96rem;
     }
 
-    /* FOOTER */
-    footer{
-      border-top:1px solid var(--line);
-      margin-top:60px;
-    }
-    .foot{
-      display:flex;align-items:center;justify-content:space-between;
-      padding:22px 0;flex-wrap:wrap;gap:12px;
-    }
-    .socials{display:flex;gap:10px}
-    .icon-btn{
-      width:40px;height:40px;border-radius:10px;
-      display:grid;place-items:center;
-      background:color-mix(in oklab, var(--fg) 6%, transparent);
+    .panel{
+      margin-top:24px;
+      background:rgba(255,255,255,.03);
       border:1px solid var(--line);
+      border-radius:18px;
+      padding:24px 22px;
+      text-align:left;
     }
-    .icon{
-      width:20px;height:20px;color:var(--muted);fill:currentColor;
+
+    .panel h2{
+      font-size:1.05rem;
+      margin-bottom:14px;
     }
-    .icon-btn:hover .icon{color:var(--fg)}
+
+    .list{
+      display:grid;
+      gap:12px;
+      color:var(--muted);
+    }
+
+    .item{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+    }
+
+    .dot{
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      background:var(--accent);
+      flex:0 0 10px;
+      margin-top:8px;
+    }
+
+    .item strong{
+      color:var(--fg);
+    }
+
+    .note{
+      margin-top:22px;
+      padding-top:18px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:.96rem;
+    }
+
+    footer{
+      text-align:center;
+      color:var(--muted);
+      margin-top:24px;
+      font-size:.9rem;
+    }
+
+    @media (max-width:640px){
+      .hero{
+        padding:30px 18px;
+      }
+
+      .btn{
+        width:100%;
+        min-width:0;
+      }
+    }
   </style>
 </head>
-
 <body>
-
-<header>
-  <div class="wrap nav">
-    <a class="brand" href="/">
-      <span class="logo"><img src="/lookwhowhite.png" alt=""></span>
-      <span>Windrow Studio</span>
-    </a>
-
-    <nav class="links">
-      <a href="/lookwhoitis.html">Podcast</a>
-      <a href="/about.html">About</a>
-      <a href="/contact.html">Contact</a>
-      <a href="/guest/index.html">Guest Application</a>
-    </nav>
-  </div>
-</header>
-
-<main class="wrap">
-
-  <section class="hero">
-    <h1 class="h1">Look Who It Is! Podcast</h1>
-    <p class="lead">When you're ready, click below to enter the studio for recording.</p>
-  </section>
-
-  <section class="card">
-    <a href="https://riverside.fm/studio/dane-engles-studio?t=014ba73e153711d07e4f"
-       target="_blank" class="btn">
-      Click Here To Join
-    </a>
-
-    <div class="checklist">
-      <div class="check-item">
-        <img class="icon-small" src="/icons/mic.png" alt="">
-        <span>Use a microphone if possible</span>
-      </div>
-      <div class="check-item">
-        <img class="icon-small" src="/icons/headphones.png" alt="">
-        <span>Wear headphones to avoid echo</span>
-      </div>
-      <div class="check-item">
-        <img class="icon-small" src="/icons/wifi.png" alt="">
-        <span>Connect to strong WiFi or Ethernet</span>
-      </div>
-      <div class="check-item">
-        <img class="icon-small" src="/icons/quiet.png" alt="">
-        <span>Find a quiet, well-lit space</span>
-      </div>
-      <div class="check-item">
-        <img class="icon-small" src="/icons/chrome.png" alt="">
-        <span>Use Chrome or Edge for best results</span>
-      </div>
+  <main class="wrap">
+    <div class="brand">
+      <img src="/lookwhowhite.png" alt="Look Who It Is logo" />
+      <div class="eyebrow">Look Who It Is Podcast</div>
     </div>
-  </section>
 
-</main>
+    <section class="hero">
+      <h1>Join the Recording Room</h1>
+      <p class="lead">
+        You’re in the right place for your <strong>Look Who It Is</strong> recording session with Dane.
+      </p>
+      <p class="mission">
+        A laid-back conversation about the years, choices, and setbacks behind a real music career.
+      </p>
 
-<footer>
-  <div class="wrap foot">
-    <small>© <span id="y"></span> Windrow Studio</small>
-
-    <div class="socials">
-      <a class="icon-btn" href="https://www.instagram.com/lookwhoitispod" target="_blank">
-        <svg class="icon" viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-5 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2.2A2.8 2.8 0 1 0 12 16.8 2.8 2.8 0 0 0 12 9.2zm6.3-.9a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2z"/></svg>
+      <a
+        href="https://riverside.fm/studio/dane-engles-studio?t=014ba73e153711d07e4f"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn"
+      >
+        Join the Recording Room
       </a>
 
-      <a class="icon-btn" href="https://www.tiktok.com/@lookwhoitispod" target="_blank">
-        <svg class="icon" viewBox="0 0 24 24"><path d="M14.5 3c.6 2.2 2 3.6 4.3 4.1v3.2c-1.6-.1-3-.5-4.3-1.3v5.9a6 6 0 1 1-6-6c.4 0 .8 0 1.2.1v3.1a2.9 2.9 0 1 0 2.9 2.9V3h1.9z"/></svg>
-      </a>
+      <p class="subnote">This opens directly in Riverside. Chrome or Edge works best.</p>
 
-      <a class="icon-btn" href="https://www.youtube.com/@lookwhoitispod" target="_blank">
-        <svg class="icon" viewBox="0 0 24 24"><path d="M23 7.5a4 4 0 0 0-2.8-2.8C18 4 12 4 12 4s-6 0-8.2.7A4 4 0 0 0 1 7.5 41 41 0 0 0 1 12a41 41 0 0 0 0 4.5 4 4 0 0 0 2.8 2.8C6 20 12 20 12 20s6 0 8.2-.7A4 4 0 0 0 23 16.5 41 41 0 0 0 23 12a41 41 0 0 0 0-4.5zM9.8 15.5V8.5L15.5 12l-5.7 3.5z"/></svg>
-      </a>
+      <div class="panel">
+        <h2>Before we start</h2>
+        <div class="list">
+          <div class="item">
+            <span class="dot"></span>
+            <div><strong>Use headphones if possible</strong> to avoid echo.</div>
+          </div>
+          <div class="item">
+            <span class="dot"></span>
+            <div><strong>Use a microphone if you have one,</strong> but don’t stress if not.</div>
+          </div>
+          <div class="item">
+            <span class="dot"></span>
+            <div><strong>Find a quiet, well-lit spot</strong> with a stable internet connection.</div>
+          </div>
+          <div class="item">
+            <span class="dot"></span>
+            <div><strong>Join a few minutes early</strong> so we can make sure audio and video look good.</div>
+          </div>
+          <div class="item">
+            <span class="dot"></span>
+            <div><strong>Expect a laid-back conversation</strong> that usually runs around 30 to 40 minutes.</div>
+          </div>
+        </div>
 
-      <a class="icon-btn" href="https://open.spotify.com/show/44Vpk5tXOMYVkkeOrYLCtJ" target="_blank">
-        <svg class="icon" viewBox="0 0 24 24"><path d="M12 1.8a10.2 10.2 0 1 0 0 20.4A10.2 10.2 0 0 0 12 1.8zm4.7 14.9a.8.8 0 0 1-1.1.2 12.3 12.3 0 0 0-9.1-.9.8.8 0 0 1-.5-1.5 13.9 13.9 0 0 1 10.4 1.1c.4.2.6.7.3 1.1zm1.5-3.1a1 1 0 0 1-1.3.4 15.6 15.6 0 0 0-11.4-1.2 1 1 0 1 1-.5-2 17.6 17.6 0 0 1 12.8 1.4c.5.3.7.9.4 1.4zm.2-3.4a1.2 1.2 0 0 1-1.6.5 18.8 18.8 0 0 0-14.1-1.5 1.2 1.2 0 0 1-.6-2.3A21 21 0 0 1 18.7 9c.6.3.9 1 .6 1.6z"/></svg>
-      </a>
-    </div>
-  </div>
-</footer>
+        <div class="note">
+          If anything gives you trouble before we start, message Dane and we’ll get it sorted out.
+        </div>
+      </div>
+    </section>
 
-<script>
-  document.getElementById('y').textContent = new Date().getFullYear();
-</script>
+    <footer>
+      © <span id="y"></span> Windrow Studio
+    </footer>
+  </main>
 
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

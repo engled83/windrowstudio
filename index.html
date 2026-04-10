@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Windrow Studio | Look Who It Is! Podcast</title>
   <meta name="description" content="Look Who It Is! is a podcast where artists pull back the curtain on the years, choices, and setbacks behind a real music career. Hosted by Windrow Studio." />
-  <meta name="color-scheme" content="light dark" />
+  <meta name="color-scheme" content="dark" />
   <link rel="canonical" href="https://windrowstudio.com/" />
 
   <meta property="og:title" content="Windrow Studio | Look Who It Is! Podcast" />
@@ -24,34 +24,30 @@
 
   <style>
     :root{
-      --bg:#fafafa;
-      --fg:#0f1115;
-      --muted:#616774;
-      --line:#e7e9ee;
-      --card:#ffffff;
+      --bg:#0b0e13;
+      --bg-soft:#101722;
+      --fg:#f3f6fb;
+      --muted:#a1acb8;
+      --line:rgba(255,255,255,.08);
+      --card:rgba(16,23,34,.92);
       --accent:#12b76a;
+      --accent-soft:rgba(18,183,106,.14);
       --radius:14px;
       --max:1100px;
-      --shadow:0 8px 28px rgba(16,24,40,.06);
-    }
-    @media (prefers-color-scheme: dark){
-      :root{
-        --bg:#0d1116;
-        --fg:#eaeef5;
-        --muted:#9aa3ad;
-        --line:#1e2430;
-        --card:#101620;
-        --shadow:0 10px 30px rgba(0,0,0,.45);
-      }
+      --shadow:0 18px 50px rgba(0,0,0,.38);
     }
 
     *{ box-sizing:border-box; margin:0; padding:0; }
 
+    html, body{
+      min-height:100%;
+    }
+
     body{
       font:16px/1.55 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       background:
-        radial-gradient(1200px 600px at 0% -20%, rgba(18,183,106,.08), transparent 55%),
-        var(--bg);
+        radial-gradient(1000px 520px at 50% -120px, rgba(18,183,106,.16), transparent 60%),
+        linear-gradient(180deg, #0b0e13 0%, #0d1118 100%);
       color:var(--fg);
       -webkit-font-smoothing:antialiased;
     }
@@ -81,12 +77,9 @@
 
     header{
       position:sticky; top:0; z-index:40;
-      backdrop-filter:saturate(1.1) blur(8px);
-      background:rgba(250,250,250,.82);
+      backdrop-filter:saturate(1.1) blur(10px);
+      background:rgba(11,14,19,.82);
       border-bottom:1px solid var(--line);
-    }
-    @media (prefers-color-scheme: dark){
-      header{ background:rgba(13,17,22,.82); }
     }
 
     .nav{
@@ -112,12 +105,9 @@
       border-radius:10px;
       display:grid;
       place-items:center;
-      background:rgba(15,17,21,.06);
+      background:rgba(255,255,255,.04);
       box-shadow:inset 0 0 0 1px var(--line);
       flex:0 0 auto;
-    }
-    @media (prefers-color-scheme: dark){
-      .logo{ background:rgba(234,238,245,.06); }
     }
 
     .logo img{ width:22px; height:22px; }
@@ -149,7 +139,7 @@
       height:44px;
       border-radius:12px;
       border:1px solid var(--line);
-      background:rgba(15,17,21,.04);
+      background:rgba(255,255,255,.03);
       display:flex;
       align-items:center;
       justify-content:center;
@@ -157,15 +147,10 @@
       transition:.2s;
       position:relative;
     }
-    @media (prefers-color-scheme: dark){
-      .hamburger{ background:rgba(234,238,245,.04); }
-    }
 
     .hamburger:hover{
-      background:rgba(15,17,21,.08);
-    }
-    @media (prefers-color-scheme: dark){
-      .hamburger:hover{ background:rgba(234,238,245,.08); }
+      background:rgba(18,183,106,.08);
+      border-color:rgba(18,183,106,.45);
     }
 
     .hamburger .bar{
@@ -207,18 +192,12 @@
     }
 
     .dropmenu nav a:hover{
-      background:rgba(15,17,21,.05);
-    }
-    @media (prefers-color-scheme: dark){
-      .dropmenu nav a:hover{ background:rgba(234,238,245,.05); }
+      background:rgba(255,255,255,.04);
     }
 
     .dropmenu nav a[aria-current="page"]{
-      background:rgba(15,17,21,.06);
+      background:rgba(18,183,106,.10);
       border:1px solid var(--line);
-    }
-    @media (prefers-color-scheme: dark){
-      .dropmenu nav a[aria-current="page"]{ background:rgba(234,238,245,.06); }
     }
 
     .dropdown.open .dropmenu{ display:block; }
@@ -252,8 +231,12 @@
       font-weight:900;
       letter-spacing:.08em;
       text-transform:uppercase;
-      color:var(--accent);
+      color:#c9f7df;
       margin-bottom:14px;
+      padding:6px 12px;
+      border-radius:999px;
+      border:1px solid rgba(18,183,106,.28);
+      background:var(--accent-soft);
     }
 
     .h1{
@@ -299,17 +282,14 @@
       font-weight:900;
       border-radius:999px;
       border:1px solid var(--line);
-      background:rgba(15,17,21,.04);
+      background:rgba(255,255,255,.03);
       transition:.2s;
       white-space:nowrap;
     }
-    @media (prefers-color-scheme: dark){
-      .btn{ background:rgba(234,238,245,.04); }
-    }
 
-    .btn:hover{ background:rgba(15,17,21,.08); }
-    @media (prefers-color-scheme: dark){
-      .btn:hover{ background:rgba(234,238,245,.08); }
+    .btn:hover{
+      background:rgba(255,255,255,.06);
+      border-color:rgba(18,183,106,.45);
     }
 
     .btn.accent{
@@ -334,12 +314,10 @@
 
     .proof-card{
       border:1px solid var(--line);
-      background:rgba(15,17,21,.03);
+      background:rgba(255,255,255,.03);
       border-radius:12px;
       padding:12px 14px;
-    }
-    @media (prefers-color-scheme: dark){
-      .proof-card{ background:rgba(234,238,245,.03); }
+      box-shadow:var(--shadow);
     }
 
     .proof-k{
@@ -376,20 +354,29 @@
 
     .tile{
       aspect-ratio:16/9;
-      border-radius:14px;
+      border-radius:18px;
       overflow:hidden;
       border:1px solid var(--line);
-      background:rgba(15,17,21,.05);
+      background:var(--bg-soft);
       box-shadow:var(--shadow);
+      position:relative;
     }
-    @media (prefers-color-scheme: dark){
-      .tile{ background:rgba(234,238,245,.05); }
+
+    .tile:before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(135deg, rgba(18,183,106,.10), transparent 35%);
+      pointer-events:none;
+      z-index:1;
     }
 
     .tile iframe{
       width:100%;
       height:100%;
       border:0;
+      position:relative;
+      z-index:0;
     }
 
     .section{ padding:42px 0; }
@@ -428,7 +415,7 @@
     .card{
       background:var(--card);
       border:1px solid var(--line);
-      border-radius:12px;
+      border-radius:16px;
       box-shadow:var(--shadow);
       padding:20px;
       height:100%;
@@ -464,30 +451,14 @@
       color:var(--fg);
     }
 
-    .platforms{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      justify-content:center;
-      margin-top:18px;
-    }
-
-    .pill{
-      padding:8px 12px;
-      border-radius:999px;
-      border:1px solid var(--line);
-      background:rgba(15,17,21,.03);
-      font-weight:800;
-      color:var(--muted);
-    }
-    @media (prefers-color-scheme: dark){
-      .pill{ background:rgba(234,238,245,.03); }
+    .mini-cta:hover{
+      color:#c9f7df;
     }
 
     .band{
       border:1px solid var(--line);
       background:var(--card);
-      border-radius:14px;
+      border-radius:18px;
       box-shadow:var(--shadow);
       padding:22px;
       display:flex;
@@ -520,10 +491,7 @@
       display:grid;
       place-items:center;
       border:1px solid var(--line);
-      background:rgba(15,17,21,.04);
-    }
-    @media (prefers-color-scheme: dark){
-      .icon-btn{ background:rgba(234,238,245,.04); }
+      background:rgba(255,255,255,.03);
     }
 
     .icon{
@@ -531,6 +499,11 @@
       height:20px;
       fill:currentColor;
       color:var(--muted);
+    }
+
+    .icon-btn:hover{
+      border-color:rgba(18,183,106,.45);
+      background:rgba(18,183,106,.08);
     }
 
     .icon-btn:hover .icon{ color:var(--fg); }
@@ -610,7 +583,7 @@
     </div>
 
     <div class="tile-wrap">
-      <div class="tile-label">Featured episode</div>
+      <div class="tile-label">Featured Episode</div>
       <div class="tile" aria-label="Featured episode">
         <iframe
           src="https://open.spotify.com/embed/episode/6JmDfGRLlGtjJDE4ypH5ap?si=BmDwgMWMSjKffMOUM64Ebw"

@@ -1,23 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Join the Recording Room | Look Who It Is</title>
-  <meta name="description" content="Join Dane for a Look Who It Is podcast recording session on Riverside." />
+  <meta name="description" content="Join Dane for your Look Who It Is podcast recording session on Riverside.">
 
   <style>
     :root{
-      --bg:#0f2230;
-      --card:#131a22;
-      --fg:#f5f7fa;
-      --muted:#a7b0bc;
-      --line:rgba(255,255,255,.10);
+      --bg:#0b0e13;
+      --card:#101722;
+      --fg:#f3f6fb;
+      --muted:#a1acb8;
+      --line:rgba(255,255,255,.08);
       --accent:#12b76a;
-      --accent-dark:#0b8f52;
-      --radius:20px;
-      --max:760px;
-      --shadow:0 20px 50px rgba(0,0,0,.35);
+      --accent-soft:rgba(18,183,106,.14);
+      --shadow:0 20px 50px rgba(0,0,0,.38);
+      --max:860px;
     }
 
     *{box-sizing:border-box;margin:0;padding:0}
@@ -25,9 +24,8 @@
     body{
       font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
       background:
-        radial-gradient(900px 500px at 0% 0%, rgba(18,183,106,.10), transparent 60%),
-        radial-gradient(900px 500px at 100% 100%, rgba(18,183,106,.06), transparent 60%),
-        var(--bg);
+        radial-gradient(1000px 520px at 50% -120px, rgba(18,183,106,.16), transparent 60%),
+        linear-gradient(180deg, #0b0e13 0%, #0d1118 100%);
       color:var(--fg);
       -webkit-font-smoothing:antialiased;
     }
@@ -37,72 +35,142 @@
     .wrap{
       max-width:var(--max);
       margin:0 auto;
-      padding:28px 18px 48px;
+      padding:24px 18px 48px;
+    }
+
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      margin-bottom:28px;
+      flex-wrap:wrap;
     }
 
     .brand{
       display:flex;
-      flex-direction:column;
       align-items:center;
-      text-align:center;
-      gap:14px;
-      margin-bottom:30px;
+      gap:12px;
+      min-width:0;
     }
 
     .brand img{
-      width:84px;
+      width:40px;
       height:auto;
+      display:block;
+    }
+
+    .brand-text{
+      display:flex;
+      flex-direction:column;
+      line-height:1.05;
+    }
+
+    .brand-top{
+      font-size:.84rem;
+      font-weight:700;
+      color:var(--muted);
+    }
+
+    .brand-main{
+      font-size:1rem;
+      font-weight:900;
+    }
+
+    .back-link{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      font-weight:700;
+    }
+
+    .back-link:hover{
+      background:rgba(255,255,255,.06);
+      border-color:rgba(18,183,106,.45);
+    }
+
+    .hero{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:22px;
+      box-shadow:var(--shadow);
+      padding:40px 28px;
+      text-align:center;
+      overflow:hidden;
+      position:relative;
+    }
+
+    .hero:before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(135deg, rgba(18,183,106,.12), transparent 36%);
+      pointer-events:none;
+    }
+
+    .hero-inner{
+      position:relative;
+      z-index:1;
+    }
+
+    .logo{
+      width:110px;
+      height:auto;
+      display:block;
+      margin:0 auto 16px;
     }
 
     .eyebrow{
-      color:var(--muted);
-      font-size:.95rem;
+      display:inline-block;
+      margin-bottom:14px;
+      padding:6px 12px;
+      border-radius:999px;
+      border:1px solid rgba(18,183,106,.28);
+      background:var(--accent-soft);
+      color:#c9f7df;
+      font-size:.82rem;
+      font-weight:900;
       letter-spacing:.08em;
       text-transform:uppercase;
     }
 
-    .hero{
-      background:rgba(255,255,255,.03);
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:38px 26px;
-      text-align:center;
-    }
-
     h1{
       font-size:clamp(2rem,5vw,3.25rem);
-      line-height:1.05;
+      line-height:1.04;
       margin-bottom:14px;
-      font-weight:800;
+      font-weight:900;
+      letter-spacing:-.02em;
     }
 
     .lead{
       max-width:42rem;
-      margin:0 auto 26px;
+      margin:0 auto 14px;
       color:var(--muted);
       font-size:1.05rem;
     }
 
     .mission{
       max-width:40rem;
-      margin:0 auto 28px;
+      margin:0 auto 26px;
       color:var(--fg);
-      font-size:1rem;
-      opacity:.92;
+      opacity:.94;
     }
 
     .btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      min-width:280px;
+      min-width:300px;
       padding:16px 28px;
       border-radius:999px;
       background:var(--accent);
       color:#062612;
-      font-weight:800;
-      font-size:1.06rem;
+      font-weight:900;
+      font-size:1.05rem;
       box-shadow:0 12px 24px rgba(18,183,106,.22);
       transition:transform .18s ease, filter .18s ease;
     }
@@ -118,18 +186,25 @@
       font-size:.96rem;
     }
 
-    .panel{
+    .grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
       margin-top:24px;
+      text-align:left;
+    }
+
+    .panel{
       background:rgba(255,255,255,.03);
       border:1px solid var(--line);
       border-radius:18px;
-      padding:24px 22px;
-      text-align:left;
+      padding:22px 20px;
     }
 
     .panel h2{
       font-size:1.05rem;
       margin-bottom:14px;
+      font-weight:900;
     }
 
     .list{
@@ -157,12 +232,16 @@
       color:var(--fg);
     }
 
+    .small{
+      color:var(--muted);
+    }
+
     .note{
-      margin-top:22px;
-      padding-top:18px;
+      margin-top:18px;
+      padding-top:16px;
       border-top:1px solid var(--line);
       color:var(--muted);
-      font-size:.96rem;
+      font-size:.95rem;
     }
 
     footer{
@@ -172,72 +251,110 @@
       font-size:.9rem;
     }
 
-    @media (max-width:640px){
+    @media (max-width:720px){
       .hero{
-        padding:30px 18px;
+        padding:32px 18px;
       }
 
       .btn{
         width:100%;
         min-width:0;
       }
+
+      .grid{
+        grid-template-columns:1fr;
+      }
     }
   </style>
 </head>
 <body>
   <main class="wrap">
-    <div class="brand">
-      <img src="/lookwhowhite.png" alt="Look Who It Is logo" />
-      <div class="eyebrow">Look Who It Is Podcast</div>
+    <div class="topbar">
+      <div class="brand">
+        <img src="/windrow-logo.png" alt="Windrow Studio logo">
+        <div class="brand-text">
+          <div class="brand-top">Windrow Studio</div>
+          <div class="brand-main">Look Who It Is</div>
+        </div>
+      </div>
+
+      <a href="/lookwhoitis.html" class="back-link">Back to Podcast</a>
     </div>
 
     <section class="hero">
-      <h1>Join the Recording Room</h1>
-      <p class="lead">
-        You’re in the right place for your <strong>Look Who It Is</strong> recording session with Dane.
-      </p>
-      <p class="mission">
-        A laid-back conversation about the years, choices, and setbacks behind a real music career.
-      </p>
+      <div class="hero-inner">
+        <img src="/lookwhowhite.png" alt="Look Who It Is logo" class="logo">
+        <div class="eyebrow">Recording Session</div>
 
-      <a
-        href="https://riverside.fm/studio/dane-engles-studio?t=014ba73e153711d07e4f"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="btn"
-      >
-        Click Here To Join
-      </a>
+        <h1>Join the Recording Room</h1>
 
-      <p class="subnote">This opens directly in Riverside. Chrome or Edge works best.</p>
+        <p class="lead">
+          You’re in the right place for your <strong>Look Who It Is</strong> recording session with Dane.
+        </p>
 
-      <div class="panel">
-        <h2>Before we start</h2>
-        <div class="list">
-          <div class="item">
-            <span class="dot"></span>
-            <div><strong>Use headphones if possible</strong> to avoid echo.</div>
-          </div>
-          <div class="item">
-            <span class="dot"></span>
-            <div><strong>Use a microphone if you have one,</strong> but don’t stress if not.</div>
-          </div>
-          <div class="item">
-            <span class="dot"></span>
-            <div><strong>Find a quiet, well-lit spot</strong> with a stable internet connection.</div>
-          </div>
-          <div class="item">
-            <span class="dot"></span>
-            <div><strong>Join a few minutes early</strong> so we can make sure audio and video look good.</div>
-          </div>
-          <div class="item">
-            <span class="dot"></span>
-            <div><strong>Expect a laid-back conversation</strong> that usually runs around 30 to 40 minutes.</div>
-          </div>
-        </div>
+        <p class="mission">
+          It’s a laid-back conversation about the years, choices, setbacks, and real story behind a music career.
+        </p>
 
-        <div class="note">
-          If anything gives you trouble before we start, message Dane and we’ll get it sorted out.
+        <a
+          href="https://riverside.fm/studio/dane-engles-studio?t=014ba73e153711d07e4f"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn"
+        >
+          Join the Recording Session
+        </a>
+
+        <p class="subnote">This opens directly in Riverside. Chrome or Edge works best.</p>
+
+        <div class="grid">
+          <div class="panel">
+            <h2>Before we start</h2>
+            <div class="list">
+              <div class="item">
+                <span class="dot"></span>
+                <div><strong>Use headphones if possible</strong> so there’s no echo.</div>
+              </div>
+              <div class="item">
+                <span class="dot"></span>
+                <div><strong>Use a microphone if you have one,</strong> but don’t overthink it.</div>
+              </div>
+              <div class="item">
+                <span class="dot"></span>
+                <div><strong>Find a quiet, well-lit spot</strong> with stable internet.</div>
+              </div>
+              <div class="item">
+                <span class="dot"></span>
+                <div><strong>Join a few minutes early</strong> so audio and video can get checked.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <h2>What to expect</h2>
+            <div class="list">
+              <div class="item">
+                <span class="dot"></span>
+                <div><strong>Usually 30 to 40 minutes</strong> unless the conversation runs longer naturally.</div>
+              </div>
+              <div class="item">
+                <span class="dot"></span>
+                <div><strong>Relaxed and conversational</strong> rather than stiff or scripted.</div>
+              </div>
+              <div class="item">
+                <span class="dot"></span>
+                <div><strong>Real career talk</strong> about music, setbacks, momentum, and what shaped the path.</div>
+              </div>
+              <div class="item">
+                <span class="dot"></span>
+                <div><strong>No need to be formal.</strong> Just show up ready to talk.</div>
+              </div>
+            </div>
+
+            <div class="note">
+              If anything gives you trouble before we start, message Dane and it’ll get sorted out.
+            </div>
+          </div>
         </div>
       </div>
     </section>

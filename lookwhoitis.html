@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Look Who It Is | Windrow Studio</title>
+<meta name="description" content="A podcast where artists pull back the curtain on real music careers.">
+<meta name="color-scheme" content="dark">
+
+<style>
+:root{
+  --bg:#0b0e13;
+  --card:#101722;
+  --fg:#f3f6fb;
+  --muted:#a1acb8;
+  --line:rgba(255,255,255,.08);
+  --accent:#12b76a;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+  background:radial-gradient(800px 400px at 50% -100px, rgba(18,183,106,.2), transparent 60%), var(--bg);
+  color:var(--fg);
+}
+
+.wrap{
+  max-width:1100px;
+  margin:auto;
+  padding:0 16px;
+}
+
+/* NAV */
+
+header{
+  border-bottom:1px solid var(--line);
+  background:rgba(11,14,19,.85);
+}
+
+.nav{
+  height:64px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:800;
+}
+
+.brand img{
+  width:28px;
+}
+
+.dropdown{position:relative}
+
+.hamburger{
+  width:42px;height:42px;
+  border-radius:10px;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.03);
+  cursor:pointer;
+}
+
+.dropmenu{
+  display:none;
+  position:absolute;
+  right:0;
+  top:60px;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:10px;
+}
+
+.dropmenu a{
+  display:block;
+  padding:10px;
+  border-radius:8px;
+  font-weight:700;
+}
+
+.dropmenu a:hover{
+  background:rgba(255,255,255,.05);
+}
+
+.dropdown.open .dropmenu{display:block}
+
+/* HERO */
+
+.hero{
+  padding:70px 0 40px;
+  text-align:center;
+}
+
+.hero img{
+  width:180px;
+  margin-bottom:20px;
+}
+
+.hero h1{
+  font-size:34px;
+  margin-bottom:10px;
+}
+
+.hero p{
+  color:var(--muted);
+  max-width:600px;
+  margin:auto;
+}
+
+/* BUTTONS */
+
+.btn{
+  display:inline-block;
+  padding:12px 18px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  font-weight:700;
+  margin-top:20px;
+}
+
+.btn.accent{
+  background:var(--accent);
+  color:#062612;
+  border:none;
+}
+
+/* EPISODE CARD */
+
+.tile{
+  margin-top:40px;
+  background:var(--card);
+  border-radius:16px;
+  border:1px solid var(--line);
+  overflow:hidden;
+}
+
+.video-thumb img{
+  width:100%;
+  display:block;
+}
+
+.tile-copy{
+  padding:20px;
+}
+
+.tile-copy h2{
+  font-size:22px;
+  margin-bottom:10px;
+}
+
+.tile-copy p{
+  color:var(--muted);
+  margin-bottom:15px;
+}
+
+.actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+/* SECTION */
+
+.section{
+  padding:40px 0;
+  text-align:center;
+}
+
+.section h2{
+  margin-bottom:10px;
+}
+
+.section p{
+  color:var(--muted);
+  max-width:600px;
+  margin:auto;
+}
+
+/* GRID */
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  margin-top:20px;
+}
+
+.card{
+  background:var(--card);
+  border:1px solid var(--line);
+  padding:18px;
+  border-radius:12px;
+}
+
+.card p{color:var(--muted)}
+
+/* FOOTER */
+
+footer{
+  border-top:1px solid var(--line);
+  padding:20px 0;
+  margin-top:40px;
+  text-align:center;
+  color:var(--muted);
+}
+
+@media(max-width:800px){
+  .grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="brand">
+      <img src="/windrow-logo.png">
+      <span>Look Who It Is</span>
+    </div>
+
+    <div class="dropdown" id="nav">
+      <button class="hamburger" onclick="toggleMenu()"></button>
+      <div class="dropmenu">
+        <a href="/">Home</a>
+        <a href="/lookwhoitis.html">Podcast</a>
+        <a href="/radio.html">Radio</a>
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/guest/index.html">Guest Application</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+<!-- HERO -->
+<section class="hero">
+  <img src="/lookwhowhite.png">
+  <h1>Real music careers, not polished stories</h1>
+  <p>Artists pull back the curtain on the years, setbacks, and decisions behind what actually lasts.</p>
+
+  <a class="btn accent" href="https://youtu.be/CoeRpv1GdJk?si=EKKzuu_eOMmpNiiD" target="_blank">Watch Newest Episode</a>
+</section>
+
+<!-- NEWEST EPISODE -->
+<div class="tile">
+  <a class="video-thumb" href="https://youtu.be/CoeRpv1GdJk?si=EKKzuu_eOMmpNiiD" target="_blank">
+    <img src="/kendalleugene.png" alt="Kendall Eugene episode thumbnail">
+  </a>
+
+  <div class="tile-copy">
+    <h2>Kendall Eugene: Starting Over and Writing From Real Life</h2>
+    <p>
+      Kendall talks about losing everything, getting discovered through an Instagram cover,
+      and building a music career by writing from real life and grinding it out on the road.
+    </p>
+
+    <div class="actions">
+      <a class="btn accent" href="https://youtu.be/CoeRpv1GdJk?si=EKKzuu_eOMmpNiiD" target="_blank">Watch</a>
+      <a class="btn" href="https://open.spotify.com/episode/76mMhjvpzRpm5yKoPN3lQl?si=42d5bb1b36524a8d" target="_blank">Listen</a>
+    </div>
+  </div>
+</div>
+
+<!-- WHY -->
+<section class="section">
+  <h2>Why this show exists</h2>
+  <p>
+    Most interviews stay surface level. This one focuses on the work, the setbacks,
+    and what actually goes into building a career that lasts.
+  </p>
+
+  <div class="grid">
+    <div class="card">
+      <strong>No promo fluff</strong>
+      <p>Real conversations instead of repeating press releases.</p>
+    </div>
+
+    <div class="card">
+      <strong>Career reality</strong>
+      <p>What actually happens behind the scenes over years.</p>
+    </div>
+
+    <div class="card">
+      <strong>Built for listeners</strong>
+      <p>For people who want more than surface-level music talk.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  © <span id="year"></span> Windrow Studio
+</footer>
+
+</main>
+
+<script>
+function toggleMenu(){
+  document.getElementById("nav").classList.toggle("open");
+}
+
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Look Who It Is Podcast | Windrow Studio</title>
+<meta name="description" content="Look Who It Is is a music-industry podcast where artists pull back the curtain on real careers, setbacks, and decisions that last.">
+<meta name="color-scheme" content="dark">
+<meta property="og:title" content="Look Who It Is Podcast | Windrow Studio">
+<meta property="og:description" content="Real music careers, not polished stories.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="/kendalleugene.png">
+<meta property="og:url" content="/lookwhoitis.html">
+
+<style>
+:root{
+  --bg:#090c12;
+  --bg-elev:#0f1520;
+  --bg-elev-2:#131b29;
+  --text:#f4f7fb;
+  --muted:#a5b0be;
+  --line:rgba(255,255,255,.11);
+  --line-soft:rgba(255,255,255,.07);
+  --accent:#12b76a;
+  --accent-soft:rgba(18,183,106,.18);
+  --radius-sm:12px;
+  --radius-md:16px;
+  --radius-lg:22px;
+  --shadow:0 16px 44px rgba(0,0,0,.35);
+  --max:1140px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+html,body{min-height:100%}
+
+body{
+  font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  color:var(--text);
+  line-height:1.55;
+  background:
+    radial-gradient(900px 400px at 50% -120px, rgba(18,183,106,.18), transparent 60%),
+    radial-gradient(600px 320px at 100% 10%, rgba(31,82,255,.09), transparent 70%),
+    var(--bg);
+}
+
+a{color:inherit;text-decoration:none}
+img{max-width:100%;height:auto;display:block}
+
+.wrap{
+  width:min(var(--max), calc(100% - 2rem));
+  margin-inline:auto;
+}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:40;
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  background:rgba(9,12,18,.78);
+  border-bottom:1px solid var(--line-soft);
+}
+
+.nav{
+  min-height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-weight:800;
+  letter-spacing:.01em;
+}
+
+.brand img{width:30px}
+
+.dropdown{position:relative}
+
+.hamburger{
+  width:44px;
+  height:44px;
+  border-radius:10px;
+  border:1px solid var(--line);
+  background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.01));
+  cursor:pointer;
+  position:relative;
+}
+
+.hamburger::before,
+.hamburger::after{
+  content:"";
+  position:absolute;
+  left:11px;
+  right:11px;
+  height:2px;
+  background:var(--text);
+  border-radius:999px;
+}
+
+.hamburger::before{top:16px;box-shadow:0 8px 0 var(--text)}
+.hamburger::after{top:32px;opacity:0}
+
+.dropmenu{
+  position:absolute;
+  top:56px;
+  right:0;
+  min-width:220px;
+  padding:10px;
+  display:none;
+  border-radius:var(--radius-sm);
+  border:1px solid var(--line);
+  background:rgba(16,23,34,.96);
+  box-shadow:var(--shadow);
+}
+
+.dropmenu a{
+  display:block;
+  padding:10px 12px;
+  border-radius:10px;
+  font-weight:650;
+  color:var(--muted);
+}
+
+.dropmenu a:hover,
+.dropmenu a:focus-visible{
+  color:var(--text);
+  background:rgba(255,255,255,.06);
+}
+
+.dropdown.open .dropmenu{display:block}
+
+main{padding:30px 0 58px}
+
+.section{margin-top:34px}
+
+.kicker{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:6px 12px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.02);
+  color:var(--muted);
+  font-weight:650;
+  font-size:.84rem;
+  letter-spacing:.03em;
+  text-transform:uppercase;
+}
+
+.kicker::before{
+  content:"";
+  width:8px;
+  height:8px;
+  border-radius:999px;
+  background:var(--accent);
+  box-shadow:0 0 0 7px rgba(18,183,106,.17);
+}
+
+.hero{
+  margin-top:16px;
+  text-align:center;
+  padding:56px 24px;
+  border:1px solid var(--line-soft);
+  border-radius:var(--radius-lg);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01)),
+    var(--bg-elev);
+}
+
+.hero img{
+  width:190px;
+  margin:0 auto 18px;
+}
+
+.hero h1{
+  font-size:clamp(1.9rem,3.8vw,3.1rem);
+  line-height:1.15;
+  letter-spacing:-.02em;
+}
+
+.hero p{
+  margin:14px auto 0;
+  max-width:690px;
+  color:var(--muted);
+  font-size:clamp(1rem,1.6vw,1.13rem);
+}
+
+.button-row{
+  margin-top:28px;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:11px 18px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  font-weight:700;
+  letter-spacing:.01em;
+  transition:transform .18s ease, border-color .18s ease, background-color .18s ease;
+}
+
+.btn:hover{transform:translateY(-1px)}
+
+.btn-primary{
+  color:#062b14;
+  border-color:transparent;
+  background:linear-gradient(180deg, #2adf8c, var(--accent));
+  box-shadow:0 10px 24px rgba(18,183,106,.28);
+}
+
+.btn-secondary{
+  color:var(--text);
+  background:rgba(255,255,255,.02);
+}
+
+.btn-secondary:hover{border-color:rgba(255,255,255,.25)}
+
+.latest{
+  margin-top:34px;
+  border:1px solid var(--line);
+  border-radius:var(--radius-lg);
+  background:linear-gradient(180deg, rgba(18,183,106,.07), transparent 30%), var(--bg-elev-2);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+
+.latest-grid{
+  display:grid;
+  grid-template-columns:1.18fr .92fr;
+}
+
+.latest-media{
+  border-right:1px solid var(--line-soft);
+}
+
+.latest-media a{display:block;height:100%}
+
+.latest-media img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  min-height:320px;
+}
+
+.latest-copy{padding:28px}
+
+.latest-copy .kicker{margin-bottom:14px}
+
+.latest-copy h2{
+  font-size:clamp(1.5rem,2.7vw,2.1rem);
+  line-height:1.2;
+  letter-spacing:-.01em;
+}
+
+.latest-copy p{
+  margin-top:14px;
+  color:var(--muted);
+}
+
+.actions{
+  margin-top:20px;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.episode-links,
+.about,
+.contact{
+  margin-top:34px;
+}
+
+.section-head{
+  margin-bottom:16px;
+}
+
+.section-head h3{
+  font-size:clamp(1.25rem,2.2vw,1.72rem);
+  letter-spacing:-.01em;
+}
+
+.section-head p{
+  margin-top:8px;
+  max-width:700px;
+  color:var(--muted);
+}
+
+.grid{
+  display:grid;
+  gap:14px;
+}
+
+.grid.cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}
+.grid.cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}
+
+.card{
+  border:1px solid var(--line-soft);
+  border-radius:var(--radius-md);
+  background:var(--bg-elev);
+  padding:18px;
+}
+
+.card h4{font-size:1rem}
+
+.card p{
+  margin-top:7px;
+  color:var(--muted);
+}
+
+.link-card{
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  min-height:130px;
+}
+
+.link-card .btn{margin-top:16px;align-self:flex-start}
+
+.contact .card{
+  background:
+    linear-gradient(180deg, rgba(18,183,106,.08), transparent 70%),
+    var(--bg-elev);
+}
+
+footer{
+  margin-top:42px;
+  padding-top:22px;
+  border-top:1px solid var(--line-soft);
+  color:var(--muted);
+  font-size:.95rem;
+  text-align:center;
+}
+
+@media (max-width:980px){
+  .latest-grid{grid-template-columns:1fr}
+  .latest-media{border-right:0;border-bottom:1px solid var(--line-soft)}
+  .latest-media img{min-height:250px}
+  .grid.cols-3{grid-template-columns:1fr}
+  .grid.cols-2{grid-template-columns:1fr}
+}
+
+@media (max-width:640px){
+  .wrap{width:min(var(--max), calc(100% - 1.25rem))}
+  .nav{min-height:66px}
+  .hero{padding:42px 16px}
+  .hero img{width:160px}
+  .latest-copy{padding:20px}
+}
+</style>
+</head>
+
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="/lookwhoitis.html" aria-label="Look Who It Is home">
+      <img src="/windrow-logo.png" alt="Windrow Studio logo">
+      <span>Look Who It Is</span>
+    </a>
+
+    <div class="dropdown" id="nav">
+      <button class="hamburger" onclick="toggleMenu()" aria-expanded="false" aria-controls="menu" aria-label="Open site menu"></button>
+      <nav class="dropmenu" id="menu" aria-label="Site links">
+        <a href="/">Home</a>
+        <a href="/lookwhoitis.html">Podcast</a>
+        <a href="/radio.html">Radio</a>
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/guest/index.html">Guest Application</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero section">
+    <span class="kicker">Windrow Studio Podcast</span>
+    <img src="/lookwhowhite.png" alt="Look Who It Is podcast logo">
+    <h1>Real music careers, not polished stories.</h1>
+    <p>Artists pull back the curtain on the years, setbacks, and decisions behind what actually lasts.</p>
+    <div class="button-row">
+      <a class="btn btn-primary" href="https://youtu.be/CoeRpv1GdJk?si=EKKzuu_eOMmpNiiD" target="_blank" rel="noopener noreferrer">Watch Newest Episode</a>
+      <a class="btn btn-secondary" href="https://open.spotify.com/episode/76mMhjvpzRpm5yKoPN3lQl?si=42d5bb1b36524a8d" target="_blank" rel="noopener noreferrer">Listen on Spotify</a>
+    </div>
+  </section>
+
+  <section class="latest" id="latest-episode" aria-labelledby="latest-title">
+    <div class="latest-grid">
+      <div class="latest-media">
+        <a href="https://youtu.be/CoeRpv1GdJk?si=EKKzuu_eOMmpNiiD" target="_blank" rel="noopener noreferrer" aria-label="Watch latest Look Who It Is episode on YouTube">
+          <img src="/kendalleugene.png" alt="Kendall Eugene episode thumbnail">
+        </a>
+      </div>
+      <div class="latest-copy">
+        <span class="kicker">Latest Episode</span>
+        <h2 id="latest-title">Kendall Eugene: Starting Over and Writing From Real Life</h2>
+        <p>Kendall talks about losing everything, getting discovered through an Instagram cover, and building a music career by writing from real life and grinding it out on the road.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="https://youtu.be/CoeRpv1GdJk?si=EKKzuu_eOMmpNiiD" target="_blank" rel="noopener noreferrer">Watch Episode</a>
+          <a class="btn btn-secondary" href="https://open.spotify.com/episode/76mMhjvpzRpm5yKoPN3lQl?si=42d5bb1b36524a8d" target="_blank" rel="noopener noreferrer">Listen Episode</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="episode-links" aria-labelledby="episode-links-title">
+    <div class="section-head">
+      <h3 id="episode-links-title">Watch, Listen, and Follow</h3>
+      <p>Choose your platform and keep up with new conversations from the independent music world.</p>
+    </div>
+    <div class="grid cols-3">
+      <article class="card link-card">
+        <div>
+          <h4>YouTube</h4>
+          <p>Watch full episodes and behind-the-scenes conversation with artists and songwriters.</p>
+        </div>
+        <a class="btn btn-secondary" href="https://youtu.be/CoeRpv1GdJk?si=EKKzuu_eOMmpNiiD" target="_blank" rel="noopener noreferrer">Open YouTube Episode</a>
+      </article>
+      <article class="card link-card">
+        <div>
+          <h4>Spotify</h4>
+          <p>Listen in audio format wherever you are, with the same unfiltered conversations.</p>
+        </div>
+        <a class="btn btn-secondary" href="https://open.spotify.com/episode/76mMhjvpzRpm5yKoPN3lQl?si=42d5bb1b36524a8d" target="_blank" rel="noopener noreferrer">Open Spotify Episode</a>
+      </article>
+      <article class="card link-card">
+        <div>
+          <h4>Guest Application</h4>
+          <p>Interested in being part of a future episode? Share your story and apply as a guest.</p>
+        </div>
+        <a class="btn btn-secondary" href="/guest/index.html">Apply as a Guest</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="about" aria-labelledby="about-title">
+    <div class="section-head">
+      <h3 id="about-title">Why this show exists</h3>
+      <p>Most interviews stay surface level. This one focuses on the work, the setbacks, and what actually goes into building a career that lasts.</p>
+    </div>
+
+    <div class="grid cols-3">
+      <article class="card">
+        <h4>No promo fluff</h4>
+        <p>Real conversations instead of repeating press releases.</p>
+      </article>
+      <article class="card">
+        <h4>Career reality</h4>
+        <p>What actually happens behind the scenes over years.</p>
+      </article>
+      <article class="card">
+        <h4>Built for listeners</h4>
+        <p>For people who want more than surface-level music talk.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="contact" aria-labelledby="contact-title">
+    <div class="section-head">
+      <h3 id="contact-title">Contact & Guest Requests</h3>
+      <p>Have a guest recommendation, partnership idea, or question about the show? Reach out directly.</p>
+    </div>
+    <div class="grid cols-2">
+      <article class="card">
+        <h4>General Contact</h4>
+        <p>Reach Windrow Studio for podcast and media questions.</p>
+        <div class="actions">
+          <a class="btn btn-secondary" href="/contact.html">Contact Page</a>
+        </div>
+      </article>
+      <article class="card">
+        <h4>Guest Application</h4>
+        <p>Artists and music professionals can apply to share real career stories.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="/guest/index.html">Start Application</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="year"></span> Windrow Studio
+  </footer>
+</main>
+
+<script>
+function toggleMenu(){
+  const nav = document.getElementById("nav");
+  const button = nav.querySelector(".hamburger");
+  const open = nav.classList.toggle("open");
+  button.setAttribute("aria-expanded", open ? "true" : "false");
+}
+
+document.addEventListener("click", function(event){
+  const nav = document.getElementById("nav");
+  if(!nav.contains(event.target)){
+    nav.classList.remove("open");
+    nav.querySelector(".hamburger").setAttribute("aria-expanded", "false");
+  }
+});
+
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

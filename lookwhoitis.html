@@ -4,21 +4,19 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Look Who It Is Podcast | Windrow Studio</title>
-<meta name="description" content="Look Who It Is is a music podcast where artists and music professionals talk about the real path behind their careers.">
+<meta name="description" content="Look Who It Is is a music podcast where artists, songwriters, musicians, and industry people talk about the real path behind a music career.">
 <meta name="color-scheme" content="dark">
 
 <meta property="og:title" content="Look Who It Is Podcast">
-<meta property="og:description" content="Real music careers. Real stories. No polished industry fluff.">
+<meta property="og:description" content="A music podcast about real careers, real stories, and the work behind the songs.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="/kendalleugene.png">
+<meta property="og:image" content="/lookwhowhite.png">
 <meta property="og:url" content="/lookwhoitis.html">
 
 <style>
 :root{
   --bg:#080b10;
-  --bg2:#0d121a;
   --card:#101722;
-  --card2:#141d2a;
   --text:#f5f7fb;
   --muted:#a7b0bd;
   --soft:#d9e0e8;
@@ -26,7 +24,6 @@
   --line2:rgba(255,255,255,.14);
   --accent:#12b76a;
   --accent2:#2ee68d;
-  --accent-soft:rgba(18,183,106,.16);
   --shadow:0 24px 70px rgba(0,0,0,.45);
   --radius:24px;
   --radius2:16px;
@@ -51,7 +48,7 @@ body{
   background:
     radial-gradient(900px 480px at 20% -10%, rgba(18,183,106,.22), transparent 62%),
     radial-gradient(700px 420px at 90% 5%, rgba(255,255,255,.06), transparent 65%),
-    linear-gradient(180deg, #080b10 0%, #0b1017 45%, #07090d 100%);
+    linear-gradient(180deg, #080b10 0%, #0b1017 48%, #07090d 100%);
 }
 
 body:before{
@@ -63,7 +60,7 @@ body:before{
     linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
   background-size:44px 44px;
-  mask-image:linear-gradient(to bottom, rgba(0,0,0,.75), transparent 75%);
+  mask-image:linear-gradient(to bottom, rgba(0,0,0,.7), transparent 75%);
 }
 
 a{
@@ -191,41 +188,7 @@ img{
   display:block;
 }
 
-/* HERO */
-
-.hero{
-  padding:64px 0 28px;
-}
-
-.hero-card{
-  position:relative;
-  overflow:hidden;
-  border:1px solid var(--line);
-  border-radius:32px;
-  background:
-    linear-gradient(135deg, rgba(255,255,255,.075), rgba(255,255,255,.015)),
-    linear-gradient(180deg, rgba(20,29,42,.96), rgba(11,16,23,.96));
-  box-shadow:var(--shadow);
-}
-
-.hero-card:before{
-  content:"";
-  position:absolute;
-  inset:-1px;
-  background:
-    radial-gradient(700px 240px at 20% 0%, rgba(18,183,106,.25), transparent 65%),
-    radial-gradient(520px 260px at 90% 20%, rgba(255,255,255,.06), transparent 70%);
-  pointer-events:none;
-}
-
-.hero-inner{
-  position:relative;
-  display:grid;
-  grid-template-columns:1.05fr .95fr;
-  gap:34px;
-  align-items:center;
-  padding:54px;
-}
+/* GENERAL */
 
 .eyebrow{
   display:inline-flex;
@@ -250,36 +213,6 @@ img{
   border-radius:50%;
   background:var(--accent);
   box-shadow:0 0 22px var(--accent);
-}
-
-.hero-logo{
-  width:220px;
-  margin:22px 0;
-}
-
-.hero h1{
-  max-width:720px;
-  font-size:clamp(2.35rem,5vw,4.85rem);
-  line-height:.98;
-  letter-spacing:-.055em;
-}
-
-.hero h1 span{
-  color:var(--accent2);
-}
-
-.hero p{
-  max-width:640px;
-  margin-top:20px;
-  color:var(--muted);
-  font-size:clamp(1.02rem,1.45vw,1.18rem);
-}
-
-.button-row{
-  margin-top:30px;
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px;
 }
 
 .btn{
@@ -312,42 +245,124 @@ img{
   background:rgba(255,255,255,.045);
 }
 
-.hero-feature{
+.button-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+/* HERO */
+
+.hero{
+  padding:64px 0 34px;
+}
+
+.hero-card{
   position:relative;
+  overflow:hidden;
+  border:1px solid var(--line);
+  border-radius:32px;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.075), rgba(255,255,255,.015)),
+    linear-gradient(180deg, rgba(20,29,42,.96), rgba(11,16,23,.96));
+  box-shadow:var(--shadow);
+}
+
+.hero-card:before{
+  content:"";
+  position:absolute;
+  inset:-1px;
+  background:
+    radial-gradient(700px 260px at 18% 0%, rgba(18,183,106,.25), transparent 68%),
+    radial-gradient(520px 260px at 90% 20%, rgba(255,255,255,.065), transparent 70%);
+  pointer-events:none;
+}
+
+.hero-inner{
+  position:relative;
+  display:grid;
+  grid-template-columns:1.04fr .96fr;
+  gap:42px;
+  align-items:center;
+  padding:58px;
+}
+
+.hero-logo{
+  width:235px;
+  margin:24px 0;
+}
+
+.hero h1{
+  max-width:760px;
+  font-size:clamp(2.45rem,5vw,5rem);
+  line-height:.98;
+  letter-spacing:-.06em;
+}
+
+.hero h1 span{
+  color:var(--accent2);
+}
+
+.hero p{
+  max-width:650px;
+  margin-top:20px;
+  color:var(--muted);
+  font-size:clamp(1.04rem,1.45vw,1.18rem);
+}
+
+.hero .button-row{
+  margin-top:32px;
+}
+
+.hero-side{
   border:1px solid var(--line);
   border-radius:24px;
-  overflow:hidden;
-  background:#0c1119;
+  padding:26px;
+  background:rgba(8,11,16,.48);
 }
 
-.hero-feature img{
-  width:100%;
-  aspect-ratio:16/10;
-  object-fit:cover;
+.hero-side h2{
+  font-size:clamp(1.45rem,2.6vw,2.15rem);
+  line-height:1.08;
+  letter-spacing:-.035em;
 }
 
-.feature-caption{
-  padding:18px;
-  border-top:1px solid var(--line);
-  background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.015));
+.hero-side p{
+  margin-top:14px;
+  color:var(--muted);
 }
 
-.feature-caption strong{
+.hero-stats{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-top:22px;
+}
+
+.stat{
+  padding:16px;
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:rgba(255,255,255,.035);
+}
+
+.stat strong{
   display:block;
-  font-size:1.05rem;
+  color:var(--accent2);
+  font-size:1.25rem;
 }
 
-.feature-caption span{
+.stat span{
   display:block;
   margin-top:4px;
   color:var(--muted);
-  font-size:.94rem;
+  font-size:.91rem;
 }
 
 /* SECTIONS */
 
 .section{
-  padding:34px 0;
+  padding:36px 0;
 }
 
 .section-title{
@@ -359,122 +374,73 @@ img{
 }
 
 .section-title h2{
-  font-size:clamp(1.6rem,3vw,2.35rem);
-  letter-spacing:-.035em;
+  font-size:clamp(1.65rem,3vw,2.45rem);
+  letter-spacing:-.04em;
   line-height:1.08;
 }
 
 .section-title p{
-  max-width:560px;
+  max-width:600px;
   color:var(--muted);
 }
 
-/* LATEST */
-
-.latest{
-  display:grid;
-  grid-template-columns:1.08fr .92fr;
-  border:1px solid var(--line);
-  border-radius:var(--radius);
-  overflow:hidden;
-  background:linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.015));
-  box-shadow:0 18px 50px rgba(0,0,0,.3);
-}
-
-.latest-media{
-  background:#05070a;
-}
-
-.latest-media img{
-  width:100%;
-  height:100%;
-  min-height:380px;
-  object-fit:cover;
-}
-
-.latest-copy{
-  padding:34px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-}
-
-.latest-copy h3{
-  margin-top:16px;
-  font-size:clamp(1.75rem,3vw,2.55rem);
-  line-height:1.06;
-  letter-spacing:-.04em;
-}
-
-.latest-copy p{
-  margin-top:16px;
-  color:var(--muted);
-}
-
-.listen-grid{
+.card-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:14px;
-  margin-top:22px;
 }
 
-.platform{
-  min-height:145px;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-  padding:20px;
+.card{
+  padding:22px;
   border:1px solid var(--line);
   border-radius:var(--radius2);
   background:rgba(255,255,255,.035);
 }
 
-.platform h3{
-  font-size:1.1rem;
+.card h3{
+  font-size:1.12rem;
 }
 
-.platform p{
-  margin-top:7px;
+.card p{
+  margin-top:9px;
   color:var(--muted);
-  font-size:.95rem;
 }
 
-.platform .btn{
+.card .btn{
   margin-top:18px;
-  align-self:flex-start;
 }
 
-/* MISSION */
+/* ABOUT BLOCK */
 
-.mission{
+.about-block{
   display:grid;
   grid-template-columns:.9fr 1.1fr;
   gap:16px;
 }
 
-.mission-panel{
-  padding:28px;
+.panel{
+  padding:30px;
   border:1px solid var(--line);
   border-radius:var(--radius);
   background:
-    radial-gradient(480px 220px at 20% 0%, rgba(18,183,106,.13), transparent 70%),
+    radial-gradient(500px 230px at 20% 0%, rgba(18,183,106,.13), transparent 70%),
     rgba(255,255,255,.035);
 }
 
-.mission-panel h2{
-  font-size:clamp(1.65rem,3vw,2.45rem);
+.panel h2{
+  margin-top:16px;
+  font-size:clamp(1.7rem,3vw,2.5rem);
   line-height:1.08;
-  letter-spacing:-.035em;
+  letter-spacing:-.04em;
 }
 
-.mission-panel p{
+.panel p{
   margin-top:14px;
   color:var(--muted);
 }
 
-.pill-grid{
+.pill-list{
   display:grid;
-  grid-template-columns:1fr;
   gap:12px;
 }
 
@@ -487,7 +453,7 @@ img{
 
 .pill strong{
   display:block;
-  font-size:1.02rem;
+  font-size:1.04rem;
 }
 
 .pill span{
@@ -503,7 +469,7 @@ img{
   grid-template-columns:1fr auto;
   align-items:center;
   gap:24px;
-  padding:28px;
+  padding:30px;
   border:1px solid var(--line);
   border-radius:var(--radius);
   background:
@@ -519,7 +485,7 @@ img{
 .cta p{
   margin-top:8px;
   color:var(--muted);
-  max-width:640px;
+  max-width:670px;
 }
 
 /* FOOTER */
@@ -547,25 +513,20 @@ footer a{
   }
 
   .hero-inner,
-  .latest,
-  .mission,
+  .about-block,
   .cta{
     grid-template-columns:1fr;
   }
 
   .hero-inner{
-    padding:38px;
+    padding:40px;
   }
 
   .hero-logo{
-    width:190px;
+    width:200px;
   }
 
-  .latest-media img{
-    min-height:260px;
-  }
-
-  .listen-grid{
+  .card-grid{
     grid-template-columns:1fr;
   }
 
@@ -592,7 +553,7 @@ footer a{
   }
 
   .hero-inner{
-    padding:26px 20px;
+    padding:28px 20px;
   }
 
   .hero-card{
@@ -600,12 +561,14 @@ footer a{
   }
 
   .hero-logo{
-    width:165px;
+    width:170px;
   }
 
-  .button-row,
-  .latest-copy .button-row,
-  .cta .button-row{
+  .hero-stats{
+    grid-template-columns:1fr;
+  }
+
+  .button-row{
     flex-direction:column;
   }
 
@@ -613,14 +576,10 @@ footer a{
     width:100%;
   }
 
-  .latest-copy,
-  .mission-panel,
-  .cta{
+  .panel,
+  .cta,
+  .hero-side{
     padding:22px;
-  }
-
-  .platform{
-    min-height:auto;
   }
 }
 </style>
@@ -671,119 +630,87 @@ footer a{
         <div class="hero-inner">
 
           <div>
-            <div class="eyebrow">Music Podcast</div>
+            <div class="eyebrow">Windrow Studio Podcast</div>
 
             <img class="hero-logo" src="/lookwhowhite.png" alt="Look Who It Is logo">
 
             <h1>Real music careers. <span>Real stories.</span></h1>
 
             <p>
-              Look Who It Is is a podcast where artists and music professionals pull back the curtain on the years, choices, setbacks, and grind behind a real music career.
+              Look Who It Is is a music podcast where artists, songwriters, musicians, and industry people talk about the years, choices, setbacks, and grind behind a real career in music.
             </p>
 
             <div class="button-row">
-              <a class="btn btn-primary" href="https://youtu.be/CoeRpv1GdJk?si=EKKzuu_eOMmpNiiD" target="_blank" rel="noopener noreferrer">
-                Watch Latest Episode
-              </a>
-              <a class="btn btn-dark" href="https://open.spotify.com/episode/76mMhjvpzRpm5yKoPN3lQl?si=42d5bb1b36524a8d" target="_blank" rel="noopener noreferrer">
-                Listen on Spotify
-              </a>
+              <a class="btn btn-primary" href="/guest/index.html">Be a Guest</a>
+              <a class="btn btn-dark" href="/radio.html">Listen to the Radio Station</a>
+              <a class="btn btn-dark" href="/contact.html">Contact</a>
             </div>
           </div>
 
-          <a class="hero-feature" href="https://youtu.be/CoeRpv1GdJk?si=EKKzuu_eOMmpNiiD" target="_blank" rel="noopener noreferrer" aria-label="Watch the latest episode">
-            <img src="/kendalleugene.png" alt="Kendall Eugene episode thumbnail">
-            <div class="feature-caption">
-              <strong>Latest Episode</strong>
-              <span>Kendall Eugene: Building a music career the hard way.</span>
+          <aside class="hero-side">
+            <div class="eyebrow">The Show</div>
+            <h2>Not another surface-level music interview.</h2>
+            <p>
+              This show is built for conversations that go past the release cycle. It is about what artists went through, what they learned, what almost stopped them, and what kept them moving.
+            </p>
+
+            <div class="hero-stats">
+              <div class="stat">
+                <strong>Artists</strong>
+                <span>Singers, bands, songwriters, and musicians.</span>
+              </div>
+              <div class="stat">
+                <strong>Industry</strong>
+                <span>Managers, producers, players, and builders.</span>
+              </div>
+              <div class="stat">
+                <strong>Stories</strong>
+                <span>The road before the audience saw the win.</span>
+              </div>
+              <div class="stat">
+                <strong>Music</strong>
+                <span>Country, rock, Americana, roots, and independent scenes.</span>
+              </div>
             </div>
-          </a>
+          </aside>
 
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section" id="latest">
+  <section class="section">
     <div class="wrap">
       <div class="section-title">
         <div>
-          <div class="eyebrow">Newest Conversation</div>
-          <h2>Starting over and writing from real life.</h2>
+          <div class="eyebrow">What It Is</div>
+          <h2>A podcast about the real path behind the music.</h2>
         </div>
         <p>
-          A featured episode built around the kind of story this show is made for: loss, rebuilding, discovery, songwriting, and the road.
+          The goal is simple: have honest conversations with people who are building something in music, whether they are on stage, behind the board, behind the scenes, or still grinding toward the next step.
         </p>
       </div>
 
-      <div class="latest">
-        <a class="latest-media" href="https://youtu.be/CoeRpv1GdJk?si=EKKzuu_eOMmpNiiD" target="_blank" rel="noopener noreferrer">
-          <img src="/kendalleugene.png" alt="Kendall Eugene episode thumbnail">
-        </a>
-
-        <div class="latest-copy">
-          <div class="eyebrow">Latest Episode</div>
-
-          <h3>Kendall Eugene</h3>
-
+      <div class="card-grid">
+        <article class="card">
+          <h3>For artists</h3>
           <p>
-            Kendall talks about losing everything, getting discovered through an Instagram cover, and building a music career by writing from real life and grinding it out on the road.
+            A place to talk about more than the newest single. The story, the work, the bad breaks, the growth, and the moments that actually shaped the career.
           </p>
-
-          <div class="button-row">
-            <a class="btn btn-primary" href="https://youtu.be/CoeRpv1GdJk?si=EKKzuu_eOMmpNiiD" target="_blank" rel="noopener noreferrer">
-              Watch on YouTube
-            </a>
-            <a class="btn btn-dark" href="https://open.spotify.com/episode/76mMhjvpzRpm5yKoPN3lQl?si=42d5bb1b36524a8d" target="_blank" rel="noopener noreferrer">
-              Listen on Spotify
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="wrap">
-      <div class="section-title">
-        <div>
-          <div class="eyebrow">Watch and Listen</div>
-          <h2>Pick your platform.</h2>
-        </div>
-        <p>
-          Full conversations live on video and audio, with the radio station helping extend the reach of artists connected to the show.
-        </p>
-      </div>
-
-      <div class="listen-grid">
-        <article class="platform">
-          <div>
-            <h3>YouTube</h3>
-            <p>Watch the full episode and catch the actual conversation, not just the highlight clip.</p>
-          </div>
-          <a class="btn btn-dark" href="https://youtu.be/CoeRpv1GdJk?si=EKKzuu_eOMmpNiiD" target="_blank" rel="noopener noreferrer">
-            Open YouTube
-          </a>
         </article>
 
-        <article class="platform">
-          <div>
-            <h3>Spotify</h3>
-            <p>Listen to the newest episode in audio form while driving, working, or catching up.</p>
-          </div>
-          <a class="btn btn-dark" href="https://open.spotify.com/episode/76mMhjvpzRpm5yKoPN3lQl?si=42d5bb1b36524a8d" target="_blank" rel="noopener noreferrer">
-            Open Spotify
-          </a>
+        <article class="card">
+          <h3>For listeners</h3>
+          <p>
+            Music conversations with more weight than the usual promo cycle. Real background, real perspective, and stories that make the songs mean more.
+          </p>
         </article>
 
-        <article class="platform">
-          <div>
-            <h3>Look Who It Is Radio</h3>
-            <p>Independent rock and country from artists connected to the same world as the podcast.</p>
-          </div>
-          <a class="btn btn-dark" href="/radio.html">
-            Listen to Radio
-          </a>
+        <article class="card">
+          <h3>For the music community</h3>
+          <p>
+            A bridge between podcast interviews, independent radio, local scenes, and the people trying to build something that lasts.
+          </p>
         </article>
       </div>
     </div>
@@ -791,31 +718,76 @@ footer a{
 
   <section class="section">
     <div class="wrap">
-      <div class="mission">
-        <div class="mission-panel">
-          <div class="eyebrow">The Point</div>
+      <div class="about-block">
+        <div class="panel">
+          <div class="eyebrow">The Mission</div>
           <h2>No fake polish. No empty promo talk.</h2>
           <p>
-            The show is built around the part of music careers people usually skip over: the years before the win, the decisions that cost something, the setbacks, the lessons, and the work it takes to keep going.
+            Look Who It Is focuses on the part of music careers people usually skip over: the years before the breakthrough, the decisions that cost something, the setbacks, the lessons, and the work it takes to keep going.
           </p>
         </div>
 
-        <div class="pill-grid">
+        <div class="pill-list">
           <div class="pill">
-            <strong>For artists with a real story</strong>
-            <span>Not just a release to promote, but a path worth talking about.</span>
+            <strong>Real career stories</strong>
+            <span>Conversations about the path, not just the result.</span>
           </div>
 
           <div class="pill">
-            <strong>For listeners who care about the process</strong>
-            <span>Music talk that goes deeper than surface-level interview answers.</span>
+            <strong>Independent-minded</strong>
+            <span>Built around artists and music people with something real to say.</span>
           </div>
 
           <div class="pill">
-            <strong>For the independent music world</strong>
-            <span>A place for country, rock, Americana, songwriters, players, and the people behind the scenes.</span>
+            <strong>Connected to the music</strong>
+            <span>The podcast works alongside Look Who It Is Radio to support independent rock, country, Americana, roots, and songwriter-driven music.</span>
+          </div>
+
+          <div class="pill">
+            <strong>Simple format</strong>
+            <span>Conversation first. No forced bits. No overproduced nonsense.</span>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-title">
+        <div>
+          <div class="eyebrow">Explore</div>
+          <h2>Podcast, radio, and guest requests.</h2>
+        </div>
+        <p>
+          Everything ties back to the same idea: finding good music, good stories, and people worth paying attention to.
+        </p>
+      </div>
+
+      <div class="card-grid">
+        <article class="card">
+          <h3>Listen to the station</h3>
+          <p>
+            Look Who It Is Radio features independent rock, country, Americana, and artists connected to the same world as the podcast.
+          </p>
+          <a class="btn btn-dark" href="/radio.html">Open Radio</a>
+        </article>
+
+        <article class="card">
+          <h3>Apply as a guest</h3>
+          <p>
+            Artists, songwriters, musicians, managers, producers, and music industry people can apply to be considered for a future episode.
+          </p>
+          <a class="btn btn-primary" href="/guest/index.html">Guest Application</a>
+        </article>
+
+        <article class="card">
+          <h3>Contact the show</h3>
+          <p>
+            Send guest recommendations, partnership ideas, booking questions, or general messages through the contact page.
+          </p>
+          <a class="btn btn-dark" href="/contact.html">Contact</a>
+        </article>
       </div>
     </div>
   </section>
@@ -824,14 +796,14 @@ footer a{
     <div class="wrap">
       <div class="cta">
         <div>
-          <h2>Want to be on the show?</h2>
+          <h2>Have a story that fits the show?</h2>
           <p>
-            Artists, songwriters, musicians, managers, producers, and music industry people can apply or reach out directly.
+            The best guests have more than a release to promote. They have a real path, a real point of view, and something useful or honest to say about music.
           </p>
         </div>
 
         <div class="button-row">
-          <a class="btn btn-primary" href="/guest/index.html">Guest Application</a>
+          <a class="btn btn-primary" href="/guest/index.html">Apply as a Guest</a>
           <a class="btn btn-dark" href="/contact.html">Contact</a>
         </div>
       </div>

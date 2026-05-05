@@ -200,7 +200,8 @@ h1{
   box-shadow:var(--shadow);
   overflow:hidden;
   backdrop-filter:blur(10px);
-  margin-top:30px;
+  margin:30px auto 0;
+  max-width:760px;
 }
 
 .player-card:before{
@@ -217,18 +218,21 @@ h1{
   position:relative;
   display:flex;
   align-items:center;
-  justify-content:space-between;
-  gap:14px;
+  justify-content:center;
+  gap:8px;
   margin-bottom:16px;
   flex-wrap:wrap;
+  text-align:center;
 }
 
 .player-title{
   display:flex;
   align-items:center;
+  justify-content:center;
   gap:11px;
   font-size:18px;
   font-weight:800;
+  width:100%;
 }
 
 .live-dot{
@@ -243,6 +247,8 @@ h1{
   color:var(--muted);
   font-size:13px;
   font-weight:700;
+  width:100%;
+  text-align:center;
 }
 
 .player-frame{
@@ -251,12 +257,17 @@ h1{
   overflow:hidden;
   border:1px solid rgba(255,255,255,0.06);
   background:#0f141d;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:12px;
 }
 
 iframe{
   display:block;
   width:100%;
-  max-width:100%;
+  max-width:450px;
+  margin:0 auto;
   border:0;
 }
 

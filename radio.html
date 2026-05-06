@@ -322,6 +322,54 @@ iframe{
   line-height:1.55;
 }
 
+.artist-card{
+  background:rgba(16,23,34,.78);
+  border:1px solid var(--line);
+  border-radius:26px;
+  padding:22px;
+  box-shadow:0 18px 44px rgba(0,0,0,.28);
+}
+
+.artist-list{
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:10px;
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+
+.artist-list li{
+  padding:12px 14px;
+  border-radius:16px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.07);
+  color:var(--text);
+  font-size:15px;
+  font-weight:700;
+}
+
+.artist-cta{
+  margin:18px 0 0;
+  padding-top:18px;
+  border-top:1px solid var(--line);
+  color:var(--muted);
+  line-height:1.55;
+  font-size:15px;
+}
+
+.artist-cta a{
+  color:#d5ffe7;
+  font-weight:800;
+  text-decoration:none;
+  border-bottom:1px solid rgba(18,183,106,.55);
+}
+
+.artist-cta a:hover{
+  color:var(--text);
+  border-bottom-color:var(--text);
+}
+
 .submit-box{
   display:grid;
   grid-template-columns:1.15fr .85fr;
@@ -390,19 +438,6 @@ iframe{
   margin:0 0 14px;
 }
 
-.domain-tag{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:8px 12px;
-  border-radius:999px;
-  border:1px solid rgba(18,183,106,.35);
-  background:rgba(18,183,106,.10);
-  color:#d5ffe7;
-  font-size:13px;
-  font-weight:800;
-}
-
 .footer{
   margin-top:44px;
   padding-top:22px;
@@ -443,6 +478,10 @@ iframe{
   }
 
   .grid{
+    grid-template-columns:1fr;
+  }
+
+  .artist-list{
     grid-template-columns:1fr;
   }
 
@@ -501,6 +540,7 @@ iframe{
         <nav class="nav" aria-label="Main navigation">
           <a href="/index.html">Home</a>
           <a href="/lookwhoitis.html">Podcast</a>
+          <a href="#artists">Artists In Rotation</a>
           <a href="#submit">Submit Music</a>
           <a href="https://instagram.com/lookwhoitispod" target="_blank" rel="noopener noreferrer">Instagram</a>
           <a href="https://tiktok.com/@lookwhoitispod" target="_blank" rel="noopener noreferrer">TikTok</a>
@@ -563,6 +603,39 @@ iframe{
         </div>
       </section>
 
+      <section id="artists" class="section">
+        <div class="section-header">
+          <h2>Independent &amp; Emerging Artists In Rotation</h2>
+          <p>
+            These are independent, emerging, and non-mainstream artists currently spinning on Look Who It Is Radio.
+          </p>
+        </div>
+
+        <div class="artist-card">
+          <ul class="artist-list" aria-label="Independent and emerging artists in rotation">
+            <li>Wyatt Putman</li>
+            <li>Mikele Buck</li>
+            <li>Brooke Lee</li>
+            <li>Radio Flower</li>
+            <li>Elisabeth Ann</li>
+            <li>John Haywood</li>
+            <li>Gary Frost</li>
+            <li>Jake Binegar</li>
+            <li>Echo Pilot</li>
+            <li>Father Figures</li>
+            <li>Chinese Jailbreak</li>
+            <li>Dear Iris</li>
+            <li>Kendall Eugene</li>
+            <li>His&amp;Hers</li>
+          </ul>
+
+          <p class="artist-cta">
+            Are you an independent or emerging rock/country artist?
+            <a href="mailto:dane@windrowstudio.com?subject=Music%20Submission%20for%20Look%20Who%20It%20Is%20Radio">Send your music for consideration.</a>
+          </p>
+        </div>
+      </section>
+
       <section id="submit" class="section">
         <div class="section-header">
           <h2>Submit Music</h2>
@@ -604,7 +677,14 @@ iframe{
             <a class="button button-secondary" href="/lookwhoitis.html">Visit the Podcast</a>
           </div>
 
-          </section>
+          <aside class="side-panel">
+            <strong>Built around artist discovery.</strong>
+            <p>
+              The station gives independent and emerging artists another place to be heard, while keeping the Look Who It Is brand focused on real music stories.
+            </p>
+          </aside>
+        </div>
+      </section>
 
       <footer class="footer">
         <div>

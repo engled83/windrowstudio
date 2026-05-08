@@ -60,16 +60,14 @@ a{
   margin:0 auto;
 }
 
+/* HEADER */
+
 .topbar{
   display:flex;
   align-items:center;
-  justify-content:space-between;
-  gap:18px;
-  margin-bottom:48px;
-}
-
-.topbar-clean{
   justify-content:center;
+  gap:18px;
+  margin-bottom:46px;
 }
 
 .nav{
@@ -85,7 +83,7 @@ a{
   padding:9px 14px;
   border-radius:999px;
   border:1px solid var(--line);
-  background:rgba(255,255,255,.03);
+  background:rgba(255,255,255,0.03);
   font-size:13px;
   font-weight:700;
   transition:all .2s ease;
@@ -97,6 +95,8 @@ a{
   box-shadow:var(--glow);
   transform:translateY(-1px);
 }
+
+/* HERO */
 
 .hero{
   display:grid;
@@ -139,7 +139,6 @@ a{
   height:auto;
   display:block;
   border-radius:24px;
-  filter:drop-shadow(0 0 18px rgba(197,76,255,.22));
 }
 
 h1{
@@ -203,6 +202,8 @@ h1{
   transform:translateY(-1px);
 }
 
+/* PLAYER */
+
 .player-card{
   position:relative;
   background:var(--panel);
@@ -213,7 +214,6 @@ h1{
   overflow:hidden;
   backdrop-filter:blur(10px);
   margin:0;
-  max-width:none;
 }
 
 .player-card:before{
@@ -283,7 +283,10 @@ iframe{
   border:0;
 }
 
-.app-box{
+/* SECTIONS */
+
+.app-box,
+.submit-box{
   display:grid;
   grid-template-columns:1.15fr .85fr;
   gap:18px;
@@ -292,16 +295,21 @@ iframe{
   border-radius:26px;
   padding:22px;
   box-shadow:var(--shadow);
+}
+
+.app-box{
   margin-top:22px;
 }
 
-.app-box h2{
+.app-box h2,
+.submit-box h2{
   margin:0 0 10px;
   font-size:24px;
   letter-spacing:-.04em;
 }
 
-.app-box p{
+.app-box p,
+.submit-box p{
   margin:0 0 16px;
   color:var(--muted);
   line-height:1.58;
@@ -376,6 +384,8 @@ iframe{
   line-height:1.55;
 }
 
+/* ARTISTS */
+
 .artist-card{
   background:rgba(18,10,30,.76);
   border:1px solid var(--line);
@@ -424,28 +434,7 @@ iframe{
   border-bottom-color:var(--text);
 }
 
-.submit-box{
-  display:grid;
-  grid-template-columns:1.15fr .85fr;
-  gap:18px;
-  background:rgba(18,10,30,.76);
-  border:1px solid var(--line);
-  border-radius:26px;
-  padding:22px;
-  box-shadow:var(--shadow);
-}
-
-.submit-box h2{
-  margin:0 0 10px;
-  font-size:24px;
-  letter-spacing:-.04em;
-}
-
-.submit-box p{
-  margin:0 0 16px;
-  color:var(--muted);
-  line-height:1.58;
-}
+/* CHECKLIST */
 
 .checklist{
   margin:0;
@@ -475,6 +464,8 @@ iframe{
   box-shadow:0 0 0 5px rgba(255,95,226,.10);
 }
 
+/* FOOTER */
+
 .footer{
   margin-top:44px;
   padding-top:22px;
@@ -503,6 +494,8 @@ iframe{
   color:var(--text);
 }
 
+/* RESPONSIVE */
+
 @media (max-width:900px){
   .hero{
     grid-template-columns:1fr;
@@ -527,13 +520,11 @@ iframe{
 
 @media (max-width:800px){
   .topbar{
-    align-items:flex-start;
-    flex-direction:column;
     margin-bottom:40px;
   }
 
   .nav{
-    justify-content:flex-start;
+    justify-content:center;
   }
 
   .grid{
@@ -553,6 +544,10 @@ iframe{
 @media (max-width:640px){
   .page{
     padding:22px 14px 36px;
+  }
+
+  .hero-logo-wrap{
+    max-width:210px;
   }
 
   .player-card{
@@ -579,10 +574,6 @@ iframe{
   .hero-actions{
     gap:10px;
   }
-
-  .hero-logo-wrap{
-    max-width:210px;
-  }
 }
 </style>
 </head>
@@ -591,16 +582,16 @@ iframe{
   <main class="page">
     <div class="container">
 
-<header class="topbar topbar-clean">
-  <nav class="nav" aria-label="Main navigation">
-    <a href="/index.html">Home</a>
-    <a href="/lookwhoitis.html">Podcast</a>
-    <a href="#artists">Artists In Rotation</a>
-    <a href="/contact.html">Submit Music</a>
-    <a href="https://instagram.com/lookwhoitispod" target="_blank" rel="noopener noreferrer">Instagram</a>
-    <a href="https://tiktok.com/@lookwhoitispod" target="_blank" rel="noopener noreferrer">TikTok</a>
-  </nav>
-</header>
+      <header class="topbar">
+        <nav class="nav" aria-label="Main navigation">
+          <a href="/index.html">Home</a>
+          <a href="/lookwhoitis.html">Podcast</a>
+          <a href="#artists">Artists In Rotation</a>
+          <a href="/contact.html">Submit Music</a>
+          <a href="https://instagram.com/lookwhoitispod" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://tiktok.com/@lookwhoitispod" target="_blank" rel="noopener noreferrer">TikTok</a>
+        </nav>
+      </header>
 
       <section class="hero">
         <div class="hero-copy">
@@ -611,6 +602,7 @@ iframe{
           </div>
 
           <h1>Independent Rock &amp; Country</h1>
+
           <p class="subtext">
             Look Who It Is Radio is a streaming station built to spotlight independent, emerging, and non-mainstream artists, alongside rock and country that actually fits the brand.
           </p>

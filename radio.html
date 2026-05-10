@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Look Who It Is Radio | Independent Rock & Country</title>
-<meta name="description" content="Look Who It Is Radio is a streaming radio station for independent rock, country, Americana, and real artist discovery. Listen live and submit music for rotation consideration.">
+<meta name="description" content="Look Who It Is Radio is a streaming radio station for independent rock, country, Americana, and real artist discovery. Listen live, join the email list, submit music, or ask about sponsorship.">
 
 <style>
 :root{
@@ -110,21 +110,6 @@ a{
   min-width:0;
 }
 
-.kicker{
-  display:inline-block;
-  padding:7px 13px;
-  border:1px solid rgba(197,76,255,.35);
-  background:var(--accent-soft);
-  color:#f1d8ff;
-  border-radius:999px;
-  font-size:12px;
-  font-weight:800;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  margin-bottom:18px;
-  box-shadow:var(--glow);
-}
-
 .hero-logo-wrap{
   margin:0 0 18px;
   max-width:230px;
@@ -148,7 +133,7 @@ h1{
   letter-spacing:-2px;
 }
 
-.subtext{
+.station-promise{
   margin:16px 0 0;
   max-width:560px;
   color:var(--muted);
@@ -283,10 +268,32 @@ iframe{
   border:0;
 }
 
-/* SECTIONS */
+/* LAYOUT SECTIONS */
 
-.app-box,
-.submit-box{
+.section{
+  margin-top:48px;
+}
+
+.section-header{
+  max-width:760px;
+  margin:0 auto 20px;
+  text-align:center;
+}
+
+.section-header h2{
+  margin:0;
+  font-size:clamp(26px, 4vw, 40px);
+  letter-spacing:-1px;
+}
+
+.section-header p{
+  margin:12px auto 0;
+  color:var(--muted);
+  font-size:16px;
+  line-height:1.55;
+}
+
+.content-box{
   display:grid;
   grid-template-columns:1.15fr .85fr;
   gap:18px;
@@ -297,19 +304,13 @@ iframe{
   box-shadow:var(--shadow);
 }
 
-.app-box{
-  margin-top:22px;
-}
-
-.app-box h2,
-.submit-box h2{
+.content-box h2{
   margin:0 0 10px;
   font-size:24px;
   letter-spacing:-.04em;
 }
 
-.app-box p,
-.submit-box p{
+.content-box p{
   margin:0 0 16px;
   color:var(--muted);
   line-height:1.58;
@@ -332,6 +333,46 @@ iframe{
   margin:0 0 14px;
   color:var(--muted);
 }
+
+/* EMAIL SIGNUP */
+
+.signup-box{
+  margin-top:22px;
+}
+
+.email-form{
+  display:grid;
+  gap:12px;
+  margin-top:6px;
+}
+
+.email-form input{
+  width:100%;
+  min-height:48px;
+  border-radius:999px;
+  border:1px solid #5A2A78;
+  background:#0F0918;
+  color:#FFFFFF;
+  padding:0 16px;
+  font:inherit;
+}
+
+.email-form input::placeholder{
+  color:#A99AB8;
+}
+
+.email-form button{
+  width:100%;
+}
+
+.signup-note{
+  margin:10px 0 0;
+  color:var(--muted2);
+  font-size:12px;
+  line-height:1.45;
+}
+
+/* STATION HIGHLIGHTS */
 
 .grid{
   display:grid;
@@ -359,29 +400,6 @@ iframe{
   color:var(--muted);
   line-height:1.55;
   font-size:14px;
-}
-
-.section{
-  margin-top:48px;
-}
-
-.section-header{
-  max-width:760px;
-  margin:0 auto 20px;
-  text-align:center;
-}
-
-.section-header h2{
-  margin:0;
-  font-size:clamp(26px, 4vw, 40px);
-  letter-spacing:-1px;
-}
-
-.section-header p{
-  margin:12px auto 0;
-  color:var(--muted);
-  font-size:16px;
-  line-height:1.55;
 }
 
 /* ARTISTS */
@@ -508,7 +526,7 @@ iframe{
     align-items:center;
   }
 
-  .subtext{
+  .station-promise{
     margin-left:auto;
     margin-right:auto;
   }
@@ -535,8 +553,7 @@ iframe{
     grid-template-columns:1fr;
   }
 
-  .submit-box,
-  .app-box{
+  .content-box{
     grid-template-columns:1fr;
   }
 }
@@ -563,7 +580,7 @@ iframe{
     letter-spacing:-1.3px;
   }
 
-  .subtext{
+  .station-promise{
     font-size:16px;
   }
 
@@ -573,6 +590,11 @@ iframe{
 
   .hero-actions{
     gap:10px;
+  }
+
+  .footer{
+    align-items:flex-start;
+    flex-direction:column;
   }
 }
 </style>
@@ -587,28 +609,30 @@ iframe{
           <a href="/index.html">Home</a>
           <a href="/lookwhoitis.html">Podcast</a>
           <a href="#artists">Artists In Rotation</a>
-          <a href="/contact.html">Submit Music</a>
-          <a href="https://instagram.com/lookwhoitispod" target="_blank" rel="noopener noreferrer">Instagram</a>
-          <a href="https://tiktok.com/@lookwhoitispod" target="_blank" rel="noopener noreferrer">TikTok</a>
+          <a href="#signup">Email Updates</a>
+          <a href="#submit">Submit Music</a>
+          <a href="#sponsor">Sponsor</a>
         </nav>
       </header>
 
+      <!-- JOB 1: PLAY THE STREAM -->
+      <!-- JOB 2: ONE-SENTENCE STATION PROMISE -->
+
       <section class="hero">
         <div class="hero-copy">
-
           <div class="hero-logo-wrap">
             <img class="hero-logo" src="radiologo.png" alt="Look Who It Is Radio logo">
           </div>
 
           <h1>Independent Rock &amp; Country</h1>
 
-          <p class="subtext">
-            Look Who It Is Radio is a streaming station built to spotlight independent, emerging, and non-mainstream artists, alongside rock and country that actually fits the brand.
+          <p class="station-promise">
+            Look Who It Is Radio plays independent, emerging, and non-mainstream rock and country from artists worth hearing.
           </p>
 
           <div class="hero-actions">
-            <a class="button button-primary" href="#player">Listen Live</a>
-            <a class="button button-secondary" href="/contact.html">Submit Music for Consideration</a>
+            <a class="button button-primary" href="#signup">Join the Email List</a>
+            <a class="button button-secondary" href="#player">Listen Live</a>
           </div>
         </div>
 
@@ -633,22 +657,34 @@ iframe{
         </section>
       </section>
 
-      <section class="app-box" aria-label="Live365 app section">
-        <div>
-          <h2>Listen on the Live365 App</h2>
-          <p>
-            Want to keep Look Who It Is Radio on your phone? Download the Live365 app and search for <strong>Look Who It Is Radio</strong>.
-          </p>
-          <a class="button button-secondary" href="https://live365.com/listen/mobile" target="_blank" rel="noopener noreferrer">Get the Live365 App</a>
-        </div>
+      <!-- JOB 3: COLLECT EMAIL -->
 
-        <aside class="side-panel">
-          <strong>Best for listening anywhere.</strong>
-          <p>
-            Use the app in the car, at work, or wherever you want the station without keeping this page open.
-          </p>
-        </aside>
+      <section class="signup-box" id="signup" aria-label="Email signup">
+        <div class="content-box">
+          <div>
+            <h2>Get New Music Updates</h2>
+            <p>
+              Join the Look Who It Is Radio email list for new artist adds, featured songs, Signal Boost updates, and station news.
+            </p>
+          </div>
+
+          <div class="side-panel">
+            <form class="email-form ml-block-form" action="https://assets.mailerlite.com/jsonp/2334894/forms/187092260038379160/subscribe" method="post" target="_blank">
+              <label class="sr-only" for="email">Email address</label>
+              <input id="email" aria-label="email" aria-required="true" type="email" name="fields[email]" placeholder="Email address" autocomplete="email" required>
+              <input type="hidden" name="ml-submit" value="1">
+              <input type="hidden" name="anticsrf" value="true">
+              <button class="button button-primary" type="submit">Join the List</button>
+            </form>
+
+            <p class="signup-note">
+              No spam. Just station updates, new music, featured artists, and occasional Signal Boost news.
+            </p>
+          </div>
+        </div>
       </section>
+
+      <!-- JOB 2: SHOW WHAT YOU PLAY -->
 
       <section class="grid" aria-label="Station highlights">
         <div class="info-card">
@@ -659,9 +695,9 @@ iframe{
         </div>
 
         <div class="info-card">
-          <h3>Podcast Connected</h3>
+          <h3>Rock, Country &amp; Americana</h3>
           <p>
-            The station grows out of the Look Who It Is podcast, where artists talk about the years, choices, and setbacks behind the music.
+            The station leans into independent rock, country, Americana, Red Dirt, roots, and singer-songwriter music.
           </p>
         </div>
 
@@ -706,24 +742,26 @@ iframe{
 
           <p class="artist-cta">
             Are you an independent or emerging rock/country artist?
-            <a href="/contact.html">Send your music for consideration.</a>
+            <a href="#submit">Send your music for consideration.</a>
           </p>
         </div>
       </section>
 
+      <!-- JOB 4: ACCEPT ARTIST SUBMISSIONS -->
+
       <section class="section" id="submit">
         <div class="section-header">
-          <h2>Submit Music</h2>
+          <h2>Submit Music for Rotation Consideration</h2>
           <p>
-            Independent rock, country, Americana, Red Dirt, roots, and related artists are welcome to send music for consideration.
+            Independent rock, country, Americana, Red Dirt, roots, and related artists are welcome to send music for review.
           </p>
         </div>
 
-        <div class="submit-box">
+        <div class="content-box">
           <div>
             <h2>Want your song considered?</h2>
             <p>
-              Head over to the contact page and send your artist name, song title, streaming link, clean audio file if available, and a short note about the song.
+              Send your artist name, song title, streaming link, clean audio file if available, and a short note about the song.
               Submission does not guarantee airplay, but every good-fit submission will be reviewed.
             </p>
 
@@ -734,7 +772,7 @@ iframe{
             <strong>Best fit for the station:</strong>
             <ul class="checklist">
               <li>Independent rock, country, Americana, roots, Red Dirt, and singer-songwriter music.</li>
-              <li>Finished songs that are clean enough for radio play.</li>
+              <li>Finished songs ready for public streaming.</li>
               <li>Artists with a real story, strong writing, or a sound that stands out.</li>
               <li>No AI-generated music submissions.</li>
             </ul>
@@ -742,8 +780,42 @@ iframe{
         </div>
       </section>
 
+      <!-- JOB 5: EXPLAIN SPONSORSHIP -->
+
+      <section class="section" id="sponsor">
+        <div class="section-header">
+          <h2>Sponsor Look Who It Is Radio</h2>
+          <p>
+            Sponsor the station, a featured music segment, or artist-discovery content connected to Look Who It Is Radio.
+          </p>
+        </div>
+
+        <div class="content-box">
+          <div>
+            <h2>Reach listeners who care about real music discovery.</h2>
+            <p>
+              Look Who It Is Radio is built around independent music, artist stories, and people looking for something outside the usual algorithm.
+              Sponsorship opportunities can include station mentions, featured segments, Signal Boost support, and music-focused promotions.
+            </p>
+
+            <a class="button button-primary" href="/contact.html">Ask About Sponsorship</a>
+          </div>
+
+          <aside class="side-panel">
+            <strong>Good fit for:</strong>
+            <ul class="checklist">
+              <li>Local businesses</li>
+              <li>Music venues and events</li>
+              <li>Artist services</li>
+              <li>Gear, apparel, and lifestyle brands</li>
+              <li>Businesses that want to support independent music</li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
       <section class="section">
-        <div class="submit-box">
+        <div class="content-box">
           <div>
             <h2>Part of Windrow Studio</h2>
             <p>
@@ -770,6 +842,8 @@ iframe{
           <a href="/index.html">Windrow Studio</a>
           <a href="/lookwhoitis.html">Podcast</a>
           <a href="/contact.html">Contact</a>
+          <a href="https://instagram.com/lookwhoitispod" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://tiktok.com/@lookwhoitispod" target="_blank" rel="noopener noreferrer">TikTok</a>
         </div>
       </footer>
 
@@ -779,5 +853,6 @@ iframe{
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
 </script>
+
 </body>
 </html>

@@ -268,7 +268,7 @@ iframe{
   border:0;
 }
 
-/* LAYOUT SECTIONS */
+/* SHARED SECTIONS */
 
 .section{
   margin-top:48px;
@@ -370,6 +370,17 @@ iframe{
   color:var(--muted2);
   font-size:12px;
   line-height:1.45;
+}
+
+.sr-only{
+  position:absolute;
+  width:1px;
+  height:1px;
+  padding:0;
+  margin:-1px;
+  overflow:hidden;
+  clip:rect(0,0,0,0);
+  border:0;
 }
 
 /* STATION HIGHLIGHTS */
@@ -669,15 +680,35 @@ iframe{
           </div>
 
           <div class="side-panel">
-            <form class="email-form ml-block-form" action="https://assets.mailerlite.com/jsonp/2334894/forms/187092260038379160/subscribe" method="post" target="_blank">
+            <form
+              class="email-form"
+              action="https://assets.mailerlite.com/jsonp/2334894/forms/187092260038379160/subscribe"
+              method="post"
+              target="ml-hidden-frame"
+              onsubmit="showNewsletterThanks();"
+            >
               <label class="sr-only" for="email">Email address</label>
-              <input id="email" aria-label="email" aria-required="true" type="email" name="fields[email]" placeholder="Email address" autocomplete="email" required>
+
+              <input
+                id="email"
+                aria-label="email"
+                aria-required="true"
+                type="email"
+                name="fields[email]"
+                placeholder="Email address"
+                autocomplete="email"
+                required
+              >
+
               <input type="hidden" name="ml-submit" value="1">
               <input type="hidden" name="anticsrf" value="true">
+
               <button class="button button-primary" type="submit">Join the List</button>
             </form>
 
-            <p class="signup-note">
+            <iframe name="ml-hidden-frame" style="display:none;"></iframe>
+
+            <p class="signup-note" id="newsletter-note">
               No spam. Just station updates, new music, featured artists, and occasional Signal Boost news.
             </p>
           </div>
@@ -852,6 +883,21 @@ iframe{
 
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
+
+  function showNewsletterThanks(){
+    setTimeout(function(){
+      var note = document.getElementById("newsletter-note");
+      var email = document.getElementById("email");
+
+      if(note){
+        note.textContent = "Thanks. You’re on the Look Who It Is Radio email list.";
+      }
+
+      if(email){
+        email.value = "";
+      }
+    }, 600);
+  }
 </script>
 
 </body>

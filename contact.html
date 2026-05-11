@@ -298,20 +298,32 @@
       display:block;
     }
 
-    input, textarea, select{
-      width:100%;
-      margin-top:6px;
-      padding:.9rem 1rem;
-      border-radius:12px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.03);
-      color:var(--fg);
-      font:inherit;
-    }
+input, textarea, select{
+  width:100%;
+  margin-top:6px;
+  padding:.9rem 1rem;
+  border-radius:12px;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.03);
+  color:var(--fg);
+  font:inherit;
+}
 
-    select{
-      appearance:none;
-    }
+select{
+  appearance:none;
+}
+
+select,
+select option,
+select optgroup{
+  background:#101722;
+  color:#f3f6fb;
+}
+
+select option:checked{
+  background:#12b76a;
+  color:#062612;
+}
 
     input::placeholder,
     textarea::placeholder{

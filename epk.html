@@ -11,7 +11,6 @@
       --bg-2: #0D0A14;
       --card: #111018;
       --card-2: #171320;
-      --card-3: #20162e;
       --purple: #9B2CFF;
       --purple-bright: #C45CFF;
       --glow: #E07BFF;
@@ -20,9 +19,9 @@
       --muted: #A9A0B8;
       --line: rgba(255,255,255,0.13);
       --gold: #D7A64B;
+      --gold-soft: #F5CF78;
       --green: #78D6A3;
-      --danger: #ff6b6b;
-      --shadow: 0 26px 80px rgba(0,0,0,0.42);
+      --red: #FF6B6B;
     }
 
     * { box-sizing: border-box; }
@@ -31,11 +30,11 @@
 
     body {
       margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, Helvetica, sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
       background:
         radial-gradient(circle at 14% 3%, rgba(155, 44, 255, 0.30), transparent 34rem),
-        radial-gradient(circle at 88% 15%, rgba(215, 166, 75, 0.16), transparent 30rem),
-        radial-gradient(circle at 50% 95%, rgba(196, 92, 255, 0.10), transparent 34rem),
+        radial-gradient(circle at 88% 18%, rgba(215, 166, 75, 0.16), transparent 30rem),
+        radial-gradient(circle at 22% 92%, rgba(196, 92, 255, 0.12), transparent 34rem),
         var(--bg);
       color: var(--text);
       line-height: 1.55;
@@ -44,27 +43,27 @@
     a { color: inherit; text-decoration: none; }
 
     .wrap {
-      width: min(1160px, calc(100% - 32px));
+      width: min(1180px, calc(100% - 34px));
       margin: 0 auto;
     }
 
     .skip-link {
       position: absolute;
       left: -999px;
-      top: 12px;
+      top: 10px;
       background: #fff;
       color: #000;
       padding: 10px 14px;
-      border-radius: 10px;
-      z-index: 100;
+      z-index: 999;
+      border-radius: 999px;
     }
 
-    .skip-link:focus { left: 12px; }
+    .skip-link:focus { left: 14px; }
 
     header {
-      padding: 18px 0;
+      padding: 22px 0;
       border-bottom: 1px solid var(--line);
-      background: rgba(5, 5, 9, 0.78);
+      background: rgba(5, 5, 9, 0.80);
       backdrop-filter: blur(16px);
       position: sticky;
       top: 0;
@@ -75,7 +74,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 22px;
+      gap: 24px;
     }
 
     .brand {
@@ -86,28 +85,28 @@
     }
 
     .logo-img {
-      width: 60px;
-      height: 60px;
+      width: 58px;
+      height: 58px;
       border-radius: 16px;
       object-fit: cover;
-      box-shadow: 0 0 30px rgba(196, 92, 255, 0.30);
+      box-shadow: 0 0 28px rgba(196, 92, 255, 0.32);
       flex: 0 0 auto;
       background: #050509;
-      border: 1px solid var(--line);
+      border: 1px solid rgba(255,255,255,0.11);
     }
 
     .brand h1 {
-      font-size: 1rem;
+      font-size: 1.02rem;
       margin: 0;
-      line-height: 1.15;
-      letter-spacing: 0.02em;
+      line-height: 1.2;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
     }
 
     .brand p {
-      margin: 4px 0 0;
+      margin: 3px 0 0;
       color: var(--muted);
-      font-size: 0.88rem;
+      font-size: 0.9rem;
     }
 
     .nav-actions {
@@ -128,73 +127,67 @@
       font-weight: 850;
       font-size: 0.9rem;
       border: 1px solid var(--line);
-      background: rgba(255,255,255,0.065);
+      background: rgba(255,255,255,0.06);
       color: var(--soft);
-      transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
       cursor: pointer;
-      font-family: inherit;
+      transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
     }
 
     .button:hover {
       transform: translateY(-1px);
-      border-color: rgba(196, 92, 255, 0.55);
-      background: rgba(255,255,255,0.095);
+      border-color: rgba(255,255,255,0.28);
+      background: rgba(255,255,255,0.09);
     }
 
     .button.primary {
       border: 0;
       background: linear-gradient(135deg, var(--purple), var(--purple-bright));
       color: #fff;
-      box-shadow: 0 0 24px rgba(196, 92, 255, 0.28);
+      box-shadow: 0 0 26px rgba(196, 92, 255, 0.28);
     }
 
     .button.gold {
-      border: 1px solid rgba(215, 166, 75, 0.42);
-      background: rgba(215, 166, 75, 0.12);
-      color: #fff8e8;
+      border: 0;
+      background: linear-gradient(135deg, #9C6A19, var(--gold));
+      color: #0B0702;
     }
 
-    main { padding: 56px 0 76px; }
+    main { padding: 54px 0 74px; }
 
     .hero {
       display: grid;
-      grid-template-columns: 1.18fr 0.82fr;
-      gap: 34px;
+      grid-template-columns: minmax(0, 1.18fr) minmax(320px, 0.82fr);
+      gap: 24px;
       align-items: stretch;
-      margin-bottom: 34px;
-    }
-
-    .hero-main,
-    .hero-card,
-    .card,
-    .contact-panel {
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
+      margin-bottom: 28px;
     }
 
     .hero-main {
+      border: 1px solid var(--line);
       border-radius: 34px;
-      padding: clamp(28px, 5vw, 54px);
+      padding: clamp(28px, 5vw, 48px);
       background:
         linear-gradient(135deg, rgba(155, 44, 255, 0.16), rgba(17, 16, 24, 0.96)),
-        linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.025));
+        rgba(17, 16, 24, 0.9);
+      box-shadow: 0 24px 80px rgba(0,0,0,0.38);
       position: relative;
       overflow: hidden;
-      min-height: 520px;
+      min-height: 560px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
 
     .hero-main::after {
-      content: "";
+      content: "LWII";
       position: absolute;
-      width: 260px;
-      height: 260px;
-      right: -80px;
-      bottom: -100px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(196, 92, 255, 0.30), transparent 68%);
+      right: -26px;
+      bottom: -62px;
+      font-size: clamp(7rem, 19vw, 17rem);
+      line-height: 1;
+      font-weight: 900;
+      letter-spacing: -0.12em;
+      color: rgba(255,255,255,0.035);
       pointer-events: none;
     }
 
@@ -204,12 +197,12 @@
       align-items: center;
       color: var(--soft);
       border: 1px solid var(--line);
-      background: rgba(255,255,255,0.055);
+      background: rgba(255,255,255,0.06);
       padding: 8px 12px;
       border-radius: 999px;
       font-size: 0.88rem;
       margin-bottom: 20px;
-      width: fit-content;
+      max-width: fit-content;
     }
 
     .dot {
@@ -218,87 +211,91 @@
       border-radius: 99px;
       background: var(--green);
       box-shadow: 0 0 10px rgba(120, 214, 163, 0.75);
-      flex: 0 0 auto;
     }
 
     h2 {
-      font-size: clamp(2.9rem, 7.1vw, 6.8rem);
-      line-height: 0.90;
+      font-size: clamp(2.7rem, 6.2vw, 6rem);
+      line-height: 0.92;
       letter-spacing: -0.075em;
-      margin: 0 0 20px;
-      max-width: 940px;
+      margin: 0 0 18px;
+      max-width: 840px;
     }
 
     .hero-copy {
       color: var(--soft);
-      font-size: clamp(1.05rem, 1.8vw, 1.25rem);
-      max-width: 730px;
+      font-size: clamp(1.04rem, 1.8vw, 1.24rem);
+      max-width: 760px;
       margin: 0 0 18px;
     }
 
-    .hero-copy strong,
-    .white { color: #fff; }
+    .hero-copy strong { color: #fff; }
 
     .hero-actions {
       display: flex;
       gap: 12px;
       flex-wrap: wrap;
-      margin-top: 28px;
+      margin-top: 24px;
       position: relative;
       z-index: 1;
     }
 
-    .hero-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      padding: 0;
-      margin: 28px 0 0;
+    .hero-badges,
+    .tag-list,
+    .artist-list,
+    .mini-list {
       list-style: none;
-      position: relative;
-      z-index: 1;
+      padding: 0;
+      margin: 18px 0 0;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
     }
 
-    .hero-badges li {
+    .hero-badges li,
+    .tag-list li,
+    .artist-list li,
+    .mini-list li {
       padding: 9px 12px;
       border: 1px solid var(--line);
-      background: rgba(255,255,255,0.07);
+      background: rgba(255,255,255,0.055);
       border-radius: 999px;
       color: var(--soft);
-      font-weight: 760;
-      font-size: 0.92rem;
+      font-weight: 750;
+      font-size: 0.91rem;
     }
 
     .hero-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.085), rgba(255,255,255,0.035));
+      border: 1px solid var(--line);
       border-radius: 34px;
-      padding: 26px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.035));
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
+      padding: 25px;
+      box-shadow: 0 24px 70px rgba(0,0,0,0.35);
+      display: grid;
+      gap: 22px;
+      align-content: start;
     }
 
     .epk-logo-block {
-      display: grid;
-      place-items: center;
-      min-height: 220px;
       border: 1px solid var(--line);
       border-radius: 24px;
+      min-height: 220px;
+      display: grid;
+      place-items: center;
       background:
-        radial-gradient(circle at center, rgba(196, 92, 255, 0.22), transparent 55%),
-        rgba(255,255,255,0.045);
-      padding: 24px;
+        radial-gradient(circle, rgba(196, 92, 255, 0.28), transparent 60%),
+        rgba(0,0,0,0.28);
+      overflow: hidden;
     }
 
     .epk-logo-block img {
-      width: min(230px, 78%);
-      max-height: 210px;
-      object-fit: contain;
-      filter: drop-shadow(0 0 28px rgba(196, 92, 255, 0.28));
+      width: min(78%, 260px);
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 0 20px rgba(196, 92, 255, 0.22));
     }
 
     .snapshot-title {
-      margin: 0;
+      margin: 0 0 8px;
       font-size: 1rem;
       color: var(--muted);
       text-transform: uppercase;
@@ -319,156 +316,121 @@
     .fact-row span:first-child { color: var(--muted); }
     .fact-row span:last-child { font-weight: 850; text-align: right; }
 
-    section { margin-top: 36px; }
+    section { margin-top: 30px; }
 
     .section-title {
       display: flex;
       justify-content: space-between;
-      gap: 22px;
+      gap: 20px;
       align-items: end;
-      margin-bottom: 16px;
+      margin-bottom: 15px;
     }
 
     .section-title h3 {
       margin: 0;
-      font-size: clamp(1.7rem, 3vw, 2.45rem);
-      letter-spacing: -0.055em;
-      line-height: 1;
+      font-size: clamp(1.55rem, 2.8vw, 2.35rem);
+      letter-spacing: -0.045em;
+      line-height: 1.04;
     }
 
     .section-title p {
-      max-width: 660px;
+      max-width: 650px;
       margin: 0;
       color: var(--muted);
     }
 
-    .grid { display: grid; gap: 16px; }
+    .grid { display: grid; gap: 15px; }
     .grid.stats { grid-template-columns: repeat(5, 1fr); }
-    .grid.two { grid-template-columns: repeat(2, 1fr); }
-    .grid.three { grid-template-columns: repeat(3, 1fr); }
-    .grid.four { grid-template-columns: repeat(4, 1fr); }
+    .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 
     .card {
       background: rgba(17, 16, 24, 0.88);
+      border: 1px solid var(--line);
       border-radius: 24px;
-      padding: 24px;
+      padding: 22px;
       position: relative;
       overflow: hidden;
     }
 
-    .card.lift {
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.075), rgba(255,255,255,0.03)),
-        rgba(17, 16, 24, 0.88);
-    }
-
-    .card h4 {
-      margin: 0 0 10px;
-      font-size: 1.14rem;
-      letter-spacing: -0.025em;
-    }
-
-    .card p { margin: 0; color: var(--soft); }
-
-    .muted { color: var(--muted); }
+    .card.lift { transition: transform 170ms ease, border-color 170ms ease; }
+    .card.lift:hover { transform: translateY(-2px); border-color: rgba(196, 92, 255, 0.38); }
 
     .stat strong {
       display: block;
-      font-size: clamp(2rem, 4.2vw, 3.25rem);
-      line-height: 0.95;
+      font-size: clamp(2rem, 3.5vw, 3.15rem);
+      line-height: 1;
       letter-spacing: -0.06em;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     .stat span {
       color: var(--muted);
-      font-weight: 830;
+      font-weight: 850;
       text-transform: uppercase;
-      font-size: 0.75rem;
-      letter-spacing: 0.12em;
+      font-size: 0.76rem;
+      letter-spacing: 0.11em;
     }
 
     .stat small {
       display: block;
       margin-top: 10px;
       color: var(--muted);
+      font-size: 0.84rem;
     }
 
     .stat.feature {
-      background:
-        linear-gradient(135deg, rgba(155, 44, 255, 0.18), rgba(215, 166, 75, 0.08)),
-        rgba(17, 16, 24, 0.88);
+      background: linear-gradient(135deg, rgba(155, 44, 255, 0.28), rgba(17,16,24,0.88));
+      border-color: rgba(196, 92, 255, 0.32);
     }
 
-    .disclaimer {
-      margin-top: 14px;
-      color: var(--muted);
-      font-size: 0.92rem;
+    .stat.gold-stat {
+      background: linear-gradient(135deg, rgba(215,166,75,0.22), rgba(17,16,24,0.88));
+      border-color: rgba(215, 166, 75, 0.32);
     }
+
+    .card h4 {
+      margin: 0 0 10px;
+      font-size: 1.15rem;
+      letter-spacing: -0.025em;
+    }
+
+    .card p { margin: 0; color: var(--soft); }
+    .muted { color: var(--muted); }
 
     .split-card {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 15px;
     }
 
-    .mini-list,
-    .artist-list,
-    .tag-list {
+    .format-split {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 15px;
+    }
+
+    .format-card {
+      min-height: 220px;
       display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      padding: 0;
-      margin: 16px 0 0;
-      list-style: none;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
-    .mini-list li,
-    .artist-list li,
-    .tag-list li {
-      padding: 9px 12px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.055);
-      border-radius: 999px;
-      color: var(--soft);
-      font-weight: 760;
-      font-size: 0.92rem;
-    }
-
-    .numbered {
-      counter-reset: item;
-      display: grid;
-      gap: 12px;
-      margin: 16px 0 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .numbered li {
-      counter-increment: item;
-      display: grid;
-      grid-template-columns: 36px 1fr;
-      gap: 12px;
-      align-items: start;
-      color: var(--soft);
-    }
-
-    .numbered li::before {
-      content: counter(item);
-      width: 36px;
-      height: 36px;
-      display: grid;
-      place-items: center;
-      border-radius: 999px;
-      background: rgba(196, 92, 255, 0.15);
-      border: 1px solid rgba(196, 92, 255, 0.32);
-      color: #fff;
+    .format-card .big-label {
+      font-size: clamp(2rem, 4vw, 4rem);
+      line-height: 0.95;
+      letter-spacing: -0.07em;
       font-weight: 900;
+      margin-bottom: 12px;
     }
 
-    .promo-card { position: relative; overflow: hidden; }
+    .format-card.country { background: linear-gradient(135deg, rgba(215,166,75,0.26), rgba(17,16,24,0.92)); }
+    .format-card.rock { background: linear-gradient(135deg, rgba(155,44,255,0.28), rgba(17,16,24,0.92)); }
 
-    .promo-card::before {
+    .promo-card::before,
+    .package-card::before {
       content: "";
       position: absolute;
       inset: 0 0 auto;
@@ -476,92 +438,141 @@
       background: linear-gradient(90deg, var(--purple), var(--gold));
     }
 
-    .package-card {
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.025)),
-        rgba(17, 16, 24, 0.9);
-    }
-
     .package-card strong {
       display: block;
-      font-size: 1.55rem;
-      letter-spacing: -0.045em;
-      line-height: 1;
-      margin: 8px 0 12px;
+      font-size: 1.35rem;
+      letter-spacing: -0.035em;
+      margin-bottom: 8px;
     }
 
-    .package-card .label {
+    .label {
       display: inline-flex;
       width: fit-content;
-      color: #fff8e8;
-      background: rgba(215, 166, 75, 0.12);
-      border: 1px solid rgba(215, 166, 75, 0.34);
-      border-radius: 999px;
+      margin-bottom: 14px;
       padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      color: var(--gold-soft);
+      font-weight: 850;
       font-size: 0.78rem;
-      font-weight: 860;
-      letter-spacing: 0.08em;
       text-transform: uppercase;
+      letter-spacing: 0.12em;
+      background: rgba(215, 166, 75, 0.08);
+    }
+
+    .deliverables {
+      list-style: none;
+      padding: 0;
+      margin: 14px 0 0;
+      display: grid;
+      gap: 8px;
+    }
+
+    .deliverables li {
+      color: var(--soft);
+      padding-left: 18px;
+      position: relative;
+      font-size: 0.94rem;
+    }
+
+    .deliverables li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--purple-bright);
+      font-weight: 900;
+    }
+
+    .disclaimer,
+    .source-note {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .source-note {
+      padding: 13px 15px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,255,255,0.045);
     }
 
     .note {
       border-left: 4px solid var(--purple-bright);
-      padding: 18px 20px;
+      padding: 17px 18px;
       background: rgba(196, 92, 255, 0.08);
       border-radius: 16px;
       color: var(--soft);
     }
 
-    .note.gold-note {
+    .gold-note {
       border-left-color: var(--gold);
       background: rgba(215, 166, 75, 0.08);
     }
 
     .social-card {
       display: flex;
+      align-items: center;
       justify-content: space-between;
       gap: 18px;
-      align-items: center;
     }
 
     .social-card b {
       display: block;
       font-size: 2rem;
-      letter-spacing: -0.055em;
       line-height: 1;
+      letter-spacing: -0.06em;
+      text-align: right;
     }
 
-    .social-card span { color: var(--muted); font-weight: 800; }
+    .social-card span {
+      display: block;
+      color: var(--muted);
+      text-transform: uppercase;
+      font-size: 0.74rem;
+      font-weight: 850;
+      letter-spacing: 0.12em;
+      text-align: right;
+      margin-top: 4px;
+    }
 
     .contact-panel {
       display: grid;
-      grid-template-columns: 1fr 0.92fr;
-      gap: 20px;
+      grid-template-columns: 1fr 0.82fr;
+      gap: 18px;
       align-items: stretch;
-      background:
-        linear-gradient(135deg, rgba(155, 44, 255, 0.22), rgba(17, 16, 24, 0.95)),
-        rgba(17, 16, 24, 0.95);
+      background: linear-gradient(135deg, rgba(155, 44, 255, 0.22), rgba(17, 16, 24, 0.95));
+      border: 1px solid var(--line);
       border-radius: 32px;
       padding: clamp(24px, 4vw, 34px);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .contact-panel::after {
+      content: "";
+      position: absolute;
+      width: 240px;
+      height: 240px;
+      right: -80px;
+      top: -100px;
+      background: radial-gradient(circle, rgba(215,166,75,0.18), transparent 68%);
     }
 
     .contact-panel h3 {
       margin: 0 0 14px;
-      font-size: clamp(2rem, 4vw, 3.25rem);
-      line-height: 0.98;
-      letter-spacing: -0.07em;
+      font-size: clamp(1.8rem, 3vw, 2.85rem);
+      line-height: 1.02;
+      letter-spacing: -0.06em;
     }
 
-    .contact-list {
-      display: grid;
-      gap: 10px;
-    }
+    .contact-list { display: grid; gap: 10px; position: relative; z-index: 1; }
 
     .contact-item {
       padding: 14px 16px;
-      background: rgba(255,255,255,0.065);
+      background: rgba(255,255,255,0.06);
       border: 1px solid var(--line);
-      border-radius: 16px;
+      border-radius: 17px;
     }
 
     .contact-item span {
@@ -569,10 +580,18 @@
       color: var(--muted);
       font-size: 0.78rem;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      font-weight: 860;
+      letter-spacing: 0.11em;
+      font-weight: 850;
       margin-bottom: 3px;
     }
+
+    .numbered {
+      margin: 18px 0 0;
+      padding-left: 20px;
+      color: var(--soft);
+    }
+
+    .numbered li { margin: 8px 0; }
 
     footer {
       padding: 28px 0;
@@ -583,64 +602,101 @@
 
     @media (max-width: 1020px) {
       .hero,
-      .contact-panel,
-      .split-card { grid-template-columns: 1fr; }
-      .grid.stats { grid-template-columns: repeat(3, 1fr); }
-      .grid.four { grid-template-columns: repeat(2, 1fr); }
+      .grid.stats,
+      .grid.four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .hero-main { min-height: auto; }
     }
 
-    @media (max-width: 760px) {
-      header { position: static; }
-      .topbar { align-items: flex-start; flex-direction: column; }
-      .nav-actions { justify-content: flex-start; }
-      .section-title { display: block; }
-      .section-title p { margin-top: 8px; }
-      .grid.stats,
+    @media (max-width: 820px) {
+      .hero,
       .grid.two,
       .grid.three,
-      .grid.four { grid-template-columns: 1fr; }
-      .hero-main { min-height: auto; }
-      .social-card { align-items: flex-start; }
+      .split-card,
+      .format-split,
+      .contact-panel { grid-template-columns: 1fr; }
+      .section-title { display: block; }
+      .section-title p { margin-top: 8px; }
     }
 
-    @media (max-width: 560px) {
-      .wrap { width: min(100% - 24px, 1160px); }
-      .hero-main,
-      .hero-card,
-      .contact-panel,
-      .card { border-radius: 20px; }
-      .button { width: 100%; }
+    @media (max-width: 580px) {
+      header { position: static; }
+      .topbar { align-items: flex-start; flex-direction: column; }
+      .nav-actions { justify-content: flex-start; width: 100%; }
+      .grid.stats,
+      .grid.four { grid-template-columns: 1fr; }
+      .button, .nav-actions a, .nav-actions button { width: 100%; }
       .hero-actions { width: 100%; }
-      .fact-row { display: grid; gap: 4px; }
-      .fact-row span:last-child { text-align: left; }
-      h2 { font-size: clamp(2.65rem, 17vw, 4.4rem); }
+      .hero-card, .hero-main, .contact-panel, .card { border-radius: 20px; }
+      h2 { letter-spacing: -0.055em; }
+      .social-card { align-items: flex-start; flex-direction: column; }
+      .social-card b, .social-card span { text-align: left; }
     }
 
     @media print {
-      body { background: #fff; color: #000; }
-      header, .hero-actions, footer, .button, .skip-link { display: none !important; }
-      .wrap { width: 100%; }
+      body {
+        background: #fff !important;
+        color: #111 !important;
+        font-size: 11px;
+      }
+
+      header, footer, .hero-actions, .skip-link { display: none !important; }
+
       main { padding: 0; }
-      .hero, .grid.stats, .grid.two, .grid.three, .grid.four, .contact-panel { grid-template-columns: 1fr 1fr; }
-      .hero-main, .hero-card, .card, .contact-panel { box-shadow: none; background: #fff; color: #000; border-color: #ccc; break-inside: avoid; }
-      .muted, .section-title p, .stat span, .stat small, .disclaimer, .contact-item span { color: #444; }
+      .wrap { width: 100%; margin: 0; }
+      section { margin-top: 12px; break-inside: avoid; }
+
+      .hero,
+      .grid.stats,
+      .grid.two,
+      .grid.three,
+      .split-card,
+      .format-split,
+      .contact-panel {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 8px !important;
+      }
+
+      .hero-main,
+      .hero-card,
+      .card,
+      .contact-panel,
+      .note,
+      .source-note {
+        background: #fff !important;
+        color: #111 !important;
+        border: 1px solid #bbb !important;
+        box-shadow: none !important;
+        border-radius: 10px !important;
+        padding: 12px !important;
+      }
+
+      .hero-main { min-height: auto !important; }
+      .hero-main::after, .contact-panel::after, .promo-card::before, .package-card::before { display: none !important; }
+      .epk-logo-block { min-height: 120px; background: #fff !important; }
+      .epk-logo-block img { width: 150px; }
+
+      h2 { font-size: 34px !important; color: #111 !important; }
+      .section-title h3 { font-size: 20px !important; color: #111 !important; }
+      .hero-copy, .card p, .muted, .section-title p, .stat span, .stat small, .disclaimer, .source-note, .contact-item span, .fact-row span:first-child { color: #444 !important; }
+      .stat strong, .package-card strong, .social-card b { color: #111 !important; }
+      .hero-badges li, .tag-list li, .artist-list li, .mini-list li { color: #111 !important; border-color: #bbb !important; background: #fff !important; }
+      a { color: #111 !important; }
     }
   </style>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-
   <header>
     <div class="wrap topbar">
       <a class="brand" href="https://lwiiradio.com" aria-label="Look Who It Is Radio home">
         <img class="logo-img" src="radiologo.png" alt="Look Who It Is Radio logo" />
         <div>
           <h1>Look Who It Is Radio</h1>
-          <p>Venue & Sponsor EPK</p>
+          <p>Country by day. Rock at night.</p>
         </div>
       </a>
-      <nav class="nav-actions" aria-label="EPK navigation">
-        <a class="button" href="#audience">Audience</a>
+      <nav class="nav-actions" aria-label="Sponsor page navigation">
+        <a class="button" href="#audience">Stats</a>
         <a class="button" href="#promo">Promo options</a>
         <a class="button" href="https://lwiiradio.com">Listen</a>
         <a class="button primary" href="contact.html">Contact</a>
@@ -653,23 +709,24 @@
       <section class="hero" aria-label="Introduction">
         <div class="hero-main">
           <div>
-            <div class="eyebrow"><span class="dot"></span> Licensed streaming radio on Live365</div>
-            <h2>Country by day. Rock at night.</h2>
+            <div class="eyebrow"><span class="dot"></span> Licensed independent streaming radio on Live365</div>
+            <h2>Venue & sponsor EPK.</h2>
             <p class="hero-copy">
               <strong>Look Who It Is Radio</strong> is a licensed independent country and rock streaming station built to spotlight real artists, mix in familiar songs, and help listeners discover music worth hearing.
             </p>
             <p class="hero-copy">
-              This EPK is for venues, sponsors, local businesses, and music-related brands looking for a practical way to support independent music without pretending it is a giant ad buy.
+              The format is clear: <strong>Country by day. Rock at night.</strong> The pitch is simple: a focused, early-stage music station with real activity, a growing artist pipeline, and flexible promo options for venues, local businesses, and music-friendly sponsors.
             </p>
             <ul class="hero-badges" aria-label="Station highlights">
               <li>Live365 streaming platform</li>
               <li>LWIIRadio.com</li>
+              <li>1,420 stream starts since launch</li>
+              <li>98 artist submissions since May 13</li>
               <li>Independent artists + familiar songs</li>
-              <li>Country / Rock / Americana / Roots</li>
             </ul>
           </div>
           <div class="hero-actions">
-            <a class="button primary" href="contact.html">Talk about a promo</a>
+            <a class="button primary" href="contact.html">Request sponsor info</a>
             <a class="button gold" href="https://lwiiradio.com">Listen to the station</a>
             <button class="button" type="button" onclick="window.print()">Print / Save EPK</button>
           </div>
@@ -687,6 +744,7 @@
               <div class="fact-row"><span>Website</span><span>LWIIRadio.com</span></div>
               <div class="fact-row"><span>Platform</span><span>Live365</span></div>
               <div class="fact-row"><span>Primary fit</span><span>Venues, events, artists, local brands</span></div>
+              <div class="fact-row"><span>Updated</span><span>June 15, 2026</span></div>
             </div>
           </div>
         </aside>
@@ -694,55 +752,109 @@
 
       <section id="audience" aria-label="Current audience activity">
         <div class="section-title">
-          <h3>Current audience activity</h3>
-          <p>Reported honestly using stream activity, listening time, submissions, and social following. These are not inflated monthly listener claims.</p>
+          <h3>Launch-to-date activity</h3>
+          <p>Reported with the same plain-language metric names used in the Live365 dashboard. These are stream activity numbers, not inflated “monthly listener” claims.</p>
         </div>
         <div class="grid stats">
           <div class="card stat feature">
-            <strong>529</strong>
+            <strong>1,420</strong>
             <span>Stream starts</span>
-            <small>May 2026 Live365 session starts</small>
+            <small>Live365 session starts, Apr. 7 – Jun. 15, 2026</small>
           </div>
           <div class="card stat">
-            <strong>143</strong>
-            <span>Engaged sessions</span>
+            <strong>347</strong>
+            <span>Active sessions</span>
             <small>Sessions connected for at least 1 minute</small>
           </div>
           <div class="card stat">
-            <strong>14.13</strong>
+            <strong>44.17</strong>
             <span>Listening hours</span>
-            <small>May 2026 total listening hours</small>
+            <small>Total listening hours for the selected period</small>
           </div>
           <div class="card stat">
             <strong>1,059</strong>
             <span>Social followers</span>
             <small>1,008 TikTok + 51 Instagram</small>
           </div>
-          <div class="card stat">
-            <strong>44+</strong>
+          <div class="card stat gold-stat">
+            <strong>98</strong>
             <span>Artist submissions</span>
-            <small>Recent submission response from independent artists</small>
+            <small>Received since May 13, 2026</small>
           </div>
         </div>
-        <p class="disclaimer">
-          Sponsor language to use: “growing listener activity,” “measurable stream starts,” and “focused music audience.” Avoid calling stream starts monthly listeners.
+        <p class="source-note">
+          Best sponsor wording: “measurable listener activity,” “growing stream starts,” “active artist submission pipeline,” and “focused country/rock music audience.” Avoid calling stream starts monthly listeners unless Live365’s unique listener/reach number is pulled separately.
         </p>
+      </section>
+
+      <section aria-label="What the numbers mean">
+        <div class="section-title">
+          <h3>What the numbers show</h3>
+          <p>The strongest sponsor story is momentum, not size. This page is built to show that the station is real, active, and worth testing with a low-risk promo campaign.</p>
+        </div>
+        <div class="grid three">
+          <div class="card lift">
+            <h4>Real listener activity</h4>
+            <p>The station has logged more than 1,400 stream starts and 44+ total listening hours since launch, with trackable activity through Live365.</p>
+          </div>
+          <div class="card lift">
+            <h4>Strong artist-side demand</h4>
+            <p>98 artist submissions since May 13 shows that independent artists are actively seeking placement and attention from the station.</p>
+          </div>
+          <div class="card lift">
+            <h4>Clean early-stage sponsor fit</h4>
+            <p>This is best sold as an affordable test campaign for partners that want music alignment, not as a mass-market radio buy.</p>
+          </div>
+        </div>
+      </section>
+
+      <section aria-label="Format split">
+        <div class="section-title">
+          <h3>Format</h3>
+          <p>A simple day/night identity makes the station easier for venues and sponsors to understand quickly.</p>
+        </div>
+        <div class="format-split">
+          <div class="card format-card country">
+            <div>
+              <div class="big-label">Country<br>by day</div>
+              <p>Daytime programming built around country, Americana, alternative country, Red Dirt, roots music, and independent country artists.</p>
+            </div>
+            <ul class="tag-list">
+              <li>Country</li>
+              <li>Americana</li>
+              <li>Roots</li>
+              <li>Red Dirt</li>
+            </ul>
+          </div>
+          <div class="card format-card rock">
+            <div>
+              <div class="big-label">Rock<br>at night</div>
+              <p>Night programming built for rock, alternative, independent bands, heavier energy, and listeners who want something with more edge.</p>
+            </div>
+            <ul class="tag-list">
+              <li>Rock</li>
+              <li>Alternative</li>
+              <li>Indie bands</li>
+              <li>Night rotation</li>
+            </ul>
+          </div>
+        </div>
       </section>
 
       <section aria-label="Station overview">
         <div class="section-title">
           <h3>What the station is</h3>
-          <p>A simple, focused station with a clear lane: country during the day, rock at night, and independent artists mixed with familiar songs.</p>
+          <p>A focused, human-curated station with a clear lane: familiar songs mixed with independent artists worth hearing.</p>
         </div>
         <div class="split-card">
           <div class="card lift">
             <h4>Positioning</h4>
-            <p>Look Who It Is Radio gives listeners a clean place to hear country, rock, Americana, alternative country, roots music, and independent artists worth discovering.</p>
+            <p>Look Who It Is Radio gives listeners a clean place to hear country, rock, Americana, alternative country, roots music, and independent artists without turning the station into a random playlist.</p>
             <ul class="mini-list">
-              <li>Licensed station</li>
+              <li>Licensed streaming station</li>
+              <li>Human-curated music</li>
               <li>Artist discovery</li>
               <li>Familiar music mix</li>
-              <li>Simple day/night format</li>
             </ul>
           </div>
           <div class="card lift">
@@ -783,16 +895,14 @@
             </ul>
           </div>
           <div class="card">
-            <h4>Format mix</h4>
-            <p>The station uses familiar mainstream songs to keep casual listeners around while introducing independent artists that fit the lane.</p>
+            <h4>Programming value</h4>
+            <p>The station uses familiar mainstream songs to keep casual listeners around while introducing independent artists that fit the lane. That makes it useful for both discovery and everyday listening.</p>
             <ul class="tag-list">
-              <li>Country by day</li>
-              <li>Rock at night</li>
-              <li>Americana</li>
-              <li>Alternative country</li>
-              <li>Roots</li>
-              <li>Red Dirt</li>
-              <li>Independent music</li>
+              <li>Familiar songs</li>
+              <li>Independent artists</li>
+              <li>Submission review</li>
+              <li>Artist features</li>
+              <li>Social support</li>
             </ul>
           </div>
         </div>
@@ -805,16 +915,16 @@
         </div>
         <div class="grid three">
           <div class="card lift">
-            <h4>Focused audience</h4>
+            <h4>Focused music audience</h4>
             <p>Reach people already connected to country, rock, live music, artist discovery, and local/regional music culture.</p>
           </div>
           <div class="card lift">
             <h4>Early supporter value</h4>
-            <p>Founding partners can get in before the station is crowded with ads or sponsor clutter.</p>
+            <p>Founding partners can get in before the station is crowded with sponsor clutter. Early partners are easier to feature clearly.</p>
           </div>
           <div class="card lift">
-            <h4>Cross-promotion</h4>
-            <p>Promotion can include station mentions, social posts, stories, giveaways, and venue/event spotlights.</p>
+            <h4>Cross-channel promotion</h4>
+            <p>Campaigns can include station mentions, website placement, TikTok, Instagram, giveaways, and event spotlights.</p>
           </div>
         </div>
       </section>
@@ -822,7 +932,7 @@
       <section id="promo" aria-label="Promo options">
         <div class="section-title">
           <h3>Promo options</h3>
-          <p>Simple options that are realistic for a growing station. Packages can be built around station audio, social content, venue events, or giveaways.</p>
+          <p>Simple options built for a growing station. Every option should have clear deliverables and a simple recap after the campaign.</p>
         </div>
         <div class="grid three">
           <div class="card promo-card">
@@ -855,23 +965,66 @@
       <section aria-label="Starter packages">
         <div class="section-title">
           <h3>Starter packages</h3>
-          <p>Use these as clean starting points when talking to venues or sponsors. Add pricing later when you are ready.</p>
+          <p>These are built as low-risk tests. Pricing can be quoted privately based on the number of spots, social posts, and campaign length.</p>
         </div>
         <div class="grid three">
           <div class="card package-card">
             <span class="label">Venue</span>
             <strong>Show Push</strong>
-            <p>Station mentions, a short social post or story, and a direct link to the event or ticket page.</p>
+            <p>For venues or promoters who want help getting attention on an upcoming show.</p>
+            <ul class="deliverables">
+              <li>Station mentions before the event</li>
+              <li>One social post or story</li>
+              <li>Direct event or ticket link</li>
+              <li>Optional artist feature if the lineup fits</li>
+            </ul>
           </div>
           <div class="card package-card">
             <span class="label">Sponsor</span>
             <strong>Founding Partner Test</strong>
-            <p>A short sponsor spot, website placement, and one social mention for a simple trial campaign.</p>
+            <p>For local businesses that want a simple first campaign without a big media buy.</p>
+            <ul class="deliverables">
+              <li>Short station sponsor message</li>
+              <li>Website sponsor placement</li>
+              <li>One social mention</li>
+              <li>End-of-campaign recap</li>
+            </ul>
           </div>
           <div class="card package-card">
-            <span class="label">Giveaway</span>
-            <strong>Listener Giveaway</strong>
-            <p>Partner-provided prize promoted through the station and social posts with clear winner instructions.</p>
+            <span class="label">Feature</span>
+            <strong>Signal Boost Sponsor</strong>
+            <p>For brands that want to attach their name to independent artist discovery.</p>
+            <ul class="deliverables">
+              <li>Feature presented by sponsor</li>
+              <li>Station and social mentions</li>
+              <li>Artist-focused placement</li>
+              <li>Good fit for music-friendly brands</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section aria-label="Campaign reporting">
+        <div class="section-title">
+          <h3>What partners get back</h3>
+          <p>A simple recap makes the campaign feel professional and gives the sponsor a reason to renew.</p>
+        </div>
+        <div class="grid four">
+          <div class="card lift">
+            <h4>Delivered items</h4>
+            <p>Spots, posts, stories, website placement, giveaway notes, or event mentions completed.</p>
+          </div>
+          <div class="card lift">
+            <h4>Stream activity</h4>
+            <p>Session starts, active sessions, and total listening hours for the campaign window.</p>
+          </div>
+          <div class="card lift">
+            <h4>Social results</h4>
+            <p>Views, likes, comments, shares, saves, or clicks from TikTok and Instagram posts when available.</p>
+          </div>
+          <div class="card lift">
+            <h4>Next step</h4>
+            <p>What worked, what to adjust, and whether a renewal or bigger campaign makes sense.</p>
           </div>
         </div>
       </section>
@@ -879,7 +1032,7 @@
       <section aria-label="Social media">
         <div class="section-title">
           <h3>Social footprint</h3>
-          <p>Current follower counts are small but real. The TikTok account has the strongest early traction and is the best place for short artist/submission content.</p>
+          <p>Current follower counts are modest but real. TikTok has the strongest early traction and is the best place for short artist/submission content.</p>
         </div>
         <div class="grid two">
           <a class="card social-card" href="https://www.tiktok.com/@lookwhoitispod" aria-label="TikTok for Look Who It Is">
@@ -932,7 +1085,7 @@
             </div>
             <div class="contact-item">
               <span>Contact page</span>
-              <a href="contact.html">contact.html</a>
+              <a href="contact.html">Contact Me</a>
             </div>
             <div class="contact-item">
               <span>Email</span>

@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Venues & Sponsors | Look Who It Is Radio</title>
+  <meta name="description" content="Look Who It Is Radio is a licensed independent country and rock streaming station on Live365. Country by day, rock at night." />
+  <style>
+    :root {
+      --bg: #050509;
+      --bg-2: #0D0A14;
+      --card: #111018;
+      --card-2: #171320;
+      --purple: #9B2CFF;
+      --purple-bright: #C45CFF;
+      --glow: #E07BFF;
+      --text: #FFFFFF;
+      --soft: #EDE7F8;
+      --muted: #A9A0B8;
+      --line: rgba(255,255,255,0.12);
+      --gold: #D7A64B;
+      --green: #78D6A3;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(155, 44, 255, 0.25), transparent 34rem),
+        radial-gradient(circle at bottom right, rgba(215, 166, 75, 0.12), transparent 32rem),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .wrap {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 28px 0;
+      border-bottom: 1px solid var(--line);
+      background: rgba(5, 5, 9, 0.78);
+      backdrop-filter: blur(14px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .logo-img {
+      width: 58px;
+      height: 58px;
+      border-radius: 16px;
+      object-fit: cover;
+      box-shadow: 0 0 28px rgba(196, 92, 255, 0.28);
+      flex: 0 0 auto;
+      background: #050509;
+    }
+
+    .brand h1 {
+      font-size: 1.05rem;
+      margin: 0;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    .brand p {
+      margin: 3px 0 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 0.9rem;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.06);
+      color: var(--soft);
+    }
+
+    .button.primary {
+      border: 0;
+      background: linear-gradient(135deg, var(--purple), var(--purple-bright));
+      color: #fff;
+      box-shadow: 0 0 22px rgba(196, 92, 255, 0.25);
+    }
+
+    main {
+      padding: 58px 0 74px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 34px;
+      align-items: center;
+      margin-bottom: 34px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      color: var(--soft);
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.05);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      margin-bottom: 18px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 99px;
+      background: var(--green);
+      box-shadow: 0 0 10px rgba(120, 214, 163, 0.75);
+    }
+
+    h2 {
+      font-size: clamp(2.4rem, 5.4vw, 5.1rem);
+      line-height: 0.95;
+      letter-spacing: -0.06em;
+      margin: 0 0 18px;
+    }
+
+    .hero-copy {
+      color: var(--soft);
+      font-size: clamp(1.05rem, 1.8vw, 1.28rem);
+      max-width: 680px;
+      margin: 0 0 24px;
+    }
+
+    .hero-copy strong {
+      color: #fff;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 26px;
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.035));
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 26px;
+      box-shadow: 0 24px 70px rgba(0,0,0,0.35);
+    }
+
+    .hero-card h3 {
+      margin: 0 0 12px;
+      font-size: 1rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .fact-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .fact-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 13px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .fact-row:last-child {
+      border-bottom: 0;
+    }
+
+    .fact-row span:first-child {
+      color: var(--muted);
+    }
+
+    .fact-row span:last-child {
+      font-weight: 800;
+      text-align: right;
+    }
+
+    section {
+      margin-top: 34px;
+    }
+
+    .section-title {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: end;
+      margin-bottom: 16px;
+    }
+
+    .section-title h3 {
+      margin: 0;
+      font-size: clamp(1.55rem, 2.8vw, 2.25rem);
+      letter-spacing: -0.04em;
+    }
+
+    .section-title p {
+      max-width: 620px;
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .grid.stats {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .grid.two {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid.three {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .card {
+      background: rgba(17, 16, 24, 0.86);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 22px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: clamp(1.8rem, 3.2vw, 2.9rem);
+      line-height: 1;
+      letter-spacing: -0.05em;
+      margin-bottom: 10px;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+    }
+
+    .stat small {
+      display: block;
+      margin-top: 10px;
+      color: var(--muted);
+    }
+
+    .card h4 {
+      margin: 0 0 10px;
+      font-size: 1.12rem;
+      letter-spacing: -0.02em;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--soft);
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .artist-list,
+    .tag-list {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      padding: 0;
+      margin: 16px 0 0;
+      list-style: none;
+    }
+
+    .artist-list li,
+    .tag-list li {
+      padding: 9px 12px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.055);
+      border-radius: 999px;
+      color: var(--soft);
+      font-weight: 700;
+      font-size: 0.92rem;
+    }
+
+    .promo-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .promo-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 4px;
+      background: linear-gradient(90deg, var(--purple), var(--gold));
+    }
+
+    .note {
+      border-left: 4px solid var(--purple-bright);
+      padding: 16px 18px;
+      background: rgba(196, 92, 255, 0.08);
+      border-radius: 14px;
+      color: var(--soft);
+    }
+
+    .contact-panel {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      align-items: stretch;
+      background: linear-gradient(135deg, rgba(155, 44, 255, 0.18), rgba(17, 16, 24, 0.95));
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 28px;
+    }
+
+    .contact-panel h3 {
+      margin-top: 0;
+      font-size: clamp(1.8rem, 3vw, 2.65rem);
+      line-height: 1.05;
+      letter-spacing: -0.05em;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .contact-item {
+      padding: 14px 16px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+    }
+
+    .contact-item span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 800;
+      margin-bottom: 3px;
+    }
+
+    footer {
+      padding: 28px 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 860px) {
+      .hero,
+      .grid.two,
+      .contact-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .grid.stats,
+      .grid.three {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .section-title {
+        display: block;
+      }
+
+      .section-title p {
+        margin-top: 8px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      header {
+        position: static;
+      }
+
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-actions {
+        justify-content: flex-start;
+      }
+
+      .grid.stats,
+      .grid.three {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card,
+      .contact-panel,
+      .card {
+        border-radius: 18px;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .hero-actions {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap topbar">
+      <a class="brand" href="https://lwiiradio.com" aria-label="Look Who It Is Radio home">
+        <img class="logo-img" src="radiologo.png" alt="Look Who It Is Radio logo" />
+        <div>
+          <h1>Look Who It Is Radio</h1>
+          <p>Country by day. Rock at night.</p>
+        </div>
+      </a>
+      <nav class="nav-actions" aria-label="Sponsor page navigation">
+        <a class="button" href="https://lwiiradio.com">Visit LWIIRadio.com</a>
+        <a class="button primary" href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <section class="hero" aria-label="Introduction">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> Licensed streaming radio on Live365</div>
+          <h2>Venue & sponsor info.</h2>
+          <p class="hero-copy">
+            <strong>Look Who It Is Radio</strong> is a licensed independent country and rock streaming station built to spotlight real artists, mix in familiar songs, and help listeners discover music worth hearing.
+          </p>
+          <p class="hero-copy">
+            The format is simple: <strong>country during the day, rock at night</strong>. The station streams through Live365 and is built for listeners who want familiar songs alongside independent artists they may not hear anywhere else.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="contact.html">Ask about promo options</a>
+            <a class="button" href="https://lwiiradio.com">Listen to the station</a>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Station facts">
+          <h3>Station Snapshot</h3>
+          <div class="fact-list">
+            <div class="fact-row"><span>Station</span><span>Look Who It Is Radio</span></div>
+            <div class="fact-row"><span>Format</span><span>Country by day, Rock at night</span></div>
+            <div class="fact-row"><span>Website</span><span>LWIIRadio.com</span></div>
+            <div class="fact-row"><span>Platform</span><span>Live365</span></div>
+            <div class="fact-row"><span>Focus</span><span>Independent artists + familiar songs</span></div>
+          </div>
+        </aside>
+      </section>
+
+      <section aria-label="Current reach">
+        <div class="section-title">
+          <h3>Current reach</h3>
+          <p>Update these numbers monthly from Live365 and your social analytics. Keep them honest. Small, real numbers are better than inflated ones.</p>
+        </div>
+        <div class="grid stats">
+          <div class="card stat">
+            <strong>___</strong>
+            <span>Monthly listeners</span>
+            <small>Live365 monthly listener count</small>
+          </div>
+          <div class="card stat">
+            <strong>___</strong>
+            <span>Total listening hours</span>
+            <small>Live365 total hours for the month</small>
+          </div>
+          <div class="card stat">
+            <strong>___</strong>
+            <span>Social reach</span>
+            <small>Instagram, TikTok and short-form posts</small>
+          </div>
+          <div class="card stat">
+            <strong>44+</strong>
+            <span>Music submissions</span>
+            <small>Initial submission response from independent artists</small>
+          </div>
+        </div>
+      </section>
+
+      <section aria-label="What the station plays">
+        <div class="section-title">
+          <h3>What the station plays</h3>
+          <p>Look Who It Is Radio blends familiar country and rock with independent artists that fit the station. Submissions are reviewed before being added.</p>
+        </div>
+        <div class="grid two">
+          <div class="card">
+            <h4>Independent artists in rotation</h4>
+            <p class="muted">Examples from the station’s independent artist mix.</p>
+            <ul class="artist-list">
+              <li>Mikele Buck</li>
+              <li>Kendall Eugene</li>
+              <li>Hunter Lohr</li>
+              <li>STOWE</li>
+              <li>Riley Lemons</li>
+              <li>Father Figures</li>
+              <li>Radio Flower</li>
+              <li>Jake Binegar</li>
+              <li>Elisabeth Ann</li>
+              <li>Wyatt Putman</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4>Music lane</h4>
+            <p>The station fits listeners who like country, rock, Americana, alternative country, Red Dirt, roots music, and independent artists with a real song-first sound.</p>
+            <ul class="tag-list">
+              <li>Country</li>
+              <li>Rock</li>
+              <li>Americana</li>
+              <li>Alternative Country</li>
+              <li>Roots</li>
+              <li>Red Dirt</li>
+              <li>Independent Artists</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section aria-label="Why partner">
+        <div class="section-title">
+          <h3>Why partner with the station</h3>
+          <p>This is a practical fit for venues, small brands, local businesses, music-related companies, and community partners that want a simple way to support independent music.</p>
+        </div>
+        <div class="grid three">
+          <div class="card">
+            <h4>Targeted music audience</h4>
+            <p>Reach listeners who already care about country, rock, live music, new artists, and music discovery.</p>
+          </div>
+          <div class="card">
+            <h4>Artist-friendly positioning</h4>
+            <p>The station is built around real artist discovery, not generic background noise or fake hype.</p>
+          </div>
+          <div class="card">
+            <h4>Simple local/regional value</h4>
+            <p>Good fit for venues, shows, events, shops, restaurants, music brands, and local businesses that want low-pressure exposure.</p>
+          </div>
+        </div>
+      </section>
+
+      <section aria-label="Promo options">
+        <div class="section-title">
+          <h3>Promo options</h3>
+          <p>Options can be built around the station, social posts, giveaways, event mentions, or a short campaign. No inflated promises. Just clean promotion.</p>
+        </div>
+        <div class="grid three">
+          <div class="card promo-card">
+            <h4>Station audio spot</h4>
+            <p>A short 15 or 30 second sponsor message played on the station during agreed programming blocks.</p>
+          </div>
+          <div class="card promo-card">
+            <h4>Sponsored feature</h4>
+            <p>Sponsor a repeatable feature like Signal Boost, New Music Spotlight, or a weekly independent artist highlight.</p>
+          </div>
+          <div class="card promo-card">
+            <h4>Venue or event spotlight</h4>
+            <p>Simple mentions for upcoming shows, venue events, ticket links, or artist lineups that fit the station audience.</p>
+          </div>
+          <div class="card promo-card">
+            <h4>Social post or story</h4>
+            <p>Short sponsor or venue mentions through Instagram or TikTok content connected to the station.</p>
+          </div>
+          <div class="card promo-card">
+            <h4>Giveaway partner</h4>
+            <p>Ticket, merch, hat, gift card, or product giveaway tied to station promotion and social posts.</p>
+          </div>
+          <div class="card promo-card">
+            <h4>Custom promo package</h4>
+            <p>A simple combination of station mentions, social posts, and feature sponsorship based on the goal.</p>
+          </div>
+        </div>
+      </section>
+
+      <section aria-label="Social links">
+        <div class="section-title">
+          <h3>Social links</h3>
+          <p>Add your direct profile URLs below. Keep the page focused on where people can listen, submit music, or ask about sponsorship.</p>
+        </div>
+        <div class="grid three">
+          <a class="card" href="#" aria-label="www.instagram.com/lookwhoitisradio">
+            <h4>Instagram</h4>
+            <p>@lookwhoitisradio</p>
+          </a>
+          <a class="card" href="#" aria-label="www.tiktok.com/@lookwhoitispod">
+            <h4>TikTok</h4>
+            <p>@lookwhoitispod</p>
+          </a>
+        </div>
+      </section>
+
+      <section aria-label="Important note">
+        <div class="note">
+          <strong>For artists:</strong> music submissions are reviewed before being added to rotation. A submission does not guarantee airplay. The goal is to keep the station focused, listenable, and useful for both artists and listeners.
+        </div>
+      </section>
+
+      <section aria-label="Contact information">
+        <div class="contact-panel">
+          <div>
+            <h3>Want to talk about a venue, event, or sponsor idea?</h3>
+            <p class="hero-copy">Send the details and what you want to promote. Simple packages work best: a short station message, a few social mentions, or a giveaway tied to the station.</p>
+            <div class="hero-actions">
+              <a class="button primary" href="contact.html">Contact Dane</a>
+              <a class="button" href="https://lwiiradio.com">LWIIRadio.com</a>
+            </div>
+          </div>
+          <div class="contact-list">
+            <div class="contact-item">
+              <span>Contact</span>
+              Dane / Look Who It Is Radio
+            </div>
+            <div class="contact-item">
+              <span>Contact page</span>
+              <a href="contact.html">contact.html</a>
+            </div>
+            <div class="contact-item">
+              <span>Email</span>
+              <a href="mailto:dane@windrowstudio.com">dane@windrowstudio.com</a>
+            </div>
+            <div class="contact-item">
+              <span>Website</span>
+              <a href="https://lwiiradio.com">LWIIRadio.com</a>
+            </div>
+            <div class="contact-item">
+              <span>Streaming</span>
+              Live365
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      © <span id="year"></span> Look Who It Is Radio. Licensed independent streaming radio on Live365.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

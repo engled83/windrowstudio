@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Calorie Tracker</title>
+
+  <meta name="theme-color" content="#111111" />
+  <meta name="description" content="Simple daily calorie and protein tracker." />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <main class="app">
+    <header class="app-header">
+      <h1>Calorie Tracker</h1>
+      <p>Daily calories and protein</p>
+    </header>
+
+    <!-- API Key Setup -->
+    <section class="card" id="apiKeySection">
+      <h2>USDA API Key</h2>
+      <p class="small-text">
+        Enter your API key once. It will be saved only in this browser.
+      </p>
+
+      <label for="apiKeyInput">API Key</label>
+      <input
+        type="password"
+        id="apiKeyInput"
+        placeholder="Paste USDA API key"
+        autocomplete="off"
+      />
+
+      <button id="saveApiKeyBtn">Save API Key</button>
+
+      <p class="small-text">
+        Your key is not stored in GitHub or in this website code.
+      </p>
+    </section>
+
+    <!-- Daily Totals -->
+    <section class="totals">
+      <div class="total-box">
+        <span class="total-label">Calories</span>
+        <strong id="totalCalories">0</strong>
+      </div>
+
+      <div class="total-box">
+        <span class="total-label">Protein</span>
+        <strong><span id="totalProtein">0</span>g</strong>
+      </div>
+    </section>
+
+    <!-- Food Search -->
+    <section class="card">
+      <h2>Add Food</h2>
+
+      <label for="foodSearchInput">Food Name</label>
+      <input
+        type="text"
+        id="foodSearchInput"
+        placeholder="Example: chicken breast"
+      />
+
+      <button id="searchFoodBtn">Search Calories</button>
+
+      <div id="searchStatus" class="status"></div>
+
+      <div id="searchResults" class="results"></div>
+    </section>
+
+    <!-- Selected Food -->
+    <section class="card hidden" id="selectedFoodSection">
+      <h2>Selected Food</h2>
+
+      <p id="selectedFoodName" class="selected-food-name"></p>
+
+      <div class="grid-2">
+        <div>
+          <label for="servingsInput">Servings</label>
+          <input
+            type="number"
+            id="servingsInput"
+            value="1"
+            min="0.25"
+            step="0.25"
+          />
+        </div>
+
+        <div>
+          <label for="caloriesInput">Calories / Serving</label>
+          <input
+            type="number"
+            id="caloriesInput"
+            min="0"
+            step="1"
+          />
+        </div>
+      </div>
+
+      <label for="proteinInput">Protein / Serving</label>
+      <input
+        type="number"
+        id="proteinInput"
+        min="0"
+        step="0.1"
+      />
+
+      <button id="addSelectedFoodBtn">Add to Today</button>
+    </section>
+
+    <!-- Manual Entry -->
+    <section class="card">
+      <h2>Manual Entry</h2>
+
+      <label for="manualFoodName">Food Name</label>
+      <input
+        type="text"
+        id="manualFoodName"
+        placeholder="Example: homemade chili"
+      />
+
+      <div class="grid-2">
+        <div>
+          <label for="manualCalories">Calories</label>
+          <input
+            type="number"
+            id="manualCalories"
+            min="0"
+            step="1"
+          />
+        </div>
+
+        <div>
+          <label for="manualProtein">Protein</label>
+          <input
+            type="number"
+            id="manualProtein"
+            min="0"
+            step="0.1"
+          />
+        </div>
+      </div>
+
+      <button id="addManualFoodBtn">Add Manual Food</button>
+    </section>
+
+    <!-- Today List -->
+    <section class="card">
+      <div class="section-header">
+        <h2>Today</h2>
+        <button id="newDayBtn" class="danger-btn">New Day</button>
+      </div>
+
+      <div id="foodList" class="food-list">
+        <p class="empty-message">No food added yet.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

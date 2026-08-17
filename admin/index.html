@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -812,6 +813,20 @@
       new Date().getFullYear();
 
 
+    /*
+      GENERATES EXACTLY 4 CHARACTERS
+
+      Excludes:
+      O and 0
+      I and 1
+      L
+
+      Example:
+      K7MP
+      3XQ8
+      N4TC
+    */
+
     function generateAccessCode(){
 
       const characters =
@@ -824,7 +839,7 @@
         randomValues
       );
 
-      let code = 'LW';
+      let code = '';
 
       for(
         let i = 0;

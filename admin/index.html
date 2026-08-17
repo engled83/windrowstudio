@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Guest Management | Look Who It Is</title>
+
+  <meta name="robots" content="noindex, nofollow">
+
+  <style>
+    :root{
+      --bg:#0b0e13;
+      --card:#101722;
+      --fg:#f3f6fb;
+      --muted:#a1acb8;
+      --line:rgba(255,255,255,.08);
+      --accent:#12b76a;
+      --accent-soft:rgba(18,183,106,.14);
+      --shadow:0 20px 50px rgba(0,0,0,.38);
+      --max:760px;
+    }
+
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    body{
+      min-height:100vh;
+      font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+
+      background:
+        radial-gradient(
+          1000px 520px at 50% -120px,
+          rgba(18,183,106,.16),
+          transparent 60%
+        ),
+        linear-gradient(
+          180deg,
+          #0b0e13 0%,
+          #0d1118 100%
+        );
+
+      color:var(--fg);
+    }
+
+    .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:28px 18px 50px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin-bottom:28px;
+    }
+
+    .brand img{
+      width:44px;
+      height:auto;
+    }
+
+    .brand-text{
+      line-height:1.1;
+    }
+
+    .brand-small{
+      font-size:.82rem;
+      color:var(--muted);
+      font-weight:700;
+    }
+
+    .brand-main{
+      font-weight:900;
+    }
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:22px;
+      box-shadow:var(--shadow);
+      padding:32px;
+    }
+
+    .eyebrow{
+      display:inline-block;
+      margin-bottom:12px;
+      padding:6px 12px;
+      border-radius:999px;
+      background:var(--accent-soft);
+      border:1px solid rgba(18,183,106,.28);
+      color:#c9f7df;
+      font-size:.78rem;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+    }
+
+    h1{
+      font-size:clamp(2rem,5vw,2.8rem);
+      line-height:1.05;
+      margin-bottom:10px;
+    }
+
+    .intro{
+      color:var(--muted);
+      margin-bottom:28px;
+    }
+
+    .form-grid{
+      display:grid;
+      gap:20px;
+    }
+
+    label{
+      display:block;
+      font-weight:800;
+      margin-bottom:7px;
+    }
+
+    input{
+      width:100%;
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:12px;
+      background:#0b1119;
+      color:var(--fg);
+      padding:14px 15px;
+      font:inherit;
+      font-size:1rem;
+      outline:none;
+    }
+
+    input:focus{
+      border-color:rgba(18,183,106,.75);
+      box-shadow:0 0 0 4px rgba(18,183,106,.1);
+    }
+
+    .code-row{
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:10px;
+    }
+
+    .code-input{
+      font-weight:900;
+      letter-spacing:.1em;
+      text-transform:uppercase;
+    }
+
+    button{
+      border:0;
+      font:inherit;
+      cursor:pointer;
+    }
+
+    .secondary-btn{
+      padding:0 18px;
+      border-radius:12px;
+      background:rgba(255,255,255,.08);
+      color:var(--fg);
+      font-weight:800;
+      border:1px solid var(--line);
+    }
+
+    .secondary-btn:hover{
+      background:rgba(255,255,255,.12);
+    }
+
+    .preview{
+      margin-top:28px;
+      padding:22px;
+      border-radius:16px;
+      background:rgba(255,255,255,.03);
+      border:1px solid var(--line);
+    }
+
+    .preview-title{
+      font-size:.8rem;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      color:var(--muted);
+      margin-bottom:14px;
+    }
+
+    .preview-name{
+      font-size:1.4rem;
+      font-weight:900;
+    }
+
+    .preview-date{
+      margin-top:4px;
+      color:var(--muted);
+    }
+
+    .preview-code{
+      display:inline-block;
+      margin-top:14px;
+      padding:7px 11px;
+      border-radius:9px;
+      background:var(--accent-soft);
+      color:#c9f7df;
+      font-weight:900;
+      letter-spacing:.08em;
+    }
+
+    .save-btn{
+      width:100%;
+      margin-top:24px;
+      padding:16px;
+      border-radius:999px;
+      background:var(--accent);
+      color:#062612;
+      font-weight:900;
+      font-size:1.05rem;
+      box-shadow:0 12px 24px rgba(18,183,106,.2);
+    }
+
+    .save-btn:hover{
+      filter:brightness(1.05);
+    }
+
+    .status{
+      display:none;
+      margin-top:16px;
+      padding:12px 14px;
+      border-radius:12px;
+      font-weight:700;
+    }
+
+    .status.show{
+      display:block;
+    }
+
+    .status.info{
+      background:rgba(255,255,255,.05);
+      border:1px solid var(--line);
+      color:var(--muted);
+    }
+
+    .timezone{
+      margin-top:7px;
+      color:var(--muted);
+      font-size:.88rem;
+    }
+
+    footer{
+      text-align:center;
+      margin-top:22px;
+      color:var(--muted);
+      font-size:.9rem;
+    }
+
+    @media(max-width:620px){
+
+      .card{
+        padding:25px 18px;
+      }
+
+      .code-row{
+        grid-template-columns:1fr;
+      }
+
+      .secondary-btn{
+        padding:12px;
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="wrap">
+
+    <div class="brand">
+
+      <img
+        src="/windrow-logo.png"
+        alt="Windrow Studio logo"
+      >
+
+      <div class="brand-text">
+        <div class="brand-small">Windrow Studio</div>
+        <div class="brand-main">Look Who It Is</div>
+      </div>
+
+    </div>
+
+
+    <section class="card">
+
+      <div class="eyebrow">
+        Guest Management
+      </div>
+
+      <h1>Add Podcast Guest</h1>
+
+      <p class="intro">
+        Add a scheduled guest and generate their recording access code.
+      </p>
+
+
+      <form id="guestForm">
+
+        <div class="form-grid">
+
+          <div>
+            <label for="guestName">
+              Guest Name
+            </label>
+
+            <input
+              type="text"
+              id="guestName"
+              placeholder="Jackson Hymel"
+              required
+            >
+          </div>
+
+
+          <div>
+            <label for="guestDate">
+              Recording Date
+            </label>
+
+            <input
+              type="date"
+              id="guestDate"
+              required
+            >
+          </div>
+
+
+          <div>
+            <label for="guestTime">
+              Recording Time
+            </label>
+
+            <input
+              type="time"
+              id="guestTime"
+              required
+            >
+
+            <div class="timezone">
+              Times are saved as Eastern Time.
+            </div>
+          </div>
+
+
+          <div>
+
+            <label for="accessCode">
+              Access Code
+            </label>
+
+            <div class="code-row">
+
+              <input
+                type="text"
+                id="accessCode"
+                class="code-input"
+                readonly
+              >
+
+              <button
+                type="button"
+                id="generateCode"
+                class="secondary-btn"
+              >
+                New Code
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="preview">
+
+          <div class="preview-title">
+            Guest Preview
+          </div>
+
+          <div
+            id="previewName"
+            class="preview-name"
+          >
+            Guest Name
+          </div>
+
+          <div
+            id="previewDate"
+            class="preview-date"
+          >
+            Select a date and time
+          </div>
+
+          <div
+            id="previewCode"
+            class="preview-code"
+          >
+            LWXXXXXX
+          </div>
+
+        </div>
+
+
+        <button
+          type="submit"
+          class="save-btn"
+        >
+          Save Guest
+        </button>
+
+
+        <div
+          id="status"
+          class="status info"
+        >
+          The guest form is working. Automatic saving will be connected next.
+        </div>
+
+      </form>
+
+    </section>
+
+
+    <footer>
+      © <span id="year"></span> Windrow Studio
+    </footer>
+
+  </main>
+
+
+  <script>
+
+    const guestName =
+      document.getElementById('guestName');
+
+    const guestDate =
+      document.getElementById('guestDate');
+
+    const guestTime =
+      document.getElementById('guestTime');
+
+    const accessCode =
+      document.getElementById('accessCode');
+
+    const generateCodeButton =
+      document.getElementById('generateCode');
+
+    const previewName =
+      document.getElementById('previewName');
+
+    const previewDate =
+      document.getElementById('previewDate');
+
+    const previewCode =
+      document.getElementById('previewCode');
+
+    const guestForm =
+      document.getElementById('guestForm');
+
+    const status =
+      document.getElementById('status');
+
+
+    document.getElementById('year').textContent =
+      new Date().getFullYear();
+
+
+    function generateAccessCode(){
+
+      const characters =
+        'ABCDEFGHJKMNPQRSTUVWXYZ23456789';
+
+      const randomValues =
+        new Uint32Array(6);
+
+      crypto.getRandomValues(randomValues);
+
+      let code = 'LW';
+
+      for(let i = 0; i < randomValues.length; i++){
+
+        code +=
+          characters[
+            randomValues[i] %
+            characters.length
+          ];
+
+      }
+
+      return code;
+
+    }
+
+
+    function formatDate(dateString){
+
+      if(!dateString){
+        return '';
+      }
+
+      const parts =
+        dateString.split('-');
+
+      const date =
+        new Date(
+          Number(parts[0]),
+          Number(parts[1]) - 1,
+          Number(parts[2])
+        );
+
+      return new Intl.DateTimeFormat(
+        'en-US',
+        {
+          weekday:'long',
+          month:'long',
+          day:'numeric',
+          year:'numeric'
+        }
+      ).format(date);
+
+    }
+
+
+    function formatTime(timeString){
+
+      if(!timeString){
+        return '';
+      }
+
+      const parts =
+        timeString.split(':');
+
+      let hour =
+        Number(parts[0]);
+
+      const minute =
+        parts[1];
+
+      const period =
+        hour >= 12 ? 'PM' : 'AM';
+
+      hour =
+        hour % 12 || 12;
+
+      return (
+        hour +
+        ':' +
+        minute +
+        ' ' +
+        period +
+        ' ET'
+      );
+
+    }
+
+
+    function updatePreview(){
+
+      previewName.textContent =
+        guestName.value.trim() ||
+        'Guest Name';
+
+
+      if(
+        guestDate.value &&
+        guestTime.value
+      ){
+
+        previewDate.textContent =
+          formatDate(guestDate.value) +
+          ' • ' +
+          formatTime(guestTime.value);
+
+      } else {
+
+        previewDate.textContent =
+          'Select a date and time';
+
+      }
+
+
+      previewCode.textContent =
+        accessCode.value;
+
+    }
+
+
+    function createNewCode(){
+
+      accessCode.value =
+        generateAccessCode();
+
+      updatePreview();
+
+    }
+
+
+    generateCodeButton.addEventListener(
+      'click',
+      createNewCode
+    );
+
+
+    guestName.addEventListener(
+      'input',
+      updatePreview
+    );
+
+    guestDate.addEventListener(
+      'input',
+      updatePreview
+    );
+
+    guestTime.addEventListener(
+      'input',
+      updatePreview
+    );
+
+
+    guestForm.addEventListener(
+      'submit',
+      function(event){
+
+        event.preventDefault();
+
+        status.classList.add('show');
+
+      }
+    );
+
+
+    createNewCode();
+
+  </script>
+
+</body>
+</html>

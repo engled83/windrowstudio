@@ -3,9 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Join the Recording Room | Look Who It Is</title>
-  <meta name="description" content="Join Dane for your Look Who It Is podcast recording session on Riverside.">
+  <title>Guest Access | Look Who It Is</title>
+  <meta name="description" content="Guest access for scheduled Look Who It Is podcast recording sessions.">
   <meta name="robots" content="noindex, nofollow">
+
   <style>
     :root{
       --bg:#0b0e13;
@@ -15,22 +16,40 @@
       --line:rgba(255,255,255,.08);
       --accent:#12b76a;
       --accent-soft:rgba(18,183,106,.14);
+      --error:#ff6b6b;
+      --error-soft:rgba(255,107,107,.10);
       --shadow:0 20px 50px rgba(0,0,0,.38);
-      --max:860px;
+      --max:760px;
     }
 
-    *{box-sizing:border-box;margin:0;padding:0}
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
 
     body{
+      min-height:100vh;
       font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
       background:
-        radial-gradient(1000px 520px at 50% -120px, rgba(18,183,106,.16), transparent 60%),
-        linear-gradient(180deg, #0b0e13 0%, #0d1118 100%);
+        radial-gradient(
+          1000px 520px at 50% -120px,
+          rgba(18,183,106,.16),
+          transparent 60%
+        ),
+        linear-gradient(
+          180deg,
+          #0b0e13 0%,
+          #0d1118 100%
+        );
       color:var(--fg);
       -webkit-font-smoothing:antialiased;
     }
 
-    a{text-decoration:none;color:inherit}
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
 
     .wrap{
       max-width:var(--max);
@@ -98,7 +117,7 @@
       border:1px solid var(--line);
       border-radius:22px;
       box-shadow:var(--shadow);
-      padding:40px 28px;
+      padding:44px 28px;
       text-align:center;
       overflow:hidden;
       position:relative;
@@ -108,7 +127,12 @@
       content:"";
       position:absolute;
       inset:0;
-      background:linear-gradient(135deg, rgba(18,183,106,.12), transparent 36%);
+      background:
+        linear-gradient(
+          135deg,
+          rgba(18,183,106,.12),
+          transparent 36%
+        );
       pointer-events:none;
     }
 
@@ -118,10 +142,10 @@
     }
 
     .logo{
-      width:110px;
+      width:120px;
       height:auto;
       display:block;
-      margin:0 auto 16px;
+      margin:0 auto 18px;
     }
 
     .eyebrow{
@@ -139,38 +163,80 @@
     }
 
     h1{
-      font-size:clamp(2rem,5vw,3.25rem);
-      line-height:1.04;
+      font-size:clamp(2rem,5vw,3.1rem);
+      line-height:1.05;
       margin-bottom:14px;
       font-weight:900;
       letter-spacing:-.02em;
     }
 
     .lead{
-      max-width:42rem;
-      margin:0 auto 14px;
+      max-width:36rem;
+      margin:0 auto;
       color:var(--muted);
       font-size:1.05rem;
     }
 
-    .mission{
-      max-width:40rem;
-      margin:0 auto 26px;
+    .access-box{
+      max-width:470px;
+      margin:30px auto 0;
+      padding:24px;
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:rgba(255,255,255,.03);
+    }
+
+    .access-box label{
+      display:block;
+      text-align:left;
+      margin-bottom:8px;
+      font-weight:800;
+      font-size:.95rem;
+    }
+
+    .code-input{
+      width:100%;
+      padding:15px 16px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.14);
+      background:#0b1119;
       color:var(--fg);
-      opacity:.94;
+      font:inherit;
+      font-size:1.08rem;
+      font-weight:800;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      outline:none;
+      transition:border-color .18s ease, box-shadow .18s ease;
+    }
+
+    .code-input::placeholder{
+      color:#65717d;
+      letter-spacing:.03em;
+      font-weight:600;
+      text-transform:none;
+    }
+
+    .code-input:focus{
+      border-color:rgba(18,183,106,.7);
+      box-shadow:0 0 0 4px rgba(18,183,106,.10);
     }
 
     .btn{
-      display:inline-flex;
+      width:100%;
+      display:flex;
       align-items:center;
       justify-content:center;
-      min-width:300px;
-      padding:16px 28px;
+      margin-top:14px;
+      padding:15px 24px;
+      border:0;
       border-radius:999px;
       background:var(--accent);
       color:#062612;
+      font:inherit;
       font-weight:900;
-      font-size:1.05rem;
+      font-size:1.03rem;
+      cursor:pointer;
       box-shadow:0 12px 24px rgba(18,183,106,.22);
       transition:transform .18s ease, filter .18s ease;
     }
@@ -180,68 +246,38 @@
       filter:brightness(1.05);
     }
 
-    .subnote{
+    .btn:active{
+      transform:translateY(0);
+    }
+
+    .help{
       margin-top:14px;
       color:var(--muted);
-      font-size:.96rem;
+      font-size:.92rem;
     }
 
-    .grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:18px;
+    .error{
+      display:none;
+      margin-top:14px;
+      padding:11px 13px;
+      border:1px solid rgba(255,107,107,.28);
+      border-radius:10px;
+      background:var(--error-soft);
+      color:#ffb3b3;
+      font-size:.92rem;
+      font-weight:700;
+    }
+
+    .error.show{
+      display:block;
+    }
+
+    .info{
       margin-top:24px;
-      text-align:left;
-    }
-
-    .panel{
-      background:rgba(255,255,255,.03);
-      border:1px solid var(--line);
-      border-radius:18px;
-      padding:22px 20px;
-    }
-
-    .panel h2{
-      font-size:1.05rem;
-      margin-bottom:14px;
-      font-weight:900;
-    }
-
-    .list{
-      display:grid;
-      gap:12px;
-      color:var(--muted);
-    }
-
-    .item{
-      display:flex;
-      gap:10px;
-      align-items:flex-start;
-    }
-
-    .dot{
-      width:10px;
-      height:10px;
-      border-radius:50%;
-      background:var(--accent);
-      flex:0 0 10px;
-      margin-top:8px;
-    }
-
-    .item strong{
-      color:var(--fg);
-    }
-
-    .small{
-      color:var(--muted);
-    }
-
-    .note{
-      margin-top:18px;
-      padding-top:16px;
+      padding-top:20px;
       border-top:1px solid var(--line);
       color:var(--muted);
-      font-size:.95rem;
+      font-size:.93rem;
     }
 
     footer{
@@ -253,119 +289,164 @@
 
     @media (max-width:720px){
       .hero{
-        padding:32px 18px;
+        padding:34px 18px;
       }
 
-      .btn{
-        width:100%;
-        min-width:0;
-      }
-
-      .grid{
-        grid-template-columns:1fr;
+      .access-box{
+        padding:20px 16px;
       }
     }
   </style>
 </head>
+
 <body>
+
   <main class="wrap">
+
     <div class="topbar">
+
       <div class="brand">
-        <img src="/windrow-logo.png" alt="Windrow Studio logo">
+
+        <img
+          src="/windrow-logo.png"
+          alt="Windrow Studio logo"
+        >
+
         <div class="brand-text">
           <div class="brand-top">Windrow Studio</div>
           <div class="brand-main">Look Who It Is</div>
         </div>
+
       </div>
 
-      <a href="/lookwhoitis.html" class="back-link">Back to Podcast</a>
+      <a href="/lookwhoitis.html" class="back-link">
+        Back to Podcast
+      </a>
+
     </div>
 
     <section class="hero">
-      <div class="hero-inner">
-        <img src="/lookwhowhite.png" alt="Look Who It Is logo" class="logo">
-        <div class="eyebrow">Recording Session</div>
 
-        <h1>Join the Recording Room</h1>
+      <div class="hero-inner">
+
+        <img
+          src="/lookwhowhite.png"
+          alt="Look Who It Is logo"
+          class="logo"
+        >
+
+        <div class="eyebrow">
+          Guest Access
+        </div>
+
+        <h1>Your Recording Starts Here</h1>
 
         <p class="lead">
-          You’re in the right place for your <strong>Look Who It Is</strong> recording session with Dane.
+          Enter the guest access code included with your recording information.
         </p>
 
-        <p class="mission">
-          It’s a laid-back conversation about the years, choices, setbacks, and real story behind a music career.
-        </p>
+        <div class="access-box">
 
-        <a
-          href="https://riverside.fm/studio/dane-engles-studio?t=014ba73e153711d07e4f"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn"
-        >
-          Join the Recording Session
-        </a>
+          <form id="accessForm">
 
-        <p class="subnote">This opens directly in Riverside. Chrome or Edge works best.</p>
+            <label for="accessCode">
+              Guest Access Code
+            </label>
 
-        <div class="grid">
-          <div class="panel">
-            <h2>Before we start</h2>
-            <div class="list">
-              <div class="item">
-                <span class="dot"></span>
-                <div><strong>Use headphones if possible</strong> so there’s no echo.</div>
-              </div>
-              <div class="item">
-                <span class="dot"></span>
-                <div><strong>Use a microphone if you have one,</strong> but don’t overthink it.</div>
-              </div>
-              <div class="item">
-                <span class="dot"></span>
-                <div><strong>Find a quiet, well-lit spot</strong> with stable internet.</div>
-              </div>
-              <div class="item">
-                <span class="dot"></span>
-                <div><strong>Join a few minutes early</strong> so audio and video can get checked.</div>
-              </div>
+            <input
+              type="text"
+              id="accessCode"
+              class="code-input"
+              placeholder="Enter your access code"
+              autocomplete="off"
+              autocapitalize="characters"
+              spellcheck="false"
+              required
+            >
+
+            <button
+              type="submit"
+              class="btn"
+            >
+              Continue
+            </button>
+
+            <div
+              id="errorMessage"
+              class="error"
+              role="alert"
+            >
+              That access code wasn't found. Check the code you were given and try again.
             </div>
+
+          </form>
+
+          <p class="help">
+            Your code is included with your podcast recording information.
+          </p>
+
+          <div class="info">
+            Once your code is accepted, you'll see your scheduled recording date, time, and link to enter the studio.
           </div>
 
-          <div class="panel">
-            <h2>What to expect</h2>
-            <div class="list">
-              <div class="item">
-                <span class="dot"></span>
-                <div><strong>Usually 30 to 40 minutes</strong> unless the conversation runs longer naturally.</div>
-              </div>
-              <div class="item">
-                <span class="dot"></span>
-                <div><strong>Relaxed and conversational</strong> rather than stiff or scripted.</div>
-              </div>
-              <div class="item">
-                <span class="dot"></span>
-                <div><strong>Real career talk</strong> about music, setbacks, momentum, and what shaped the path.</div>
-              </div>
-              <div class="item">
-                <span class="dot"></span>
-                <div><strong>No need to be formal.</strong> Just show up ready to talk.</div>
-              </div>
-            </div>
-
-            <div class="note">
-              If anything gives you trouble before we start, message Dane and it’ll get sorted out.
-            </div>
-          </div>
         </div>
+
       </div>
+
     </section>
 
     <footer>
       © <span id="y"></span> Windrow Studio
     </footer>
+
   </main>
 
+  <!-- Guest database -->
+  <script src="/js/guests.js"></script>
+
   <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
+    document.getElementById('y').textContent =
+      new Date().getFullYear();
+
+    const accessForm =
+      document.getElementById('accessForm');
+
+    const accessCode =
+      document.getElementById('accessCode');
+
+    const errorMessage =
+      document.getElementById('errorMessage');
+
+    accessCode.addEventListener('input', function () {
+      this.value = this.value
+        .toUpperCase()
+        .replace(/\s+/g, '');
+
+      errorMessage.classList.remove('show');
+    });
+
+    accessForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const code = accessCode.value
+        .trim()
+        .toUpperCase();
+
+      if (typeof guests !== 'undefined' && guests[code]) {
+
+        window.location.href =
+          '/guest.html?code=' +
+          encodeURIComponent(code);
+
+      } else {
+
+        errorMessage.classList.add('show');
+        accessCode.focus();
+        accessCode.select();
+
+      }
+    });
   </script>
+
 </body>
 </html>

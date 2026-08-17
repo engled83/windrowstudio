@@ -4,8 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Guest Management | Look Who It Is</title>
-
+  <title>Admin | Look Who It Is</title>
   <meta name="robots" content="noindex, nofollow">
 
   <style>
@@ -17,6 +16,8 @@
       --line:rgba(255,255,255,.08);
       --accent:#12b76a;
       --accent-soft:rgba(18,183,106,.14);
+      --error:#ff7777;
+      --error-soft:rgba(255,119,119,.10);
       --shadow:0 20px 50px rgba(0,0,0,.38);
       --max:760px;
     }
@@ -30,7 +31,6 @@
     body{
       min-height:100vh;
       font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-
       background:
         radial-gradient(
           1000px 520px at 50% -120px,
@@ -42,8 +42,124 @@
           #0b0e13 0%,
           #0d1118 100%
         );
-
       color:var(--fg);
+      -webkit-font-smoothing:antialiased;
+    }
+
+    button,
+    input{
+      font:inherit;
+    }
+
+    button{
+      cursor:pointer;
+    }
+
+    /* LOGIN */
+
+    .login-screen{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+    }
+
+    .login-card{
+      width:100%;
+      max-width:430px;
+      padding:38px 28px;
+      text-align:center;
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:22px;
+      box-shadow:var(--shadow);
+    }
+
+    .login-logo{
+      width:120px;
+      height:auto;
+      display:block;
+      margin:0 auto 18px;
+    }
+
+    .eyebrow{
+      display:inline-block;
+      margin-bottom:12px;
+      padding:6px 12px;
+      border-radius:999px;
+      background:var(--accent-soft);
+      border:1px solid rgba(18,183,106,.28);
+      color:#c9f7df;
+      font-size:.78rem;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+    }
+
+    .login-card h1{
+      font-size:2rem;
+      line-height:1.1;
+      margin-bottom:10px;
+    }
+
+    .login-text{
+      color:var(--muted);
+      margin-bottom:24px;
+    }
+
+    .password-input{
+      width:100%;
+      padding:15px 16px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.14);
+      background:#0b1119;
+      color:var(--fg);
+      outline:none;
+    }
+
+    .password-input:focus{
+      border-color:rgba(18,183,106,.75);
+      box-shadow:0 0 0 4px rgba(18,183,106,.10);
+    }
+
+    .login-btn{
+      width:100%;
+      margin-top:14px;
+      padding:15px;
+      border:0;
+      border-radius:999px;
+      background:var(--accent);
+      color:#062612;
+      font-weight:900;
+      font-size:1.03rem;
+      box-shadow:0 12px 24px rgba(18,183,106,.20);
+    }
+
+    .login-btn:hover{
+      filter:brightness(1.05);
+    }
+
+    .login-error{
+      display:none;
+      margin-top:14px;
+      padding:11px 13px;
+      border-radius:10px;
+      background:var(--error-soft);
+      border:1px solid rgba(255,119,119,.25);
+      color:#ffaaaa;
+      font-size:.92rem;
+      font-weight:700;
+    }
+
+    .login-error.show{
+      display:block;
+    }
+
+    /* ADMIN */
+
+    #adminContent{
+      display:none;
     }
 
     .wrap{
@@ -52,11 +168,18 @@
       padding:28px 18px 50px;
     }
 
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:28px;
+    }
+
     .brand{
       display:flex;
       align-items:center;
       gap:12px;
-      margin-bottom:28px;
     }
 
     .brand img{
@@ -78,6 +201,19 @@
       font-weight:900;
     }
 
+    .logout-btn{
+      padding:9px 14px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.04);
+      color:var(--fg);
+      font-weight:800;
+    }
+
+    .logout-btn:hover{
+      background:rgba(255,255,255,.08);
+    }
+
     .card{
       background:var(--card);
       border:1px solid var(--line);
@@ -86,21 +222,7 @@
       padding:32px;
     }
 
-    .eyebrow{
-      display:inline-block;
-      margin-bottom:12px;
-      padding:6px 12px;
-      border-radius:999px;
-      background:var(--accent-soft);
-      border:1px solid rgba(18,183,106,.28);
-      color:#c9f7df;
-      font-size:.78rem;
-      font-weight:900;
-      text-transform:uppercase;
-      letter-spacing:.08em;
-    }
-
-    h1{
+    .card h1{
       font-size:clamp(2rem,5vw,2.8rem);
       line-height:1.05;
       margin-bottom:10px;
@@ -122,21 +244,20 @@
       margin-bottom:7px;
     }
 
-    input{
+    .field-input{
       width:100%;
       border:1px solid rgba(255,255,255,.14);
       border-radius:12px;
       background:#0b1119;
       color:var(--fg);
       padding:14px 15px;
-      font:inherit;
       font-size:1rem;
       outline:none;
     }
 
-    input:focus{
+    .field-input:focus{
       border-color:rgba(18,183,106,.75);
-      box-shadow:0 0 0 4px rgba(18,183,106,.1);
+      box-shadow:0 0 0 4px rgba(18,183,106,.10);
     }
 
     .code-row{
@@ -151,12 +272,6 @@
       text-transform:uppercase;
     }
 
-    button{
-      border:0;
-      font:inherit;
-      cursor:pointer;
-    }
-
     .secondary-btn{
       padding:0 18px;
       border-radius:12px;
@@ -168,6 +283,12 @@
 
     .secondary-btn:hover{
       background:rgba(255,255,255,.12);
+    }
+
+    .timezone{
+      margin-top:7px;
+      color:var(--muted);
+      font-size:.88rem;
     }
 
     .preview{
@@ -212,12 +333,13 @@
       width:100%;
       margin-top:24px;
       padding:16px;
+      border:0;
       border-radius:999px;
       background:var(--accent);
       color:#062612;
       font-weight:900;
       font-size:1.05rem;
-      box-shadow:0 12px 24px rgba(18,183,106,.2);
+      box-shadow:0 12px 24px rgba(18,183,106,.20);
     }
 
     .save-btn:hover{
@@ -230,22 +352,13 @@
       padding:12px 14px;
       border-radius:12px;
       font-weight:700;
-    }
-
-    .status.show{
-      display:block;
-    }
-
-    .status.info{
       background:rgba(255,255,255,.05);
       border:1px solid var(--line);
       color:var(--muted);
     }
 
-    .timezone{
-      margin-top:7px;
-      color:var(--muted);
-      font-size:.88rem;
+    .status.show{
+      display:block;
     }
 
     footer{
@@ -256,7 +369,6 @@
     }
 
     @media(max-width:620px){
-
       .card{
         padding:25px 18px;
       }
@@ -269,178 +381,401 @@
         padding:12px;
       }
 
+      .topbar{
+        align-items:flex-start;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <main class="wrap">
+  <!-- LOGIN SCREEN -->
 
-    <div class="brand">
+  <div id="loginScreen" class="login-screen">
+
+    <div class="login-card">
 
       <img
-        src="/windrow-logo.png"
-        alt="Windrow Studio logo"
+        src="/lookwhowhite.png"
+        alt="Look Who It Is"
+        class="login-logo"
       >
 
-      <div class="brand-text">
-        <div class="brand-small">Windrow Studio</div>
-        <div class="brand-main">Look Who It Is</div>
-      </div>
-
-    </div>
-
-
-    <section class="card">
-
       <div class="eyebrow">
-        Guest Management
+        Admin Access
       </div>
 
-      <h1>Add Podcast Guest</h1>
+      <h1>Guest Management</h1>
 
-      <p class="intro">
-        Add a scheduled guest and generate their recording access code.
+      <p class="login-text">
+        Enter the admin password to continue.
       </p>
 
+      <form id="loginForm">
 
-      <form id="guestForm">
-
-        <div class="form-grid">
-
-          <div>
-            <label for="guestName">
-              Guest Name
-            </label>
-
-            <input
-              type="text"
-              id="guestName"
-              placeholder="Jackson Hymel"
-              required
-            >
-          </div>
-
-
-          <div>
-            <label for="guestDate">
-              Recording Date
-            </label>
-
-            <input
-              type="date"
-              id="guestDate"
-              required
-            >
-          </div>
-
-
-          <div>
-            <label for="guestTime">
-              Recording Time
-            </label>
-
-            <input
-              type="time"
-              id="guestTime"
-              required
-            >
-
-            <div class="timezone">
-              Times are saved as Eastern Time.
-            </div>
-          </div>
-
-
-          <div>
-
-            <label for="accessCode">
-              Access Code
-            </label>
-
-            <div class="code-row">
-
-              <input
-                type="text"
-                id="accessCode"
-                class="code-input"
-                readonly
-              >
-
-              <button
-                type="button"
-                id="generateCode"
-                class="secondary-btn"
-              >
-                New Code
-              </button>
-
-            </div>
-
-          </div>
-
-        </div>
-
-
-        <div class="preview">
-
-          <div class="preview-title">
-            Guest Preview
-          </div>
-
-          <div
-            id="previewName"
-            class="preview-name"
-          >
-            Guest Name
-          </div>
-
-          <div
-            id="previewDate"
-            class="preview-date"
-          >
-            Select a date and time
-          </div>
-
-          <div
-            id="previewCode"
-            class="preview-code"
-          >
-            LWXXXXXX
-          </div>
-
-        </div>
-
+        <input
+          type="password"
+          id="adminPassword"
+          class="password-input"
+          placeholder="Password"
+          autocomplete="current-password"
+          required
+        >
 
         <button
           type="submit"
-          class="save-btn"
+          class="login-btn"
         >
-          Save Guest
+          Sign In
         </button>
 
-
         <div
-          id="status"
-          class="status info"
+          id="loginError"
+          class="login-error"
         >
-          The guest form is working. Automatic saving will be connected next.
+          Incorrect password.
         </div>
 
       </form>
 
-    </section>
+    </div>
+
+  </div>
 
 
-    <footer>
-      © <span id="year"></span> Windrow Studio
-    </footer>
+  <!-- ADMIN CONTENT -->
 
-  </main>
+  <div id="adminContent">
+
+    <main class="wrap">
+
+      <div class="topbar">
+
+        <div class="brand">
+
+          <img
+            src="/windrow-logo.png"
+            alt="Windrow Studio logo"
+          >
+
+          <div class="brand-text">
+            <div class="brand-small">
+              Windrow Studio
+            </div>
+
+            <div class="brand-main">
+              Look Who It Is Admin
+            </div>
+          </div>
+
+        </div>
+
+        <button
+          id="logoutButton"
+          class="logout-btn"
+          type="button"
+        >
+          Sign Out
+        </button>
+
+      </div>
+
+
+      <section class="card">
+
+        <div class="eyebrow">
+          Guest Management
+        </div>
+
+        <h1>Add Podcast Guest</h1>
+
+        <p class="intro">
+          Add a scheduled guest and generate their recording access code.
+        </p>
+
+
+        <form id="guestForm">
+
+          <div class="form-grid">
+
+            <div>
+
+              <label for="guestName">
+                Guest Name
+              </label>
+
+              <input
+                type="text"
+                id="guestName"
+                class="field-input"
+                placeholder="Jackson Hymel"
+                required
+              >
+
+            </div>
+
+
+            <div>
+
+              <label for="guestDate">
+                Recording Date
+              </label>
+
+              <input
+                type="date"
+                id="guestDate"
+                class="field-input"
+                required
+              >
+
+            </div>
+
+
+            <div>
+
+              <label for="guestTime">
+                Recording Time
+              </label>
+
+              <input
+                type="time"
+                id="guestTime"
+                class="field-input"
+                required
+              >
+
+              <div class="timezone">
+                Times are saved as Eastern Time.
+              </div>
+
+            </div>
+
+
+            <div>
+
+              <label for="accessCode">
+                Access Code
+              </label>
+
+              <div class="code-row">
+
+                <input
+                  type="text"
+                  id="accessCode"
+                  class="field-input code-input"
+                  readonly
+                >
+
+                <button
+                  type="button"
+                  id="generateCode"
+                  class="secondary-btn"
+                >
+                  New Code
+                </button>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="preview">
+
+            <div class="preview-title">
+              Guest Preview
+            </div>
+
+            <div
+              id="previewName"
+              class="preview-name"
+            >
+              Guest Name
+            </div>
+
+            <div
+              id="previewDate"
+              class="preview-date"
+            >
+              Select a date and time
+            </div>
+
+            <div
+              id="previewCode"
+              class="preview-code"
+            >
+              LWXXXXXX
+            </div>
+
+          </div>
+
+
+          <button
+            type="submit"
+            class="save-btn"
+          >
+            Save Guest
+          </button>
+
+
+          <div
+            id="saveStatus"
+            class="status"
+          >
+            The form is working. Automatic saving will be connected next.
+          </div>
+
+        </form>
+
+      </section>
+
+
+      <footer>
+        © <span id="year"></span> Windrow Studio
+      </footer>
+
+    </main>
+
+  </div>
 
 
   <script>
+
+    /*
+      ==============================
+      ADMIN PASSWORD
+      ==============================
+
+      PUT YOUR PASSWORD BETWEEN
+      THE QUOTATION MARKS BELOW.
+    */
+
+    const ADMIN_PASSWORD = "CHANGE-THIS-PASSWORD";
+
+
+    /*
+      ==============================
+      LOGIN
+      ==============================
+    */
+
+    const loginScreen =
+      document.getElementById('loginScreen');
+
+    const adminContent =
+      document.getElementById('adminContent');
+
+    const loginForm =
+      document.getElementById('loginForm');
+
+    const adminPassword =
+      document.getElementById('adminPassword');
+
+    const loginError =
+      document.getElementById('loginError');
+
+    const logoutButton =
+      document.getElementById('logoutButton');
+
+
+    function showAdmin(){
+
+      loginScreen.style.display = 'none';
+      adminContent.style.display = 'block';
+
+    }
+
+
+    function showLogin(){
+
+      adminContent.style.display = 'none';
+      loginScreen.style.display = 'flex';
+
+      adminPassword.value = '';
+
+      setTimeout(
+        function(){
+          adminPassword.focus();
+        },
+        50
+      );
+
+    }
+
+
+    if(
+      sessionStorage.getItem('lwAdmin') === 'true'
+    ){
+
+      showAdmin();
+
+    }
+
+
+    loginForm.addEventListener(
+      'submit',
+      function(event){
+
+        event.preventDefault();
+
+        if(
+          adminPassword.value === ADMIN_PASSWORD
+        ){
+
+          sessionStorage.setItem(
+            'lwAdmin',
+            'true'
+          );
+
+          loginError.classList.remove('show');
+
+          showAdmin();
+
+        } else {
+
+          loginError.classList.add('show');
+
+          adminPassword.value = '';
+
+          adminPassword.focus();
+
+        }
+
+      }
+    );
+
+
+    adminPassword.addEventListener(
+      'input',
+      function(){
+
+        loginError.classList.remove('show');
+
+      }
+    );
+
+
+    logoutButton.addEventListener(
+      'click',
+      function(){
+
+        sessionStorage.removeItem(
+          'lwAdmin'
+        );
+
+        showLogin();
+
+      }
+    );
+
+
+    /*
+      ==============================
+      GUEST MANAGEMENT
+      ==============================
+    */
 
     const guestName =
       document.getElementById('guestName');
@@ -469,8 +804,8 @@
     const guestForm =
       document.getElementById('guestForm');
 
-    const status =
-      document.getElementById('status');
+    const saveStatus =
+      document.getElementById('saveStatus');
 
 
     document.getElementById('year').textContent =
@@ -485,11 +820,17 @@
       const randomValues =
         new Uint32Array(6);
 
-      crypto.getRandomValues(randomValues);
+      crypto.getRandomValues(
+        randomValues
+      );
 
       let code = 'LW';
 
-      for(let i = 0; i < randomValues.length; i++){
+      for(
+        let i = 0;
+        i < randomValues.length;
+        i++
+      ){
 
         code +=
           characters[
@@ -504,7 +845,9 @@
     }
 
 
-    function formatDate(dateString){
+    function formatDate(
+      dateString
+    ){
 
       if(!dateString){
         return '';
@@ -533,7 +876,9 @@
     }
 
 
-    function formatTime(timeString){
+    function formatTime(
+      timeString
+    ){
 
       if(!timeString){
         return '';
@@ -549,7 +894,9 @@
         parts[1];
 
       const period =
-        hour >= 12 ? 'PM' : 'AM';
+        hour >= 12
+          ? 'PM'
+          : 'AM';
 
       hour =
         hour % 12 || 12;
@@ -579,9 +926,13 @@
       ){
 
         previewDate.textContent =
-          formatDate(guestDate.value) +
+          formatDate(
+            guestDate.value
+          ) +
           ' • ' +
-          formatTime(guestTime.value);
+          formatTime(
+            guestTime.value
+          );
 
       } else {
 
@@ -635,7 +986,9 @@
 
         event.preventDefault();
 
-        status.classList.add('show');
+        saveStatus.classList.add(
+          'show'
+        );
 
       }
     );

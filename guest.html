@@ -211,6 +211,48 @@
       font-weight:800;
     }
 
+    .countdown-wrap{
+      margin-top:20px;
+      padding-top:18px;
+      border-top:1px solid var(--line);
+    }
+
+    .countdown-label{
+      color:var(--muted);
+      font-size:.78rem;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.1em;
+      margin-bottom:6px;
+    }
+
+    .countdown{
+      font-size:clamp(1.15rem,4vw,1.5rem);
+      font-weight:900;
+      line-height:1.3;
+      color:var(--fg);
+    }
+
+    .countdown.live{
+      color:#c9f7df;
+      font-size:clamp(1.45rem,5vw,1.9rem);
+    }
+
+    .live-dot{
+      display:none;
+      width:9px;
+      height:9px;
+      background:var(--accent);
+      border-radius:50%;
+      margin-right:8px;
+      vertical-align:2px;
+      box-shadow:0 0 0 5px rgba(18,183,106,.12);
+    }
+
+    .countdown.live .live-dot{
+      display:inline-block;
+    }
+
     .btn{
       display:inline-flex;
       align-items:center;
@@ -379,6 +421,24 @@
             class="session-time"
           ></div>
 
+          <div class="countdown-wrap">
+
+            <div
+              id="countdownLabel"
+              class="countdown-label"
+            >
+              Recording Begins In
+            </div>
+
+            <div
+              id="countdown"
+              class="countdown"
+            >
+              Loading...
+            </div>
+
+          </div>
+
         </div>
 
         <a
@@ -515,7 +575,9 @@
       typeof guests === 'undefined' ||
       !guests[code]
     ) {
+
       window.location.replace('/join');
+
     } else {
 
       const guest = guests[code];
@@ -531,6 +593,125 @@
 
       document.title =
         guest.name + ' | Look Who It Is Recording';
+
+
+      const countdown =
+        document.getElementById('countdown');
+
+      const countdownLabel =
+        document.getElementById('countdownLabel');
+
+      const recordingTime =
+        new Date(guest.datetime).getTime();
+
+
+      function updateCountdown() {
+
+        const now =
+          new Date().getTime();
+
+        const distance =
+          recordingTime - now;
+
+
+        if (isNaN(recordingTime)) {
+
+          countdownLabel.textContent =
+            'Recording Status';
+
+          countdown.textContent =
+            'Scheduled';
+
+          return;
+        }
+
+
+        if (distance <= 0) {
+
+          countdownLabel.textContent =
+            'Recording Status';
+
+          countdown.innerHTML =
+            '<span class="live-dot"></span>Happening Now!';
+
+          countdown.classList.add('live');
+
+          return;
+        }
+
+
+        const days =
+          Math.floor(
+            distance / (1000 * 60 * 60 * 24)
+          );
+
+        const hours =
+          Math.floor(
+            (distance % (1000 * 60 * 60 * 24)) /
+            (1000 * 60 * 60)
+          );
+
+        const minutes =
+          Math.floor(
+            (distance % (1000 * 60 * 60)) /
+            (1000 * 60)
+          );
+
+        const seconds =
+          Math.floor(
+            (distance % (1000 * 60)) /
+            1000
+          );
+
+
+        let parts = [];
+
+
+        if (days > 0) {
+
+          parts.push(
+            days + (days === 1 ? ' day' : ' days')
+          );
+
+        }
+
+
+        if (days > 0 || hours > 0) {
+
+          parts.push(
+            hours + (hours === 1 ? ' hr' : ' hrs')
+          );
+
+        }
+
+
+        if (days > 0 || hours > 0 || minutes > 0) {
+
+          parts.push(
+            minutes + ' min'
+          );
+
+        }
+
+
+        parts.push(
+          seconds + ' sec'
+        );
+
+
+        countdown.textContent =
+          parts.join(' ');
+
+      }
+
+
+      updateCountdown();
+
+      setInterval(
+        updateCountdown,
+        1000
+      );
+
     }
   </script>
 

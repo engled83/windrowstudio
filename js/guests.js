@@ -11,5 +11,12 @@ const guests = {
         date: "Monday, August 31, 2026",
         time: "8:00 PM ET",
         datetime: "2026-08-31T20:00:00-04:00"
+    },
+
+    "XXDT": {
+        name: "Dane",
+        date: "Tuesday, August 18, 2026",
+        time: "11:10 AM ET",
+        datetime: "2026-08-18T11:10:00-04:00"
     }
 };

@@ -11,12 +11,5 @@ const guests = {
         date: "Monday, August 31, 2026",
         time: "8:00 PM ET",
         datetime: "2026-08-31T20:00:00-04:00"
-    },
-
-    "3KTU": {
-        name: "Dane",
-        date: "Tuesday, August 18, 2026",
-        time: "10:45 AM ET",
-        datetime: "2026-08-18T10:45:00-04:00"
     }
 };

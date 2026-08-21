@@ -1,60 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <url>
-    <loc>https://windrowstudio.com/</loc>
-    <lastmod>2026-08-21</lastmod>
-  </url>
-
-  <url>
-    <loc>https://windrowstudio.com/lookwhoitis.html</loc>
-    <lastmod>2026-08-21</lastmod>
-  </url>
-
-  <url>
-    <loc>https://windrowstudio.com/kendalleugene.html</loc>
-    <lastmod>2026-08-21</lastmod>
-  </url>
-
-  <url>
-    <loc>https://windrowstudio.com/about.html</loc>
-    <lastmod>2026-08-21</lastmod>
-  </url>
-
-  <url>
-    <loc>https://windrowstudio.com/contact.html</loc>
-    <lastmod>2026-08-21</lastmod>
-  </url>
-
-  <url>
-    <loc>https://windrowstudio.com/guest/index.html</loc>
-    <lastmod>2026-08-21</lastmod>
-  </url>
-
-  <url>
-    <loc>https://windrowstudio.com/katemorris.html</loc>
-    <lastmod>2026-08-21</lastmod>
-  </url>
-
-  <url>
-    <loc>https://windrowstudio.com/hank-ruff.html</loc>
-    <lastmod>2026-08-21</lastmod>
-  </url>
-
-  <url>
-    <loc>https://windrowstudio.com/brookelee.html</loc>
-    <lastmod>2026-08-21</lastmod>
-  </url>
-
-  <url>
-    <loc>https://windrowstudio.com/derekwells.html</loc>
-    <lastmod>2026-08-21</lastmod>
-  </url>
-
-  <url>
-    <loc>https://windrowstudio.com/rogerspringer.html</loc>
-    <lastmod>2026-08-21</lastmod>
-  </url>
-
+  <url><loc>https://windrowstudio.com/</loc><lastmod>2026-08-21</lastmod></url>
+  <url><loc>https://windrowstudio.com/podcast/</loc><lastmod>2026-08-21</lastmod></url>
+  <url><loc>https://windrowstudio.com/about/</loc><lastmod>2026-08-21</lastmod></url>
+  <url><loc>https://windrowstudio.com/contact/</loc><lastmod>2026-08-21</lastmod></url>
+  <url><loc>https://windrowstudio.com/podcast/episodes/kate-morris/</loc><lastmod>2026-08-21</lastmod></url>
+  <url><loc>https://windrowstudio.com/podcast/episodes/hank-ruff/</loc><lastmod>2026-08-21</lastmod></url>
+  <url><loc>https://windrowstudio.com/podcast/episodes/kendall-eugene/</loc><lastmod>2026-08-21</lastmod></url>
+  <url><loc>https://windrowstudio.com/podcast/episodes/brooke-lee/</loc><lastmod>2026-08-21</lastmod></url>
+  <url><loc>https://windrowstudio.com/podcast/episodes/derek-wells/</loc><lastmod>2026-08-21</lastmod></url>
+  <url><loc>https://windrowstudio.com/podcast/episodes/roger-springer/</loc><lastmod>2026-08-21</lastmod></url>
 </urlset>

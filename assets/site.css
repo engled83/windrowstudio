@@ -1,0 +1,197 @@
+/* Shared presentation for the public Windrow Studio site. */
+:root {
+  color-scheme: dark;
+  --bg: #0b0e13;
+  --card: #13181e;
+  --card-deep: #10151a;
+  --text: #f3f6fb;
+  --fg: #f3f6fb;
+  --soft: #d5dce3;
+  --muted: #a9b3bf;
+  --line: #293139;
+  --accent: #12b76a;
+  --accent2: #35d58b;
+  --max: 1160px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-padding-top: 6rem; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font: 1rem/1.65 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+body::before { content: none; display: none; }
+[hidden] { display: none !important; }
+a { color: inherit; text-decoration: none; }
+button, input, textarea, select { font: inherit; }
+button, a, input, textarea, select { -webkit-tap-highlight-color: transparent; }
+img { display: block; max-width: 100%; height: auto; }
+:focus-visible { outline: 3px solid var(--accent2); outline-offset: 5px; }
+.ws-container { width: min(var(--max), calc(100% - 3rem)); margin-inline: auto; }
+.ws-skip { position: absolute; left: -9999px; }
+.ws-skip:focus { left: 1rem; top: 1rem; z-index: 100; padding: .75rem 1rem; background: var(--card); }
+
+/* The same navigation is available with or without JavaScript. */
+.ws-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  border-bottom: 1px solid var(--line);
+  background: var(--bg);
+}
+.ws-nav { min-height: 5rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+.ws-brand { display: inline-flex; align-items: center; gap: .85rem; font-size: 1.125rem; font-weight: 750; letter-spacing: -.025em; }
+.ws-brand img { width: 2.25rem; height: 2.25rem; object-fit: contain; }
+.ws-navigation { display: flex; align-items: center; gap: 1.75rem; }
+.ws-navigation a { padding-block: .65rem; color: var(--muted); font-size: .9375rem; font-weight: 550; }
+.ws-navigation a:hover, .ws-navigation a[aria-current="page"] { color: var(--text); }
+.ws-navigation a[aria-current="page"] { text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: .55rem; text-decoration-thickness: 2px; }
+.ws-navigation .ws-guest-link { padding: .6rem 1rem; border: 1px solid #45504f; border-radius: .5rem; color: var(--text); }
+.ws-navigation .ws-guest-link:hover { border-color: var(--accent); }
+.ws-menu-toggle { display: inline-flex; align-items: center; gap: .6rem; min-height: 2.75rem; padding: .4rem .75rem; border: 1px solid var(--line); border-radius: .5rem; color: var(--text); background: transparent; cursor: pointer; }
+.ws-menu-toggle svg { width: 1rem; height: 1rem; }
+.ws-footer { margin: 0; padding: 2rem 0; border-top: 1px solid var(--line); color: var(--muted); font-size: .875rem; text-align: left; }
+.ws-footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; }
+.ws-footer p { margin: 0; }
+.ws-socials { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; }
+.ws-socials a { display: inline-flex; align-items: center; min-height: 2.75rem; color: var(--muted); }
+.ws-socials a:hover { color: var(--text); }
+
+/* Open layouts give the conversations room without adding decorative panels. */
+.ws-page h1, .ws-page h2, .ws-page h3, .ws-page p { margin: 0; }
+.ws-page h1, .ws-page h2, .ws-page h3 { color: var(--text); font-weight: 700; letter-spacing: -.04em; }
+.ws-page h1 { font-size: clamp(2.5rem, 5.2vw, 4.25rem); line-height: 1.08; }
+.ws-page h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); line-height: 1.15; }
+.ws-page h3 { font-size: 1.35rem; line-height: 1.3; letter-spacing: -.025em; }
+.ws-page .ws-kicker { margin-bottom: 1.25rem; color: var(--accent2); font-size: .8125rem; font-weight: 650; letter-spacing: .1em; text-transform: uppercase; }
+.ws-page .ws-lead { margin-top: 1.5rem; max-width: 35rem; color: var(--muted); font-size: 1.125rem; line-height: 1.7; }
+.ws-page .ws-lead strong { color: var(--text); font-weight: 600; }
+.ws-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1.5rem; margin-top: 1.75rem; }
+.ws-button { display: inline-flex; justify-content: center; align-items: center; gap: .5rem; min-height: 3rem; padding: .7rem 1.1rem; border: 1px solid var(--accent); border-radius: .5rem; background: var(--accent); color: #031a0e; font-size: .9375rem; font-weight: 700; line-height: 1.4; cursor: pointer; transition: background-color .15s, border-color .15s; }
+.ws-button:hover { border-color: var(--accent2); background: var(--accent2); }
+.ws-button-secondary { border-color: #465159; background: transparent; color: var(--text); }
+.ws-button-secondary:hover { background: var(--card); border-color: var(--muted); }
+.ws-text-link { display: inline-flex; align-items: center; min-height: 2.75rem; color: var(--text); font-size: .9375rem; text-decoration: underline; text-decoration-color: #68777d; text-underline-offset: .3rem; }
+.ws-text-link:hover { text-decoration-color: var(--accent2); color: var(--accent2); }
+.ws-hero { display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); align-items: center; gap: 4rem; padding-block: 4.5rem 5rem; }
+.ws-hero-copy { max-width: 32rem; }
+.ws-hero-episode { min-width: 0; }
+.ws-art-link { display: block; overflow: hidden; border-radius: .65rem; background: #10151a; }
+.ws-art { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: contain; }
+.ws-art[data-fallback-active] { padding: 2rem; }
+.ws-hero-episode .ws-meta { margin-top: 1.25rem; }
+.ws-hero-episode h2 { margin-top: .5rem; font-size: 1.65rem; line-height: 1.25; letter-spacing: -.03em; }
+.ws-hero-episode h2 a:hover { color: var(--accent2); }
+.ws-meta { display: flex; flex-wrap: wrap; gap: .35rem .75rem; color: var(--muted); font-size: .8125rem; line-height: 1.5; }
+.ws-meta strong { color: var(--text); font-weight: 650; }
+.ws-section { padding-block: 4rem; border-top: 1px solid var(--line); }
+.ws-section-heading { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: 2rem; }
+.ws-section-heading h2 { font-size: clamp(1.65rem, 3vw, 2.15rem); }
+.ws-episode-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 3rem 1.75rem; }
+.ws-episode-card { display: flex; flex-direction: column; min-width: 0; }
+.ws-episode-copy { display: flex; flex-direction: column; flex: 1; padding-top: 1.15rem; }
+.ws-episode-copy h3 { margin-top: .6rem; }
+.ws-episode-copy h3 a:hover { color: var(--accent2); }
+.ws-episode-copy > p { margin-top: .75rem; margin-bottom: 1.25rem; color: var(--muted); }
+.ws-episode-copy .ws-actions { margin-top: auto; gap: .6rem 1.1rem; }
+.ws-episode-copy .ws-button { min-height: 2.75rem; padding: .6rem .85rem; font-size: .875rem; }
+.ws-episode-copy .ws-text-link { font-size: .875rem; }
+.ws-studio-intro { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: 4rem; }
+.ws-studio-intro p { max-width: 38rem; color: var(--muted); font-size: 1.0625rem; }
+.ws-studio-intro .ws-text-link { margin-top: 1rem; }
+.ws-invitation { display: flex; justify-content: space-between; align-items: center; gap: 2rem; }
+.ws-invitation p { margin-top: .75rem; max-width: 38rem; color: var(--muted); }
+.ws-invitation .ws-actions { margin: 0; flex-shrink: 0; }
+.ws-invitation h2 { font-size: clamp(1.65rem, 2.8vw, 2.15rem); }
+.ws-page-intro { padding-block: 4rem 3rem; }
+.ws-podcast-intro { display: grid; grid-template-columns: minmax(0, 1fr) 10rem; align-items: center; gap: 3rem; }
+.ws-podcast-intro .ws-show-mark { width: 10rem; height: 10rem; object-fit: contain; }
+.ws-featured { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); align-items: center; gap: 3rem; padding-bottom: 4rem; }
+.ws-featured-copy h2 { margin-top: .7rem; font-size: clamp(1.8rem, 3vw, 2.5rem); }
+.ws-featured-copy > p:not(.ws-kicker) { margin-top: 1rem; color: var(--muted); }
+.ws-featured-copy .ws-actions { margin-top: 1.5rem; }
+.ws-about-intro { max-width: 48rem; padding-bottom: 4rem; }
+.ws-about-intro .ws-lead { max-width: 43rem; }
+.ws-about-story { display: grid; grid-template-columns: 14rem minmax(0, 1fr); gap: 4rem; padding-block: 3.5rem; }
+.ws-about-story img { width: 12rem; height: 12rem; object-fit: contain; align-self: start; }
+.ws-prose { max-width: 43rem; }
+.ws-prose p { margin-top: 1.2rem; color: var(--muted); font-size: 1.0625rem; }
+.ws-prose h2 { font-size: 1.9rem; }
+.ws-prose h2:not(:first-child) { margin-top: 2.75rem; }
+.ws-contact { width: min(44rem, calc(100% - 3rem)); margin-inline: auto; padding-bottom: 4rem; }
+.ws-contact .ws-page-intro { padding-bottom: 2rem; }
+.ws-contact .ws-lead { max-width: none; }
+.ws-form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; padding: 2rem; border: 1px solid var(--line); border-radius: .75rem; background: var(--card); }
+.ws-field { min-width: 0; }
+.ws-field-full, .ws-form-actions { grid-column: 1 / -1; }
+.ws-field label { display: block; margin-bottom: .45rem; font-size: .9375rem; font-weight: 550; }
+.ws-field input, .ws-field select, .ws-field textarea { display: block; width: 100%; min-height: 3rem; padding: .75rem; border: 1px solid #45515d; border-radius: .4rem; background: var(--bg); color: var(--text); font-size: 1rem; }
+.ws-field textarea { min-height: 11rem; resize: vertical; }
+.ws-field textarea::placeholder { color: var(--muted); opacity: 1; }
+.ws-form-actions { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+.ws-reset { min-height: 2.75rem; padding: .5rem .25rem; border: 0; background: transparent; color: var(--muted); cursor: pointer; text-decoration: underline; text-underline-offset: .25rem; }
+.ws-contact .ws-contact-note { margin-top: 1.5rem; color: var(--muted); font-size: .9375rem; }
+.ws-error { min-height: 65vh; display: grid; align-content: center; max-width: 45rem; padding-block: 4rem; }
+
+/* Carry the calmer surfaces into existing episode notes without changing content. */
+.episode-page .wrap { width: min(var(--max), calc(100% - 3rem)); }
+.episode-page .episode-hero { padding-top: 3.5rem; }
+.episode-page h1 { font-size: clamp(2.3rem, 4.5vw, 4rem); }
+.episode-page .eyebrow { font-size: .8125rem; }
+.episode-page .eyebrow::before { content: none; }
+.episode-page .panel { padding: 1.75rem 0; border: 0; border-top: 1px solid var(--line); border-radius: 0; background: none; box-shadow: none; }
+.episode-page .side-card { background: var(--card); border-radius: .65rem; box-shadow: none; }
+.episode-page .watch-card, .episode-page .listen-card { border-radius: .75rem; background: var(--card); box-shadow: none; }
+.episode-page .video-wrap { border-radius: .65rem; box-shadow: none; }
+.episode-page .btn { border-radius: .5rem; box-shadow: none; }
+.episode-page .btn:hover { transform: none; }
+.episode-page .side-label { font-size: .8125rem; }
+
+@media (max-width: 62rem) {
+  .ws-hero { gap: 2rem; padding-block: 3.5rem; }
+  .ws-navigation { gap: 1.1rem; }
+  .ws-episode-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ws-featured { gap: 2rem; }
+  .ws-studio-intro { gap: 2rem; }
+  .ws-invitation { align-items: flex-start; flex-direction: column; }
+}
+@media (max-width: 48rem) {
+  .ws-nav { min-height: 4.5rem; flex-wrap: wrap; gap: 0 1rem; padding-block: .75rem; }
+  .ws-navigation { width: 100%; flex-direction: column; align-items: stretch; gap: 0; padding-top: .75rem; }
+  .ws-navigation a { min-height: 2.75rem; padding: .6rem .25rem; }
+  .ws-navigation a[aria-current="page"] { text-decoration: none; color: var(--accent2); }
+  .ws-navigation .ws-guest-link { align-self: flex-start; margin-top: .5rem; }
+  .ws-hero, .ws-featured, .ws-studio-intro { grid-template-columns: 1fr; }
+  .ws-hero { gap: 2.5rem; padding-block: 3rem; }
+  .ws-hero-copy { max-width: 36rem; }
+  .ws-hero-episode h2 { font-size: 1.5rem; }
+  .ws-section { padding-block: 3rem; }
+  .ws-featured { padding-bottom: 3rem; }
+  .ws-featured-copy .ws-kicker { margin-bottom: .85rem; }
+  .ws-podcast-intro { grid-template-columns: minmax(0, 1fr) 5rem; gap: 1rem; }
+  .ws-podcast-intro .ws-show-mark { width: 5rem; height: 5rem; align-self: start; }
+  .ws-page-intro { padding-top: 3rem; }
+  .ws-about-story { grid-template-columns: 1fr; gap: 2rem; padding-block: 2.5rem; }
+  .ws-about-story img { width: 7rem; height: 7rem; }
+  .ws-footer-inner { align-items: flex-start; flex-direction: column; gap: .5rem; }
+}
+@media (max-width: 36rem) {
+  .ws-container, .ws-contact, .episode-page .wrap { width: calc(100% - 2.5rem); }
+  .ws-brand { font-size: 1rem; gap: .65rem; }
+  .ws-brand img { width: 2rem; height: 2rem; }
+  .ws-episode-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .ws-section-heading { align-items: flex-start; flex-direction: column; gap: .5rem; }
+  .ws-podcast-intro { grid-template-columns: 1fr; }
+  .ws-podcast-intro .ws-show-mark { display: none; }
+  .ws-form { grid-template-columns: 1fr; padding: 1.25rem; }
+  .ws-contact .ws-page-intro { padding-top: 2.5rem; }
+  .ws-socials { gap: .25rem 1.25rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}

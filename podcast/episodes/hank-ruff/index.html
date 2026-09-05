@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="dark">
-  <meta name="theme-color" content="#080b10">
+  <meta name="theme-color" content="#0b0e13">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 
   <title>Hank Ruff: Building His Own Path in Traditional Country | Look Who It Is</title>
@@ -248,27 +248,31 @@
       .watch-card { padding:24px 20px; }
     }
   </style>
+  <link rel="stylesheet" href="/assets/site.css?v=20260905">
+  <script src="/assets/site.js?v=20260905" defer></script>
 </head>
 
-<body>
-  <a class="skip-link" href="#main-content">Skip to content</a>
-
-  <header class="site-header">
-    <div class="wrap nav">
-      <a class="brand" href="/" aria-label="Windrow Studio home">
-        <img src="/assets/images/branding/windrow-logo.png" alt="Windrow Studio logo">
-        <span>Look Who It Is</span>
-      </a>
-
-      <nav class="nav-links" aria-label="Main navigation">
+<body class="episode-page">
+  <a class="ws-skip" href="#main-content">Skip to content</a>
+<header class="ws-header">
+  <div class="ws-container ws-nav">
+    <a class="ws-brand" href="/" aria-label="Windrow Studio home">
+      <img src="/assets/images/branding/windrow-logo.png" alt="" width="36" height="36">
+      <span>Windrow Studio</span>
+    </a>
+    <button class="ws-menu-toggle" type="button" aria-controls="ws-navigation" aria-expanded="false" aria-label="Open navigation" hidden>
+      Menu
+      <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 5h14M3 10h14M3 15h14"/></svg>
+    </button>
+    <nav class="ws-navigation" id="ws-navigation" aria-label="Main navigation">
         <a href="/">Home</a>
-        <a href="/podcast/">Podcast</a>
+        <a href="/podcast/" aria-current="page">Podcast</a>
         <a href="/about/">About</a>
         <a href="/contact/">Contact</a>
-        <a href="https://guests.windrowstudio.com/">Guest Application</a>
-      </nav>
-    </div>
-  </header>
+        <a class="ws-guest-link" href="https://guests.windrowstudio.com/">Be a guest</a>
+    </nav>
+  </div>
+</header>
 
   <main id="main-content">
     <article>
@@ -443,10 +447,18 @@
     </article>
   </main>
 
-  <footer>
-    <div class="wrap">© <span id="year"></span> Windrow Studio. <a href="/podcast/">Look Who It Is</a>.</div>
-  </footer>
+  <footer class="ws-footer">
+  <div class="ws-container ws-footer-inner">
+    <p>© <span data-year>2026</span> Windrow Studio</p>
+    <nav class="ws-socials" aria-label="Follow Look Who It Is!">
+      <a href="https://www.youtube.com/@lookwhoitispod" target="_blank" rel="noopener noreferrer">YouTube</a>
+      <a href="https://open.spotify.com/show/44Vpk5tXOMYVkkeOrYLCtJ?si=0a7e748e29e44f1c" target="_blank" rel="noopener noreferrer">Spotify</a>
+      <a href="https://www.instagram.com/lookwhoitispod" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://www.tiktok.com/@lookwhoitispod" target="_blank" rel="noopener noreferrer">TikTok</a>
+    </nav>
+  </div>
+</footer>
 
-  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+
 </body>
 </html>

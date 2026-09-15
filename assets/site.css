@@ -125,6 +125,14 @@ img { display: block; max-width: 100%; height: auto; }
 .ws-contact { width: min(44rem, calc(100% - 3rem)); margin-inline: auto; padding-bottom: 4rem; }
 .ws-contact .ws-page-intro { padding-bottom: 2rem; }
 .ws-contact .ws-lead { max-width: none; }
+.ws-guest-cta { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 2rem; margin-bottom: 2.75rem; padding: clamp(1.5rem, 4vw, 2.25rem); border: 1px solid var(--accent); border-radius: .75rem; background: linear-gradient(135deg, rgba(18, 183, 106, .17), var(--card) 70%); }
+.ws-guest-cta .ws-kicker { margin-bottom: .65rem; }
+.ws-guest-cta h2 { font-size: clamp(1.65rem, 3vw, 2.1rem); }
+.ws-guest-cta p:not(.ws-kicker) { max-width: 31rem; margin-top: .75rem; color: var(--soft); }
+.ws-guest-cta .ws-button { min-width: 10.5rem; }
+.ws-contact-form-heading { margin-bottom: 1rem; }
+.ws-contact-form-heading h2 { font-size: 1.6rem; }
+.ws-contact-form-heading p { margin-top: .35rem; color: var(--muted); }
 .ws-form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; padding: 2rem; border: 1px solid var(--line); border-radius: .75rem; background: var(--card); }
 .ws-field { min-width: 0; }
 .ws-field-full, .ws-form-actions { grid-column: 1 / -1; }
@@ -175,6 +183,8 @@ img { display: block; max-width: 100%; height: auto; }
   .ws-podcast-intro { grid-template-columns: minmax(0, 1fr) 5rem; gap: 1rem; }
   .ws-podcast-intro .ws-show-mark { width: 5rem; height: 5rem; align-self: start; }
   .ws-page-intro { padding-top: 3rem; }
+  .ws-guest-cta { grid-template-columns: 1fr; gap: 1.25rem; }
+  .ws-guest-cta .ws-button { justify-self: start; }
   .ws-about-story { grid-template-columns: 1fr; gap: 2rem; padding-block: 2.5rem; }
   .ws-about-story img { width: 7rem; height: 7rem; }
   .ws-footer-inner { align-items: flex-start; flex-direction: column; gap: .5rem; }
@@ -188,6 +198,7 @@ img { display: block; max-width: 100%; height: auto; }
   .ws-podcast-intro { grid-template-columns: 1fr; }
   .ws-podcast-intro .ws-show-mark { display: none; }
   .ws-form { grid-template-columns: 1fr; padding: 1.25rem; }
+  .ws-guest-cta .ws-button { width: 100%; }
   .ws-contact .ws-page-intro { padding-top: 2.5rem; }
   .ws-socials { gap: .25rem 1.25rem; }
 }

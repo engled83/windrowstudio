@@ -13,7 +13,6 @@ Static GitHub Pages site for [windrowstudio.com](https://windrowstudio.com/).
 - `assets/images/episodes/` — episode artwork
 - `assets/site.css` — shared public-page layout, navigation, and visual styles
 - `assets/site.js` — responsive navigation, footer year, and episode image fallbacks
-- `tracker/` — standalone calorie tracker
 - `guest/` — compatibility redirect to the current guest application
 - Root-level legacy `.html` pages — compatibility redirects for old public links
 

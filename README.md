@@ -7,6 +7,7 @@ Static GitHub Pages site for [windrowstudio.com](https://windrowstudio.com/).
 - `index.html` — homepage
 - `about/` — about page
 - `contact/` — contact page
+- `faq/`: common questions about the show, guest applications, and recording
 - `podcast/` — Look Who It Is! podcast homepage
 - `podcast/episodes/` — individual episode pages
 - `assets/images/branding/` — site and podcast branding
@@ -27,3 +28,5 @@ Static GitHub Pages site for [windrowstudio.com](https://windrowstudio.com/).
 - When publishing an episode, update the featured conversation and episode previews in `index.html` and `podcast/index.html`, along with the podcast's structured data. Keep episode titles, dates, and links aligned with the episode page.
 - Prefer local episode artwork. Existing external images use the podcast logo as a fallback; keep descriptive guest names and working watch/listen links beside them.
 - There is no build step. Preserve the existing contact form action and field names when changing its layout.
+
+- Keep the visible FAQ questions and answers in `faq/index.html` aligned with its `FAQPage` structured data. FAQ-only styles live in `assets/faq.css`.

@@ -52,3 +52,16 @@
     if (img.complete && img.naturalWidth === 0) fallback();
   });
 })();
+
+
+/* Cloudflare Web Analytics: public production website only. */
+(() => {
+  if (!['windrowstudio.com', 'www.windrowstudio.com'].includes(window.location.hostname)) return;
+  if (/^\/(portal|admin|review)(\/|$)/.test(window.location.pathname)) return;
+  if (document.querySelector('script[src*="static.cloudflareinsights.com/beacon.min.js"]')) return;
+  const beacon = document.createElement('script');
+  beacon.type = 'module';
+  beacon.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+  beacon.setAttribute('data-cf-beacon', JSON.stringify({ token: '0d30ed820aa24a6e95a5d6d0c4a3b384' }));
+  document.head.appendChild(beacon);
+})();

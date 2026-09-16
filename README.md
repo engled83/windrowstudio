@@ -30,3 +30,14 @@ Static GitHub Pages site for [windrowstudio.com](https://windrowstudio.com/).
 - There is no build step. Preserve the existing contact form action and field names when changing its layout.
 
 - Keep the visible FAQ questions and answers in `faq/index.html` aligned with its `FAQPage` structured data. FAQ-only styles live in `assets/faq.css`.
+
+## Web Analytics
+
+The shared `assets/site.js` loads Cloudflare Web Analytics using the public site token.
+It runs only on `windrowstudio.com` and `www.windrowstudio.com`, and skips portal/admin/review paths.
+Local previews and guest subdomains are excluded. Legacy redirects are not instrumented; their destination pages are.
+
+Keep Cloudflare's site setting on **Enable with JS Snippet installation** to avoid automatic injection into guest subdomains.
+This repository cannot disable analytics injected by Cloudflare on other Workers or sites.
+After deployment, check the Web Analytics Host and Path breakdowns for the main domain and episode pages.
+Historical guest-portal data remains in the existing analytics property.

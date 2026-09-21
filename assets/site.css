@@ -143,6 +143,18 @@ img { display: block; max-width: 100%; height: auto; }
 .ws-form-actions { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
 .ws-reset { min-height: 2.75rem; padding: .5rem .25rem; border: 0; background: transparent; color: var(--muted); cursor: pointer; text-decoration: underline; text-underline-offset: .25rem; }
 .ws-contact .ws-contact-note { margin-top: 1.5rem; color: var(--muted); font-size: .9375rem; }
+.ws-form-privacy { grid-column: 1 / -1; margin: -.25rem 0 0; color: var(--muted); font-size: .875rem; }
+.ws-form-privacy a, .ws-legal a { color: var(--soft); text-decoration: underline; text-decoration-color: #68777d; text-underline-offset: .25rem; }
+.ws-form-privacy a:hover, .ws-legal a:hover { color: var(--accent2); text-decoration-color: var(--accent2); }
+.ws-legal-intro { max-width: 50rem; padding-bottom: 2.5rem; }
+.ws-legal-updated { margin-top: 1.25rem !important; color: var(--muted); font-size: .9375rem; }
+.ws-legal { max-width: 50rem; padding-bottom: 5rem; }
+.ws-legal section { padding-block: 2rem; border-top: 1px solid var(--line); }
+.ws-legal h2 { font-size: clamp(1.45rem, 2.5vw, 1.9rem); }
+.ws-legal h3 { margin-top: 1.5rem; font-size: 1.1rem; letter-spacing: -.015em; }
+.ws-legal p, .ws-legal ul { margin: 1rem 0 0; color: var(--muted); }
+.ws-legal ul { padding-left: 1.25rem; }
+.ws-legal li + li { margin-top: .55rem; }
 .ws-error { min-height: 65vh; display: grid; align-content: center; max-width: 45rem; padding-block: 4rem; }
 
 /* Carry the calmer surfaces into existing episode notes without changing content. */

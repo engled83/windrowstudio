@@ -1,0 +1,77 @@
+/* Sponsor placements are limited to the podcast directory page. */
+.ws-podcast-page {
+  display: grid;
+  grid-template-areas: "intro" "featured" "sponsors" "episodes" "invitation";
+  grid-template-columns: minmax(0, 1fr);
+}
+.ws-podcast-page > * { min-width: 0; }
+.ws-podcast-page > .ws-podcast-intro { grid-area: intro; }
+.ws-podcast-page > .ws-featured { grid-area: featured; }
+.ws-podcast-page > #episodes { grid-area: episodes; }
+.ws-podcast-page > .ws-invitation { grid-area: invitation; }
+.ws-sponsors {
+  grid-area: sponsors;
+  padding-block: 2rem;
+  border-top: 1px solid var(--line);
+}
+.ws-page .ws-sponsors h2 {
+  margin-bottom: 1.25rem;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.4;
+  font-weight: 650;
+  letter-spacing: 0;
+}
+.ws-sponsor-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+  max-width: 30rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.ws-sponsor-link { display: block; border-radius: .5rem; }
+.ws-sponsor-logo {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  padding: .75rem;
+  border-radius: .5rem;
+  background: var(--card-deep);
+}
+.ws-sponsor-logo img { width: 100%; height: 100%; object-fit: contain; }
+.ws-sponsor-name {
+  display: block;
+  margin-top: .75rem;
+  color: var(--soft);
+  font-size: .875rem;
+  font-weight: 600;
+  line-height: 1.5;
+  text-align: center;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
+}
+@media (min-width: 80rem) {
+  .ws-podcast-page {
+    width: min(90rem, calc(100% - 3rem));
+    grid-template-areas: "intro sponsors" "featured sponsors" "episodes sponsors" "invitation invitation";
+    grid-template-columns: minmax(0, 1fr) 14rem;
+    column-gap: 2.5rem;
+  }
+  .ws-sponsors {
+    margin-block: 4rem;
+    padding-block: 0;
+    padding-left: 1.5rem;
+    border-top: 0;
+    border-left: 1px solid var(--line);
+  }
+  .ws-sponsors-inner { position: sticky; top: 7rem; }
+  .ws-sponsor-list { grid-template-columns: minmax(0, 1fr); }
+}
+@media (min-width: 80rem) and (max-height: 45rem) {
+  .ws-sponsors-inner { position: static; }
+}
+@media (hover: hover) and (pointer: fine) {
+  .ws-sponsor-link:hover .ws-sponsor-name { color: var(--accent2); }
+}

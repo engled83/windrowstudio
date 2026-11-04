@@ -3,8 +3,9 @@
 const headers = {
   "Cache-Control": "no-store, max-age=0",
   "Content-Type": "text/html; charset=utf-8",
-  "Content-Security-Policy": "default-src 'none'; style-src 'unsafe-inline'; form-action 'self'; base-uri 'none'; frame-ancestors 'none'",
-  "Referrer-Policy": "no-referrer",
+  "Content-Security-Policy": "default-src 'none'; style-src 'unsafe-inline'; form-action 'self' https://riverside.com; base-uri 'none'; frame-ancestors 'none'",
+  // Keep same-site form POST origins intact while withholding cross-site referrers.
+  "Referrer-Policy": "same-origin",
   "X-Content-Type-Options": "nosniff",
   "X-Robots-Tag": "noindex, nofollow, noarchive",
 };
